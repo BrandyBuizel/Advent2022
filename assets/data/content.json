@@ -1,0 +1,51 @@
+{   "credits":
+    {  "brandybuizel":
+        { "proper" : "BrandyBuizel"
+        , "roles"  : ["pm", "Old Artist", "adl_code", "sprites"]
+        }
+    , "geokureli":
+        { "proper" : "GeoKureli"
+        , "roles"  : ["pm", "Old Dude", "adl_code"]
+        }
+    , "ninjamuffin99":
+        { "proper": "ninjamuffin99"
+        , "roles"  : ["2018 stuff"]
+        }
+    }
+,   "extras":
+    {
+        
+    }
+,   "songs":
+    [
+        
+    ]
+,   "artwork":
+    [
+        
+    ]
+,   "events":
+    {
+        
+    }
+,   "arcades":
+    [
+        
+    ]
+,   "unused_arcades":
+    [
+        
+    ]
+,   "medals":
+    {
+        
+    }
+,   "instruments":
+    [
+        
+    ]
+,   "movies":
+    {
+        
+    }
+}

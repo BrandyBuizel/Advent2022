@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	<!-- _________________________ Application Settings _________________________ -->
+
+	<app title="Tankmas2021" file="Tankmas2021" main="Main" version="2.5.1" company="Newgrounds" />
+
+	<!--The flixel preloader is not accurate in Chrome. You can use it regularly if you embed the swf into a html file
+		or you can set the actual size of your file manually at "FlxPreloaderBase-onUpdate-bytesTotal"-->
+	<app preloader="Preloader" />
+
+	<!--Minimum without FLX_NO_GAMEPAD: 11.8, without FLX_NO_NATIVE_CURSOR: 11.2-->
+	<set name="SWF_VERSION" value="11.8" />
+
+	<!-- ____________________________ Window Settings ___________________________ -->
+
+	<!--These window settings apply to all targets-->
+	<window width="960" height="540" fps="60" background="#000000" hardware="true" vsync="false" />
+
+	<!--HTML5-specific-->
+	<window if="html5" resizable="true" failIfMajorPerformanceCaveat="false"/>
+
+	<!--Desktop-specific-->
+	<window if="desktop" orientation="landscape" fullscreen="false" resizable="true" />
+
+	<!--Mobile-specific-->
+	<window if="mobile" orientation="landscape" fullscreen="true" width="0" height="0" />
+
+	<!-- _____________________________ Path Settings ____________________________ -->
+	
+	<!-- <define name="NG_DEBUG_API_KEY" if="debug"/> -->
+	<!-- Use the session saved in APIStuff.hx -->
+	<!-- <define name="NG_DEBUG_SESSION" if="debug"/> -->
+	<!-- Don't try to log into newgrounds (still gets server time) -->
+	<!-- <define name="NG_BYPASS_LOGIN" if="debug"/> -->
+	<!-- <define name="NG_LURKER" if="debug"/> -->
+	<!-- Newgrounds.io debug session (pretends you unlocked a medal but doesn't actually unlock -->
+	<!-- <define name="NG_DEBUG" if="debug"/> -->
+	
+	<define name="LOG" if="debug"/>
+	<section if="LOG">
+		<!-- <define name="NG_LOG"/> -->
+		<!-- <define name="NG_VERBOSE" if="debug"/> -->
+		<define name="NET_LOG"/>
+		<!-- <define name="NET_LOG_VERBOSE"/> -->
+		<!-- <define name="BOOT_LOG"/> -->
+		<!-- <define name="OGMO_LOG"/> -->
+		<!-- <define name="SAVE_LOG"/> -->
+		<!-- <define name="INSTRUMENT_LOG"/> -->
+		<!-- <define name="INSTRUMENT_LOG_VERBOSE"/> -->
+	</section>
+	
+	<!-- <define name="PRELOAD_ALL" if="debug" /> -->
+	<!-- <define name="INCLUDE_MOVIES" /> -->
+	<!-- Enable this when testing the server locally -->
+	<!-- <define name="USE_LOCAL_SERVER" if="debug"/> -->
+	<!-- <define name="USE_DEBUG_SERVER"/> -->
+	
+	<define name="LOAD_DISK_CAROUSEL"/>
+	<define name="LOAD_2020_SKINS"/>
+	<!-- <define name="SHOW_2020_SKINS_WARNING" if="LOAD_2020_SKINS"/> -->
+	<!-- <define name="CLEAR_SAVE" if="debug"/> -->
+	<!-- <define name="DISABLE_SAVE" if="debug"/> -->
+	<!-- <define name="FORGET_INSTRUMENT" if="debug"/> -->
+	<!-- <define name="FORGET_TODAY" if="debug"/> -->
+	<!-- <define name="FORCE_INTRO" if="debug"/> -->
+	<define name="SKIP_INTRO" if="debug"/>
+	<!-- <define name="FORCE_LUCIA" if="debug"/> -->
+	<define name="ALLOW_DAY_SKIP" unless="FORCE_INTRO"/>
+	
+	<!-- <define name="UNLOCK_ALL_SKINS" if="debug"/> -->
+	
+	<set name="BUILD_DIR" value="export/debug" if="debug" />
+	<set name="BUILD_DIR" value="export/release" unless="debug" />
+	<classpath name="source" />
+	<classpath name="shared" />
+	
+	<assets path="assets/data"/>
+	<assets path="assets/images" include="*.png" exclude="*instagram*|*twitter*|*carousel*"/>
+	<assets path="assets/images/ui/carousel" include="*.png" if="LOAD_DISK_CAROUSEL"/>
+	
+	<assets path="assets/sounds" include="*.mp3"/>
+	
+	<library name="noPreload" preload="true" if="PRELOAD_ALL" />
+	<library name="noPreload" preload="false" unless="PRELOAD_ALL" />
+	<assets path="assets/music" library="noPreload"  include="*.mp3" />
+	<assets path="assets/artwork" library="noPreload" include="*.png|*.jpg|*.jpeg"/>
+	<assets path="assets/movies" library="noPreload" if="INCLUDE_MOVIES" />
+	
+	<define name="ADVENT"/>
+	<!-- embedded game example from 2021 -->
+	<!-- <define name="INCLUDE_YETI_GAME"/>
+	<section if="INCLUDE_YETI_GAME">
+		<define name="SKIP_TO_YETI_GAME" if="debug"/>
+		
+		<classpath name="yeti/source"/>
+		<library name="yeti" preload="false" />
+		<assets path="yeti/assets" rename="assets/arcades/yeti" library="yeti" exclude="*.ase|*.wav" />
+		
+	</section> -->
+	
+	<!-- <define name="PRELOAD_INSTRUMENTS"/> -->
+	<!-- <define name="PRELOAD_INSTRUMENTS" if="PRELOAD_ALL"/>
+	<section if="PRELOAD_INSTRUMENTS">
+		<library name="drums"        preload="true" />
+		<library name="flute"        preload="true" />
+		<library name="glockenspiel" preload="true" />
+		<library name="guitar_ac"    preload="true" />
+		<library name="guitar_el"    preload="true" />
+		<library name="piano"        preload="true" />
+	</section>
+	<section unless="PRELOAD_INSTRUMENTS">
+		<library name="drums"        preload="false" />
+		<library name="flute"        preload="false" />
+		<library name="glockenspiel" preload="false" />
+		<library name="guitar_ac"    preload="false" />
+		<library name="guitar_el"    preload="false" />
+		<library name="piano"        preload="false" />
+	</section>
+	<assets path="assets/notes/drums"        exclude="*.wav" library="drums" />
+	<assets path="assets/notes/flute"        exclude="*.wav" library="flute" />
+	<assets path="assets/notes/glockenspiel" exclude="*.wav" library="glockenspiel" />
+	<assets path="assets/notes/guitar_ac"    exclude="*.wav" library="guitar_ac" />
+	<assets path="assets/notes/guitar_el"    exclude="*.wav" library="guitar_el" />
+	<assets path="assets/notes/piano"        exclude="*.wav" library="piano" /> -->
+	
+	<!-- Example comic from 2021 -->
+	<!-- <library name="convict_sukz" preload="false" />
+	<assets path="assets/comics/convict_sukz" rename="assets/convict_sukz" library="convict_sukz"/> -->
+	
+	<define name="ADVENT"/>
+
+	<!-- _______________________________ Libraries ______________________________ -->
+
+	<haxelib name="flixel" />
+	<haxelib name="colyseus" />
+	<haxelib name="newgrounds" />
+	<!-- <haxelib name="swf" /> -->
+
+	<!--In case you want to use the addons package-->
+	<haxelib name="flixel-addons" />
+
+	<!--In case you want to use the ui package-->
+	<!--<haxelib name="flixel-ui" />-->
+
+	<!--In case you want to use nape with flixel-->
+	<!--<haxelib name="nape-haxe4" />-->
+
+	<!-- ______________________________ Haxedefines _____________________________ -->
+
+	<!--Enable the Flixel core recording system-->
+	<!--<haxedef name="FLX_RECORD" />-->
+
+	<!--Disable the right and middle mouse buttons-->
+	<!--<haxedef name="FLX_NO_MOUSE_ADVANCED" />-->
+
+	<!--Disable the native cursor API on Flash-->
+	<!--<haxedef name="FLX_NO_NATIVE_CURSOR" />-->
+
+	<!--Optimise inputs, be careful you will get null errors if you don't use conditionals in your game-->
+	<haxedef name="FLX_NO_MOUSE" if="mobile" />
+	<haxedef name="FLX_NO_KEYBOARD" if="mobile" />
+	<haxedef name="FLX_NO_TOUCH" if="desktop" />
+	<!--<haxedef name="FLX_NO_GAMEPAD" />-->
+
+	<!--Disable the Flixel core sound tray-->
+	<!--<haxedef name="FLX_NO_SOUND_TRAY" />-->
+
+	<!--Disable the Flixel sound management code-->
+	<!--<haxedef name="FLX_NO_SOUND_SYSTEM" />-->
+
+	<!--Disable the Flixel core focus lost screen-->
+	<!--<haxedef name="FLX_NO_FOCUS_LOST_SCREEN" />-->
+
+	<!--Disable the Flixel core debugger. Automatically gets set whenever you compile in release mode!-->
+	<haxedef name="FLX_NO_DEBUG" unless="debug" />
+
+	<!--Enable this for Nape release builds for a serious peformance improvement-->
+	<haxedef name="NAPE_RELEASE_BUILD" unless="debug" />
+
+	<!-- _________________________________ Custom _______________________________ -->
+
+	<!--Place custom nodes like icons here (higher priority to override the HaxeFlixel icon)-->
+</project>

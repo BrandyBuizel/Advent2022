@@ -2,6 +2,5 @@ server/node_modules/
 export/
 brandyArt/
 APIStuff.hx
-.vscode/
 .haxelib/
 RECOVER_*.fla
