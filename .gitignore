@@ -3,4 +3,5 @@ export/
 brandyArt/
 APIStuff.hx
 .vscode/
+.haxelib/
 RECOVER_*.fla
