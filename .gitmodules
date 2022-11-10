@@ -1,6 +1,3 @@
-[submodule "server"]
+[submodule "Advent2022-Server"]
 	path = server
-	url = https://github.com/Geokureli/Advent2020-Server.git
-[submodule "chimney"]
-	path = chimney
-	url = https://github.com/oscarcederberg/adventcollab2020-chimney
+	url = https://github.com/Geokureli/Advent2022-Server.git
