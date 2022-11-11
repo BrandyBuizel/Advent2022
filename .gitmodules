@@ -1,3 +1,9 @@
 [submodule "server"]
 	path = server
 	url = https://github.com/Geokureli/Advent2022-Server.git
+[submodule "chimney"]
+	path = chimney
+	url = https://github.com/oscarcederberg/adventcollab2020-chimney
+[submodule "coffee"]
+	path = coffee
+	url = https://github.com/Jvarca77/BlueDoor
