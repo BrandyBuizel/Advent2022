@@ -45,8 +45,6 @@ class OverlayGlobal
         return path;
     }
     
-    inline static public function asset(path:String) return path;
-    
     inline static public function screenCenterX(obj:FlxObject)
     {
         obj.x = (width - obj.width) / 2;

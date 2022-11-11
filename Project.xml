@@ -86,16 +86,6 @@
 	
 	<define name="ADVENT"/>
 	
-	<define name="INCLUDE_TEMPLATE"/>
-	<section if="INCLUDE_TEMPLATE">
-		<!-- <define name="SKIP_TO_TEMPLATE" if="debug"/> -->
-		
-		<classpath name="../templatemg/source"/>
-		<library name="templatemg" preload="false" />
-		<assets path="../templatemg/assets" rename="assets/arcades/templatemg" library="templatemg" exclude="*.ase|*.wav" />
-		
-	</section>
-	
 	<!-- embedded game example from 2021 -->
 	<!-- <define name="INCLUDE_YETI_GAME"/>
 	<section if="INCLUDE_YETI_GAME">
