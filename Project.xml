@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Tankmas2021" file="Tankmas2021" main="Main" version="0.0.0" company="Newgrounds" />
+	<app title="Tankmas2022" file="Tankmas2022" main="Main" version="0.0.0" company="Newgrounds" />
 
 	<!--The flixel preloader is not accurate in Chrome. You can use it regularly if you embed the swf into a html file
 		or you can set the actual size of your file manually at "FlxPreloaderBase-onUpdate-bytesTotal"-->
@@ -85,6 +85,17 @@
 	<assets path="assets/movies" library="noPreload" if="INCLUDE_MOVIES" />
 	
 	<define name="ADVENT"/>
+	
+	<define name="INCLUDE_TEMPLATE"/>
+	<section if="INCLUDE_TEMPLATE">
+		<!-- <define name="SKIP_TO_TEMPLATE" if="debug"/> -->
+		
+		<classpath name="../templatemg/source"/>
+		<library name="templatemg" preload="false" />
+		<assets path="../templatemg/assets" rename="assets/arcades/templatemg" library="templatemg" exclude="*.ase|*.wav" />
+		
+	</section>
+	
 	<!-- embedded game example from 2021 -->
 	<!-- <define name="INCLUDE_YETI_GAME"/>
 	<section if="INCLUDE_YETI_GAME">

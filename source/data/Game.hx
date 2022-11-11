@@ -64,9 +64,6 @@ class Game
         addRoom(TownHall     , TownHallState.new);
         
         arcadeTypes = [];
-        #if INCLUDE_YETI_GAME
-        arcadeTypes[Yeti] = yeti.PlayState.new.bind(0);
-        #end
         
         var showIntro
         #if SKIP_INTRO
