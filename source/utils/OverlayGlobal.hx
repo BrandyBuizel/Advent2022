@@ -3,8 +3,10 @@ package utils;
 import states.OverlaySubstate;
 
 import flixel.FlxCamera;
+import flixel.FlxObject;
 import flixel.FlxSubState;
 import flixel.FlxState;
+import flixel.util.FlxAxes;
 
 class OverlayGlobal
 {
@@ -41,5 +43,32 @@ class OverlayGlobal
         path = id + ":" + path.split("assets/").join('assets/arcades/$id/');
         trace(path);
         return path;
+    }
+    
+    inline static public function asset(path:String) return path;
+    
+    inline static public function screenCenterX(obj:FlxObject)
+    {
+        obj.x = (width - obj.width) / 2;
+    }
+        
+    inline static public function screenCenterY(obj:FlxObject)
+    {
+        obj.y = (height - obj.height) / 2;
+    }
+    
+    inline static public function screenCenter(obj:FlxObject, axes = FlxAxes.XY)
+    {
+        switch (axes)
+        {
+            case NONE:
+            case XY:
+                screenCenterX(obj);
+                screenCenterY(obj);
+            case X:
+                screenCenterX(obj);
+            case Y:
+                screenCenterY(obj);
+        }
     }
 }
