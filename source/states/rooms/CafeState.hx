@@ -31,8 +31,7 @@ class CafeState extends RoomState
 {
     static public function hasNotifs()
     {
-        return Save.getOrder() == RANDOM
-            || (Save.seenYeti() == false && Calendar.day >= 31);
+        return Save.getOrder() == RANDOM;
     }
     
     var seats = new FlxTypedGroup<FlxObject>();

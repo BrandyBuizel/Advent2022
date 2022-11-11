@@ -23,6 +23,7 @@ class Content
     public static var songs:Map<String, SongCreation>;
     public static var songsOrdered:Array<SongCreation>;
     public static var arcades:Map<String, ArcadeCreation>;
+    public static var hasInstrumentData:Bool;
     public static var instruments:Map<InstrumentType, InstrumentData>;
     public static var instrumentsByIndex:Map<Int, InstrumentData>;
     public static var events:Map<Int, SongCreation>;
@@ -114,8 +115,10 @@ class Content
         
         instruments = [];
         instrumentsByIndex = [];
+        hasInstrumentData = false;
         for (index=>instrument in data.instruments)
         {
+            hasInstrumentData = true;
             instrument.index = index;
             if (instrument.icon == null)
                 instrument.icon = instrument.id;
@@ -476,12 +479,24 @@ class Content
     
     inline public static function playTodaysSong(forceRestart = false)
     {
-        Manifest.playMusic(getTodaysSong().id, forceRestart);
+        final song = getTodaysSong();
+        #if noContent
+        if (song != null)
+            Manifest.playMusic(song.id, forceRestart);
+        #else
+        Manifest.playMusic(song.id, forceRestart);
+        #end
     }
     
     inline public static function playSongByDay(day:Int)
     {
-        Manifest.playMusic(getSongByDay(day).id);
+        final song = getSongByDay(day);
+        #if noContent
+        if (song != null)
+            Manifest.playMusic(song.id);
+        #else
+        Manifest.playMusic(song.id);
+        #end
     }
     
     inline public static function getTodaysSong()
@@ -499,7 +514,11 @@ class Content
         }
         
         if (latestSong == null)
+        #if noContent
+            return null;
+        #else
             throw "No song for day:" + day;
+        #end
         
         return latestSong;
     }
@@ -688,7 +707,6 @@ typedef MovieCreation = Creation &
 
 enum abstract ArcadeName(String) to String
 {
-    var Yeti = "yeti";
     var Advent2018 = "2018";
     var Advent2019 = "2019";
     var Advent2020 = "2020";

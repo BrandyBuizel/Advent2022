@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Tankmas2021" file="Tankmas2021" main="Main" version="2.5.1" company="Newgrounds" />
+	<app title="Tankmas2021" file="Tankmas2021" main="Main" version="0.0.0" company="Newgrounds" />
 
 	<!--The flixel preloader is not accurate in Chrome. You can use it regularly if you embed the swf into a html file
 		or you can set the actual size of your file manually at "FlxPreloaderBase-onUpdate-bytesTotal"-->
@@ -56,8 +56,6 @@
 	<!-- <define name="USE_DEBUG_SERVER"/> -->
 	
 	<define name="LOAD_DISK_CAROUSEL"/>
-	<define name="LOAD_2020_SKINS"/>
-	<!-- <define name="SHOW_2020_SKINS_WARNING" if="LOAD_2020_SKINS"/> -->
 	<!-- <define name="CLEAR_SAVE" if="debug"/> -->
 	<!-- <define name="DISABLE_SAVE" if="debug"/> -->
 	<!-- <define name="FORGET_INSTRUMENT" if="debug"/> -->

@@ -158,11 +158,6 @@ class Skins
             case ["free"     ]: true;
             case ["supporter"]: loggedIn && NG.core.user.supporter;
             case [_]: throw "Unhandled unlockBy:" + data;
-            // 2020
-            case ["day"  , day  ] if (year == 2020): loggedIn && Save.countDaysSeen2020() >= Std.parseInt(day);
-            case ["medal", medal] if (year == 2020 && medal.length < 3): loggedIn && Save.hasSeenDay2020(Std.parseInt(medal));
-            case ["medal", medal] if (year == 2020): loggedIn && Save.hasMedal2020(Std.parseInt(medal));
-            // 2021
             case ["day"  , day  ]: Save.countDaysSeen() >= Std.parseInt(day);
             case ["medal", medal] if (medal.length < 3): NGio.hasDayMedal(Std.parseInt(medal));
             case ["medal", medal]: NGio.hasMedal(Std.parseInt(medal));

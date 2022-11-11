@@ -75,21 +75,6 @@ class TheaterScreenState extends RoomState
         
         var screen = background.assertByName("theater_screen_curtains");
         addHoverTextTo(screen, "watch", watchMovie, -60);
-        
-        // GK: this is stuff from 2020
-        // for (id in Content.movies.keys())
-        // {
-        //     final data = Content.movies[id];
-        //     final poster = background.getByName(id);
-        //     if (poster != null)
-        //     {
-        //         var text = data.name;
-        //         if (isPremier && id == selectedMovie)
-        //             text = "Now Playing!";
-        //         
-        //         addHoverTextTo(poster, text, ()->onPosterSelect(data));
-        //     }
-        // }
     }
     
     function onPosterSelect(movie:MovieCreation)

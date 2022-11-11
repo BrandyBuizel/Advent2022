@@ -5,7 +5,6 @@ import data.Save;
 import data.Calendar;
 import data.Content;
 import data.Game;
-import data.APIStuff;
 import data.Manifest;
 import data.NGio;
 import ui.Button;
@@ -45,7 +44,7 @@ class BootState extends flixel.FlxState
         
         add(msg = new FlxBitmapText(new XmasFont()));
         msg.text = "Checking naughty list...";
-        if (APIStuff.DebugSession != null)
+        if (NGio.DEBUG_SESSION_ID != null)
             msg.text += "\n Debug Session";
         // if (Calendar.isDebugDay)
         //     msg.text += "\n Debug Day";
@@ -66,7 +65,7 @@ class BootState extends flixel.FlxState
     {
         timeout.cancel();
         #if NG_BYPASS_LOGIN
-        showMsgAndBegin("Login bypassed\nNot eligible for medals");
+        showMsgAndBegin("Login bypassed\nNot eligible for medals or cloud saves");
         #else
         if (NGio.isLoggedIn)
             onLogin();
@@ -99,7 +98,7 @@ class BootState extends flixel.FlxState
         switch(outcome)
         {
             case SUCCESS: onLogin();
-            case FAIL(CANCELLED(_)): showMsgAndBegin("Login cancelled\nNot eligible for medals");
+            case FAIL(CANCELLED(_)): showMsgAndBegin("Login cancelled\nNot eligible for medals or cloud saves");
             case FAIL(ERROR(error)): showMsgAndBegin(error.toString());
         }
     }
@@ -258,7 +257,8 @@ class BootState extends flixel.FlxState
                             msg.text += "\nYou are only seeing this message because you are in the credits";
                             
                             // change text when it's loaded
-                            startRefreshChecks(()->setCenteredNokiaMessage("IT'S UP, REFRESH THE PAGE! GO GO GO GO!1"));
+                            if (blockingList.length > 0)
+                                startRefreshChecks(()->setCenteredNokiaMessage("IT'S UP, REFRESH THE PAGE! GO GO GO GO!1"));
                             
                             setState(Error(false));
                         }
@@ -300,14 +300,6 @@ class BootState extends flixel.FlxState
                                     ( "You browser does not support webgl, meaning"
                                     + "\ncertain features and flourishes will not work"
                                     + "\nSorry for the inconvenience"
-                                    );
-                            }
-                            
-                            if (Save.hasSave2020() == false)
-                            {
-                                appendSection
-                                    ( "Could not find save data for previous years."
-                                    + "\nLoad Tankmas ADVENTure 2020 to unlock more characters."
                                     );
                             }
                             

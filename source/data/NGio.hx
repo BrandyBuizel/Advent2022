@@ -21,15 +21,18 @@ import flixel.util.FlxSignal;
 import flixel.util.FlxTimer;
 
 import haxe.PosInfos;
+import haxe.macro.Compiler.getDefine as def;
 
 class NGio
 {
 	inline static var DEBUG_SESSION = #if NG_DEBUG true #else false #end;
 	
 	inline static public var DAY_MEDAL_0 = 66221;
-	inline static public var DAY_MEDAL_0_2020 = 61304;
 	inline static public var WELCOME_TO_THE_VILLAGE_MEDAL = 66220;
-
+	
+	inline static public var API_ID          :String = #if NG_API_ID     '${def("NG_API_ID"    )}'; #else ApiData.API_ID    ; #end
+	inline static public var ENC_KEY         :String = #if NG_ENC_KEY    '${def("NG_ENC_KEY"   )}'; #else ApiData.ENC_KEY   ; #end
+	inline static public var DEBUG_SESSION_ID:String = #if NG_SESSION_ID '${def("NG_SESSION_ID")}'; #else ApiData.SESSION_ID; #end
 	
 	public static var isLoggedIn(default, null):Bool = false;
 	public static var userName(default, null):String;
@@ -55,7 +58,7 @@ class NGio
 	static public function attemptAutoLogin(callback:Void->Void) {
 		
 		#if NG_BYPASS_LOGIN
-		NG.create(APIStuff.APIID, null, DEBUG_SESSION);
+		NG.create(API_ID, null, DEBUG_SESSION);
 		NG.core.scoreBoards.loadList(onScoreboardsRequested);
 		callback();
 		return;
@@ -83,9 +86,9 @@ class NGio
 		}
 		
 		var lastSessionId:String = null;
-		if (APIStuff.DebugSession != null)
+		if (DEBUG_SESSION_ID != null)
 		{
-			lastSessionId = APIStuff.DebugSession;
+			lastSessionId = DEBUG_SESSION_ID;
 		}
 		else if (FlxG.save.data.ngioSessionId != null)
 		{
@@ -93,8 +96,8 @@ class NGio
 		}
 		
 		logDebug('connecting to newgrounds, debug:$DEBUG_SESSION session:' + lastSessionId);
-		NG.createAndCheckSession(APIStuff.APIID, DEBUG_SESSION, lastSessionId, checkSessionCallback);
-		NG.core.setupEncryption(APIStuff.EncKey);
+		NG.createAndCheckSession(API_ID, DEBUG_SESSION, lastSessionId, checkSessionCallback);
+		NG.core.setupEncryption(ENC_KEY);
 		NG.core.onLogin.add(onNGLogin);
 		#if NG_VERBOSE NG.core.verbose = true; #end
 		logEventOnce(view);
@@ -119,11 +122,17 @@ class NGio
 				case SUCCESS(data):
 				{
 					serverVersion = data.currentVersion;
-					var server = serverVersion.split(".").map(Std.parseInt);
-					var client = clientVersion.split(".").map(Std.parseInt);
-					validMajorVersion = server.shift() <= client.shift();
-					validMinorVersion = server.shift() <= client.shift() && validMajorVersion;
-					validVersion = server.shift() <= client.shift() && validMinorVersion;
+					var serverArr = serverVersion.split(".").map(Std.parseInt);
+					var clientArr = clientVersion.split(".").map(Std.parseInt);
+					var server = serverArr.shift();
+					var client = clientArr.shift();
+					validMajorVersion = server <= client;
+					var server = (server << 8) | serverArr.shift();
+					var client = (client << 8) | clientArr.shift();
+					validMinorVersion = server <= client;
+					var server = (server << 8) | serverArr.shift();
+					var client = (client << 8) | clientArr.shift();
+					validVersion = server <= client;
 					callback();
 				}
 				case FAIL(_):
@@ -369,7 +378,11 @@ class NGio
 	static public function hasMedalByName(name:String):Bool
 	{
 		if (!Content.medals.exists(name))
+		#if noContent
+			return false;
+		#else
 			throw 'invalid name:%name';
+		#end
 		
 		return hasMedal(Content.medals[name]);
 	}
@@ -390,48 +403,6 @@ class NGio
 				)
 			.send();
 	}
-	
-	#if LOAD_2020_SKINS
-	/**
-	 * The user was directed to 2020, mid game, check to see if the data shows up.
-	 * @param callback called when it has successfully loaded medal data, or gave.
-	 */
-	static public function update2020SkinData(callback:(Outcome<String>)->Void)
-	{
-		var slot = NG.core.externalApps[APIStuff.APIID_2020].saveSlots[1];
-		
-		final waitTime = 1.0;
-		
-		var checksLeft = 10;
-		inline function wait(callback)
-		{
-			new FlxTimer().start(waitTime, (_)->callback());
-		}
-		
-		function check()
-		{
-			slot.update((o)->
-			{
-				if (o.match(SUCCESS) && slot.isEmpty() == false)
-				{
-					Save.update2020SkinData(slot, callback);
-					return;
-				}
-				else
-				{
-					checksLeft--;
-					if (checksLeft > 0)
-						wait(check);
-					else
-						callback(FAIL("timeout"));
-				}
-			});
-		}
-		
-		wait(check);
-	}
-	#end
-	
 	
 	static public function logEvent(event:NgEvent, once = false, ?pos:PosInfos)
 	{
