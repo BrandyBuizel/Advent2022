@@ -43,8 +43,6 @@ class CafeState extends RoomState
     var tables = new Array<CafeTable>();
     var patrons = new Map<Player, Placemat>();
     
-    var yetiNotif:Notif;
-    
     override function create()
     {
         entityTypes["Cabinet"] = cast initCabinet;
@@ -78,9 +76,6 @@ class CafeState extends RoomState
         
         super.create();
         
-        if (yetiNotif != null)
-            topGround.add(yetiNotif);
-        
         #if debug
         if (waiterNodes != null)
         {
@@ -93,32 +88,17 @@ class CafeState extends RoomState
         initPlacemats(seatsByName, placematsByName);
     }
     
-    // --- --- --- --- --- --- Cabinets --- --- --- --- --- --- --- ---
-    
     function initCabinet(data:OgmoEntityData<CabinetValues>)
     {
         var cabinet = Cabinet.fromEntity(data);
         if (cabinet.enabled)
             addHoverTextTo(cabinet, cabinet.data.name, playCabinet.bind(cabinet.data));
         
-        if (cabinet.data.id == Yeti && Save.seenYeti() == false)
-        {
-            yetiNotif = new Notif(0, cabinet.y - 16);
-            yetiNotif.x = cabinet.x + (cabinet.width - yetiNotif.width) / 2;
-            yetiNotif.animate();
-        }
-        
         return cabinet;
     }
     
     function playCabinet(data:ArcadeCreation)
     {
-        if (data.id == Yeti && yetiNotif != null)
-        {
-            Save.yetiSeen();
-            yetiNotif.kill();
-            yetiNotif = null;
-        }
         
         if (data.mobile == false && FlxG.onMobile)
             Prompt.showOKInterrupt("This game is not available on mobile\n...yet.");
