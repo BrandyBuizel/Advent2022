@@ -5,12 +5,14 @@
         }
     , "geokureli":
         { "proper" : "GeoKureli"
-        , "roles"  : ["pm", "Old Dude", "adl_code"]
+        , "roles"  : ["pm", "Old Dude", "code"]
         }
     , "ninjamuffin99":
         { "proper": "ninjamuffin99"
         , "roles"  : ["2018 stuff"]
         }
+    , "albegian"        : { "proper": "AlbeGian"        , "twitter":"NextOneIs3000"  , "bandcamp":"albegian"      }
+    , "cymbourine"      : { "proper": "Cymbourine"      }
     }
 ,   "extras":
     {
@@ -21,8 +23,12 @@
         
     ]
 ,   "artwork":
-    [
-        
+    [   { "id"     : "cymbourine"
+        , "name"   : "Day One for Fun haha lol"
+        , "authors": ["cymbourine"]
+        , "day"    : 1
+        , "medal"  : true
+        }
     ]
 ,   "events":
     {

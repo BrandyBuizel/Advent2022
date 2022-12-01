@@ -33,8 +33,6 @@ class InputPlayer extends Player
             PlayerSettings.user = PlayerSettings.fromSave();
         
         super(x, y, NGio.userName, PlayerSettings.user);
-        
-        state.infected = NGio.hasMedalByName("warm_winter_feelings");
     }
     
     override function updateNameText(name:String)
