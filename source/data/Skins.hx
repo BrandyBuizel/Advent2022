@@ -27,7 +27,13 @@ class Skins
             throw "Skins already initted";
         
         byIndex = Json.parse(Assets.getText("assets/data/skins.json"));
-        byIndex.pop();//custom
+        if (byIndex[0].id == "custom")
+        {
+            var customSkin = byIndex.shift();
+            // When we finally add a custom
+            // byIndex.push(customSkin);
+        }
+        
         sorted = byIndex.copy();
         for (i=>data in byIndex)
         {

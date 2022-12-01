@@ -53,11 +53,12 @@ class Calendar
     
     static function onDateReceived(date:Date, callback:()->Void):Void
     {
-        if (date.getFullYear() == 2021 && date.getMonth() < 11)
+        date = Date.fromTime(date.getTime() + 60 * 60 * 1000);// add 1 hour
+        if (date.getFullYear() == 2022 && date.getMonth() < 11)
         {
             isDebugDay = true;
             trace("Not advent yet, pretending it's day 1");
-            onDateReceived(Date.fromString("2021-12-01"), callback);
+            onDateReceived(Date.fromString("2022-12-01"), callback);
             return;
         }
         
@@ -65,17 +66,19 @@ class Calendar
         isAdvent = date.getMonth() == 11 || (date.getMonth() == 0 && date.getDate() == 1);
         isChristmas = date.getMonth() == 11 && date.getDate() == 25;
         
-        if (isAdvent)// && date.getFullYear() == 2019)
-        {
+        if (isAdvent)
             day = date.getDate() + (date.getMonth() == 11 ? 0 : 31);
-            #if FORGET_TODAY
-            Save.debugForgetDay(day);
-            #end
-            isUnseenDay = !Save.hasSeenDay(day);
-            Save.daySeen(day);
-        }
         
         callback();
+    }
+    
+    static public function onGameInit()
+    {
+        #if FORGET_TODAY
+        Save.debugForgetDay(day);
+        #end
+        isUnseenDay = !Save.hasSeenDay(day);
+        Save.daySeen(day);
     }
     
     @:allow(states.BootState)

@@ -41,7 +41,8 @@ class Net
                 // #elseif USE_DEBUG_SERVER
                 // 'wss://advent-colyseus-test.herokuapp.com';
                 #else
-                'wss://tankmas2021.herokuapp.com';
+                'wss://advent2022.herokuapp.com';
+                // 'wss://tankmas2021.herokuapp.com';
                 // 'wss://advent2020server.herokuapp.com';
                 #end
             log("Connecting to: " + serverPath);

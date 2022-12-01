@@ -27,17 +27,9 @@ class Game
     
     public static var initialRoom(default, null) = 
         #if debug
-        RoomName.Village;
-        // RoomName.Cafe + ".juke";
-        // RoomName.PostOffice + "." + RoomName.Village;
-        // RoomName.PicosShop + ".pico";
-        // RoomName.PicosShop + ".dress";
-        // RoomName.TheaterScreen + "." + RoomName.TheaterLobby;
-        // RoomName.PathLeft + "." + RoomName.PathCenter;
-        // RoomName.PathRight + "." + RoomName.PathCenter;
-        // RoomName.Outside;
+        RoomName.Outside;
         #else
-        RoomName.Village;
+        RoomName.Outside;
         #end
     
     static function init():Void
@@ -51,33 +43,24 @@ class Game
         #end
         
         roomTypes = [];
-        addRoom(Outside      , OutsideState.new);
-        addRoom(PathLeft     , PathLeftState.new);
-        addRoom(PathCenter   , PathCenterState.new);
-        addRoom(PathRight    , PathRightState.new);
-        addRoom(Village      , VillageState.new);
-        addRoom(PicosShop    , PicosShopState.new);
-        addRoom(Cafe         , CafeState.new);
-        addRoom(PostOffice   , PostOfficeState.new);
-        addRoom(TheaterLobby , TheaterLobbyState.new);
-        addRoom(TheaterScreen, TheaterScreenState.new);
-        addRoom(TownHall     , TownHallState.new);
+        addRoom(Outside, OutsideState.new);
+        addRoom(Hallway, HallwayState.new);
         
         arcadeTypes = [];
         
         var showIntro
-        #if SKIP_INTRO
-            = false;
-        #elseif FORCE_INTRO
+        // #if SKIP_INTRO
+        //     = false;
+        // #elseif FORCE_INTRO
             = true;
-        #else
-            = NGio.hasMedal(66220) == false;
-        #end
+        // #else
+        //     = NGio.hasMedal(66220) == false;
+        // #end
         
         if(showIntro)
         {
             state = Intro(Started);
-            initialRoom = RoomName.Outside;
+            initialRoom = RoomName.Hallway;
         }
 
         // Moved to Save.hx

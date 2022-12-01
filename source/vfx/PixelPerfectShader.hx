@@ -2,6 +2,16 @@ package vfx;
 
 class PixelPerfectShader extends flixel.system.FlxAssets.FlxShader
 {
+	inline public function getScale()
+	{
+		return this.scale.value[0];
+	}
+	
+	inline public function setScale(value:Float)
+	{
+		return this.scale.value = [value];
+	}
+	
 	@:glFragmentSource('
 		#pragma header
 		

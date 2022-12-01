@@ -21,8 +21,8 @@ class Player extends flixel.FlxSprite
     implements IInteractable
 {
     inline static public var ACCEL_TIME = 0.2;
-    inline static public var MAX_SPEED = 125;
-    inline static public var BOB = 3;
+    inline static public var MAX_SPEED = 200;
+    inline static public var BOB = 6;
     inline static public var BOB_PERIOD = 0.25;
     inline static public var ACCEL_SPEED = MAX_SPEED / ACCEL_TIME;
     
@@ -56,11 +56,6 @@ class Player extends flixel.FlxSprite
     {
         nameText = new FlxBitmapText();
         nameText.alignment = CENTER;
-        if (Game.room.name == Village)
-        {
-            nameColor = 0xFFffffff;
-            nameShadowColor = 0xFF000000;
-        }
         #if FLX_DEBUG
         nameText.ignoreDrawDebug = true;
         #end
@@ -87,7 +82,7 @@ class Player extends flixel.FlxSprite
         
         if (pathTile.graphic == null || pathTile.graphic.width == 0)
         {
-            pathTile.makeGraphic(8, 8);
+            pathTile.makeGraphic(16, 16);
             final bitmap = pathTile.graphic.bitmap;
             final rect = bitmap.rect.clone();
             rect.x += 2;
@@ -396,9 +391,8 @@ class Player extends flixel.FlxSprite
     {
         var data = Skins.getData(skin);
         data.loadTo(this);
-        scale.set(2, 2);
-        width = 8;
-        height = 8;
+        width = 16;
+        height = 16;
         origin.y = 16;
         offset.x = (frameWidth - width) / 2;
         offset.y = frameHeight - height;

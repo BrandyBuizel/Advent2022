@@ -10,7 +10,7 @@ enum EventState
 enum IntroState
 {
     Started;
-    Village;
+    Finished;
 }
 
 enum LuciaDayState
