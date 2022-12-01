@@ -27,8 +27,7 @@ class NGio
 {
 	inline static var DEBUG_SESSION = #if NG_DEBUG true #else false #end;
 	
-	inline static public var DAY_MEDAL_0 = 66221;
-	inline static public var WELCOME_TO_THE_VILLAGE_MEDAL = 66220;
+	inline static public var DAY_MEDAL_0 = 71341;
 	
 	inline static public var API_ID          :String = #if NG_API_ID     '${def("NG_API_ID"    )}'; #else ApiData.API_ID    ; #end
 	inline static public var ENC_KEY         :String = #if NG_ENC_KEY    '${def("NG_ENC_KEY"   )}'; #else ApiData.ENC_KEY   ; #end
