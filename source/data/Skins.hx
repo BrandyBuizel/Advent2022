@@ -53,7 +53,7 @@ class Skins
                 throw 'Invalid unlocksBy:${data.unlocksBy} id:${data.id}';
         }
         
-        checkUnlocks(!Game.state.match(Intro(_)));
+        checkUnlocks(!Game.state.match(INTRO(_)));
         
         if (NGio.isLoggedIn)
         {

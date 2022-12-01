@@ -16,7 +16,7 @@ class Game
     static function get_room() return Std.downcast(FlxG.state, RoomState);
     static public var arcadeName(default, null):ArcadeName = null;
     
-    static public var state:EventState = NoEvent;
+    static public var state:EventState = NONE;
     static public var chosenSong:String = null;
     
     static var roomTypes:Map<RoomName, RoomConstructor>;
@@ -59,7 +59,7 @@ class Game
         
         if(showIntro)
         {
-            state = Intro(Started);
+            state = INTRO(START);
             initialRoom = RoomName.Hallway;
         }
 
@@ -102,7 +102,7 @@ class Game
         
         switch (Game.state)
         {
-            case Intro(Started):
+            case INTRO(START):
             default: Content.playTodaysSong();
         }
         

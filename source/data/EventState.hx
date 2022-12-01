@@ -2,20 +2,12 @@ package data;
 
 enum EventState
 {
-    NoEvent;
-    Intro(event:IntroState);
-    LuciaDay(event:LuciaDayState);
+    NONE;
+    INTRO(event:IntroState);
 }
 
 enum IntroState
 {
-    Started;
-    Finished;
-}
-
-enum LuciaDayState
-{
-    Started;
-    Finding;
-    Present;
+    START;
+    END;
 }
