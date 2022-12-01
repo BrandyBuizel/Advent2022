@@ -64,7 +64,7 @@ class Content
         for (songData in data.songs)
         {
             songData.path = 'assets/music/${songData.id}.mp3';
-            songData.samplePath = 'assets/sounds/samples/${songData.id}.mp3';
+            //songData.samplePath = 'assets/sounds/samples/${songData.id}.mp3';
             songData.sideDiskPath = 'assets/images/ui/carousel/disks/side_${songData.id}.png';
             songData.frontDiskPath = 'assets/images/ui/carousel/disks/front_${songData.id}.png';
             if (songData.volume == null)

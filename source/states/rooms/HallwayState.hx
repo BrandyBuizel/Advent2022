@@ -31,7 +31,7 @@ class HallwayState extends RoomState
         pixelFloor.y = floor.y - 1;
         add(pixelFloor);
         
-        pixelTankman = new FlxSprite("assets/images/player/tankman_pixel.png");
+        pixelTankman = new FlxSprite("assets/images/player/pixel/tankman.png");
         pixelTankman.scale.set(4, 4);
         // pixelTankman.updateHitbox();
         pixelTankman.offset.y = -48;

@@ -11,16 +11,22 @@
         { "proper": "ninjamuffin99"
         , "roles"  : ["2018 stuff"]
         }
-    , "albegian"        : { "proper": "AlbeGian"        , "twitter":"NextOneIs3000"  , "bandcamp":"albegian"      }
     , "cymbourine"      : { "proper": "Cymbourine"      }
+	, "predatormusic"	: { "proper": "PredatorMusic"	}
     }
 ,   "extras":
     {
         
     }
 ,   "songs":
-    [
-        
+    [	{ "id"       : "predatormusic"
+        , "name"     : "Snowygrounds"
+        , "authors"  : ["predatormusic"]
+        , "key"      : "aMin"
+        , "bpm"      : 173
+        , "ngId"     : 0
+        , "day"      : 1
+        }        
     ]
 ,   "artwork":
     [   { "id"     : "cymbourine"
