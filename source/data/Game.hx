@@ -2,6 +2,7 @@ package data;
 
 import data.Content;
 import data.Calendar;
+import data.Save;
 import states.OverlaySubstate;
 import states.rooms.RoomState;
 import states.rooms.*;
@@ -44,23 +45,23 @@ class Game
         
         roomTypes = [];
         addRoom(Outside, OutsideState.new);
-        addRoom(Hallway, HallwayState.new);
+        addRoom(Intro, IntroState.new);
         
         arcadeTypes = [];
         
-        var showIntro
-        // #if SKIP_INTRO
-        //     = false;
-        // #elseif FORCE_INTRO
-            = true;
-        // #else
-        //     = NGio.hasMedal(66220) == false;
-        // #end
+        
+        #if SKIP_INTRO
+        var showIntro = false;
+        #elseif FORCE_INTRO
+        var showIntro = true;
+        #else
+        var showIntro = Save.introComplete();
+        #end
         
         if(showIntro)
         {
             state = INTRO(START);
-            initialRoom = RoomName.Hallway;
+            initialRoom = RoomName.Intro;
         }
 
         // Moved to Save.hx

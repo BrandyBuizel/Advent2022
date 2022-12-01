@@ -104,6 +104,7 @@ class Save
         data.instrument      = -1;
         data.showName        = false;
         data.cafeOrder       = null;
+        data.introComplete   = false;
         Save.data = data;
     }
     
@@ -306,6 +307,17 @@ class Save
         return data.seenInstruments[Content.instruments[type].index];
     }
     
+    static public function onIntroComplete()
+    {
+        data.introComplete = true;
+        flush();
+    }
+    
+    static public function introComplete()
+    {
+        return data.introComplete;
+    }
+    
     inline static function get_showName() return data.showName;
     static function set_showName(value:Bool)
     {
@@ -337,4 +349,5 @@ typedef SaveData = SaveData2020 &
 {
     var showName:Bool;
     var cafeOrder:Order;
+    var introComplete:Bool;
 }

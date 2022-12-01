@@ -181,10 +181,10 @@ class BootState extends flixel.FlxState
             msg.text = "DEBUG\nTime travel activated";
             msg.screenCenter(XY);
         }
+        #end
         
         if (state.match(Error(false)) && FlxG.keys.justPressed.SPACE)
             onComplete();
-        #end
         
         if (waitTime < 0)
         {

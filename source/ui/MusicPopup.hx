@@ -74,6 +74,7 @@ class MusicPopup extends FlxTypedSpriteGroup<FlxSprite>
     
     function playAnim():Void
     {
+        return;// temp remove
         visible = true;
         
         tweener.cancelTweensOf(this);

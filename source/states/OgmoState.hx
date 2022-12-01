@@ -282,15 +282,19 @@ typedef OgmoEntityLayerData
 & { entities:Array<OgmoEntityData<Dynamic>> }
 
 typedef OgmoPosData = { x:Int, y:Int }
-typedef OgmoObjectData = OgmoPosData;// & {}
+typedef OgmoObjectData
+= OgmoPosData & {
+    ?scaleX  :Float,
+    ?scaleY  :Float,
+    ?originX :Int,
+    ?originY :Int
+}
 
 typedef RawOgmoEntityData<T>
 = OgmoObjectData & {
     name     :String,
     id       :Int,
     ?rotation:Float,
-    ?originX :Int,
-    ?originY :Int,
     ?width   :Int,
     ?height  :Int,
     ?flippedX:Bool,
@@ -425,6 +429,11 @@ abstract OgmoDecal(FlxSprite) to FlxSprite from FlxSprite
         // convert from center pos
         this.x -= Math.round(this.width / 2);
         this.y -= Math.round(this.height / 2);
+        // if (data.originX != null) this.origin.x = data.originX;
+        // if (data.originY != null) this.origin.y = data.originY;
+        if (data.scaleX != null) this.scale.x = data.scaleX;
+        if (data.scaleY != null) this.scale.y = data.scaleY;
+        
         // allow player to go behind stuff
         if (data.values != null)
         {

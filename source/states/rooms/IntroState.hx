@@ -1,16 +1,17 @@
 package states.rooms;
 
-import states.OgmoState;
 import flixel.FlxG;
 import flixel.FlxSprite;
 
 import data.Content;
 import data.Game;
+import data.Save;
+import states.OgmoState;
 import vfx.PixelPerfectShader;
 
 import openfl.filters.ShaderFilter;
 
-class HallwayState extends RoomState
+class IntroState extends RoomState
 {
     inline static var SCALE_START = 2.0;
     inline static var SCALE_END = 1.0;
@@ -26,20 +27,16 @@ class HallwayState extends RoomState
     {
         super.create();
         
-        if (!Game.state.match(INTRO(START)))
-            return;
+        camera.targetOffset.y = -200;
+        player.antialiasing = true;
         
         floor = background.getByName("intro");
-        floor.setBottomHeight(floor.frameHeight);
         floor.antialiasing = true;
-        pixelFloor = new FlxSprite("assets/images/props/intro/intro_pixel.png");
-        pixelFloor.setGraphicSize(floor.frameWidth);
-        pixelFloor.updateHitbox();
-        pixelFloor.x = floor.x;
-        pixelFloor.y = floor.y;
-        background.add(pixelFloor);
+        pixelFloor = background.getByName("intro_pixel");
         
-        player.antialiasing = true;
+        if(Game.state.match(INTRO(START)) == false)
+            return;
+        
         pixelTankman = new FlxSprite("assets/images/player/tankman_pixel.png");
         pixelTankman.setGraphicSize(Std.int(player.frameWidth));
         pixelTankman.updateHitbox();
@@ -83,6 +80,7 @@ class HallwayState extends RoomState
                 // fully rezzed
                 Game.state = NONE;
                 Content.playTodaysSong();
+                Save.onIntroComplete();
                 
                 camera.setFilters(null);
                 amount = 1.0;
