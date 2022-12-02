@@ -15,4 +15,16 @@
     , "unlocksBy": "free"
     , "group":"ng"
     }
+,   { "id": "gentles"
+    , "proper": "Gentles"
+    , "description": "The amazing dog straight out of the 2020 Pet Jam and from TV!"
+    , "unlocksBy": "day:25
+    , "users": ["jaquin", "jonarock", "chrisbasso", "dylanmann", "worldsbestmichael"]
+    }
+,   { "id": "lucky"
+    , "proper": "Lucky"
+    , "description": "The luckiest boy in all of Boston!"
+    , "unlocksBy": "day:3"
+    , "users": ["brandybuizel", "domromart"]
+    }
 ]

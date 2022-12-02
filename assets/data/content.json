@@ -14,6 +14,7 @@
     , "cymbourine"      : { "proper": "Cymbourine"      }
 	, "predatormusic"   : { "proper": "PredatorMusic"   }
 	, "karlestonchew"   : { "proper": "Karlestonchew"   }
+	, "sevi"   			: { "proper": "sevi"   			}
     }
 ,   "extras":
     {
@@ -43,7 +44,13 @@
         , "antiAlias": false
         , "medal"    : true
         }
-    ]
+	,   { "id"       : "sevi"
+        , "name"     : ""
+        , "authors"  : ["sevi"]
+        , "day"      : 3
+        , "medal"    : true
+        }
+	]
 ,   "events":
     {
         

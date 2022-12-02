@@ -11,7 +11,7 @@ class Snow extends FlxTypedGroup<FlxSprite>
 		super();
 		
 		final density = 1 / avgSpacing / avgSpacing;
-		final graphic = new openfl.display.BitmapData(1, 1, false);
+		final graphic = new openfl.display.BitmapData(2, 2, false);
 		final camera = FlxG.camera;
 		
 		var num = Math.floor(camera.width * camera.height * density);
