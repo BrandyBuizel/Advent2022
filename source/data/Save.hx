@@ -67,6 +67,9 @@ class Save
             data = Json.parse(NG.core.saveSlots[1].contents);
         #end
         
+        /** bugfix */
+        data.skin = 0;
+        
         log("presents: " + data.presents);
         log("seen days: " + data.days);
         log("seen skins: " + data.skins);
@@ -112,7 +115,7 @@ class Save
     static function mergeLocalSave()
     {
         var save = new FlxSave();
-        if (save.bind("advent2021", "GeoKureli") && save.isEmpty() == false)
+        if (save.bind("advent2022", "GeoKureli") && save.isEmpty() == false)
         {
             final localData:SaveData = save.data;
             if (BitArray.isOldFormat(localData.presents))

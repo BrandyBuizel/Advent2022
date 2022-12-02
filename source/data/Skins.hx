@@ -182,7 +182,14 @@ class Skins
             init();
         
         if (id < 0 || byIndex.length <= id)
-            throw "Invalid skin id:" + id;
+        {
+            #if debug
+            throw 'Invalid skin id:$id';
+            #else
+            trace('Invalid skin id:$id, showing tankman');
+            id = 0;
+            #end
+        }
         
         return byIndex[id];
     }
