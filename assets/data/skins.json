@@ -18,7 +18,7 @@
 ,   { "id": "gentles"
     , "proper": "Gentles"
     , "description": "The amazing dog straight out of the 2020 Pet Jam and from TV!"
-    , "unlocksBy": "day:25
+    , "unlocksBy": "day:2"
     , "users": ["jaquin", "jonarock", "chrisbasso", "dylanmann", "worldsbestmichael"]
     }
 ,   { "id": "lucky"
