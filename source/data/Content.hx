@@ -308,7 +308,7 @@ class Content
                 errors.push(Warning(msg));
         }
         
-        var presentIds = getEntityIds("village", "Present");
+        var presentIds = getEntityIds("outside", "Present");
         var daysFound = new Array();
         for (art in artwork)
         {

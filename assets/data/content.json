@@ -12,7 +12,8 @@
         , "roles"  : ["2018 stuff"]
         }
     , "cymbourine"      : { "proper": "Cymbourine"      }
-	, "predatormusic"	: { "proper": "PredatorMusic"	}
+	, "predatormusic"   : { "proper": "PredatorMusic"   }
+	, "karlestonchew"   : { "proper": "Karlestonchew"   }
     }
 ,   "extras":
     {
@@ -34,6 +35,13 @@
         , "authors": ["cymbourine"]
         , "day"    : 1
         , "medal"  : true
+        }
+    ,   { "id"       : "karlestonchew"
+        , "name"     : "Alien Hominid Got Run over by a Tankdeer"
+        , "authors"  : ["karlestonchew"]
+        , "day"      : 2
+        , "antiAlias": false
+        , "medal"    : true
         }
     ]
 ,   "events":

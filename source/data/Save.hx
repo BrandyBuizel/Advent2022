@@ -75,6 +75,7 @@ class Save
         log("instruments seen: " + data.seenInstruments);
         log("saved session: " + data.showName);
         log("saved order: " + (data.cafeOrder == null ? "random" : data.cafeOrder));
+        log("introComplete: " + data.introComplete);
         
         function setInitialInstrument()
         {

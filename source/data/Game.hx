@@ -45,7 +45,7 @@ class Game
         
         roomTypes = [];
         addRoom(Outside, OutsideState.new);
-        addRoom(Intro, IntroState.new);
+        addRoom(Intro, IntroState.new, false);
         
         arcadeTypes = [];
         
@@ -55,7 +55,7 @@ class Game
         #elseif FORCE_INTRO
         var showIntro = true;
         #else
-        var showIntro = Save.introComplete();
+        var showIntro = !Save.introComplete();
         #end
         
         if(showIntro)
