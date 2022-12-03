@@ -194,12 +194,12 @@ class NGio
 			{
 				switch(outcome)
 				{
-					case SUCCESS(date) : ngDate = date;
+					case SUCCESS(date): ngDate = date;
 					case FAIL  (error): throw error.toString();
 				}
 				onComplete();
 			}
-		, false // useLocalTime
+		, true // useServerTime
 		);
 	}
 	

@@ -61,6 +61,8 @@ class SkinPopup extends FlxTypedSpriteGroup<FlxSprite>
     
     function playAnim():Void
     {
+        return;
+        
         visible = true;
         text.text = numUnseen == 1 ? "New skin unlocked!" : numUnseen + " new skins unlocked!";
         text.x = bg.x + (bg.width - text.width) / 2;

@@ -8,8 +8,8 @@ class Calendar
      * NOTE: you should only use LIVE to test medal unlocks
      */
     static final GAME_DATE:GameDate
-        // = SERVER;
-        = DAY(4, DEBUG);
+        = SERVER;
+        // = DAY(4, DEBUG);
         // = STRING("2021-12-04", DEBUG);
     #end
     static public var isDebugDay = false;
@@ -53,7 +53,6 @@ class Calendar
     
     static function onDateReceived(date:Date, callback:()->Void):Void
     {
-        date = Date.fromTime(date.getTime() + 60 * 60 * 1000);// add 1 hour
         if (date.getFullYear() == 2022 && date.getMonth() < 11)
         {
             isDebugDay = true;
@@ -62,7 +61,7 @@ class Calendar
             return;
         }
         
-        trace("month:" + date.getMonth(), "day:" + date.getDate());
+        trace("server time: " + date.toString());
         isAdvent = date.getMonth() == 11 || (date.getMonth() == 0 && date.getDate() == 1);
         isChristmas = date.getMonth() == 11 && date.getDate() == 25;
         
