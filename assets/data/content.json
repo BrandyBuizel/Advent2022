@@ -12,45 +12,78 @@
         , "roles"  : ["2018 stuff"]
         }
     , "cymbourine"      : { "proper": "Cymbourine"      }
-	, "predatormusic"   : { "proper": "PredatorMusic"   }
-	, "karlestonchew"   : { "proper": "Karlestonchew"   }
-	, "sevi"   			: { "proper": "sevi"   			}
+    , "predatormusic"   : { "proper": "PredatorMusic"   }
+    , "karlestonchew"   : { "proper": "Karlestonchew"   }
+    , "sirlenward"      : { "proper": "SirLenward"      }
+    , "minasagas"       : { "proper": "MinaSagas"       }
+    , "sevi"            : { "proper": "Sevi"            }
+    , "microbihon"      : { "proper": "MicroBihon"      }
+    , "dry"             : { "proper": "Dry"             }
+    , "splatterdash"    : { "proper": "SplatterDash"    }
+    , "carmet"          : { "proper": "Carmet"          }
     }
 ,   "extras":
     {
         
     }
 ,   "songs":
-    [	{ "id"       : "predatormusic"
+    [   { "id"       : "predatormusic"
         , "name"     : "Snowygrounds"
-        , "authors"  : ["predatormusic"]
         , "key"      : "aMin"
         , "bpm"      : 173
-        , "ngId"     : 0
         , "day"      : 1
-        }        
+        }
+    ,   { "id"       : "dry"
+        , "name"     : "Fireside"
+        , "key"      : "aMin"
+        , "bpm"      : 80
+        , "loopEnd"  : 144000
+        , "day"      : 3
+        }
+    ,   { "id"       : "splatterdash"
+        , "name"     : "Wool Scarf in a Brisk Wind"
+        , "key"      : "aMin"
+        , "bpm"      : 120
+        , "day"      : 5
+        }
+    ,   { "id"       : "carmet"
+        , "name"     : "Kirpakka"
+        , "day"      : 7
+        }
     ]
 ,   "artwork":
     [   { "id"     : "cymbourine"
         , "name"   : "Day One for Fun haha lol"
-        , "authors": ["cymbourine"]
         , "day"    : 1
         , "medal"  : true
         }
     ,   { "id"       : "karlestonchew"
         , "name"     : "Alien Hominid Got Run over by a Tankdeer"
-        , "authors"  : ["karlestonchew"]
         , "day"      : 2
         , "antiAlias": false
         , "medal"    : true
         }
-	,   { "id"       : "sevi"
-        , "name"     : ""
-        , "authors"  : ["sevi"]
+    ,   { "id"       : "sirlenward"
+        , "name"     : "Xmas night at NG park"
         , "day"      : 3
         , "medal"    : true
         }
-	]
+    ,   { "id"       : "minasagas"
+        , "name"     : "MARI LWYD"
+        , "day"      : 4
+        , "medal"    : true
+        }
+    ,   { "id"       : "sevi"
+        , "name"     : ""
+        , "day"      : 5
+        , "medal"    : true
+        }
+    ,   { "id"       : "microbihon"
+        , "name"     : "九時 Christmas Tree"
+        , "day"      : 8
+        , "medal"    : true
+        }
+    ]
 ,   "events":
     {
         

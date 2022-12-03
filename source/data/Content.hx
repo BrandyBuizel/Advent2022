@@ -63,6 +63,13 @@ class Content
         songsOrdered = [];
         for (songData in data.songs)
         {
+            
+            if (songData.authors == null && songData.id != null)
+            {
+                if (credits.exists(songData.id))
+                    songData.authors = [songData.id];
+            }
+            
             songData.path = 'assets/music/${songData.id}.mp3';
             //songData.samplePath = 'assets/sounds/samples/${songData.id}.mp3';
             songData.sideDiskPath = 'assets/images/ui/carousel/disks/side_${songData.id}.png';
@@ -98,6 +105,12 @@ class Content
             artwork[artData.id] = artData;
             if (artData.day != null)
                 artworkByDay[artData.day] = artData;
+            
+            if (artData.authors == null && artData.id != null)
+            {
+                if (credits.exists(artData.id))
+                    artData.authors = [artData.id];
+            }
             
             artData.path = 'assets/artwork/' + artData.id + "." + (artData.ext == null ? 'png' : artData.ext);
             if(!artData.framed) {
@@ -325,6 +338,7 @@ class Content
                         daysFound.push(art.day);
                     
                 }
+                
                 if (art.comic == null)
                 {
                     if (!Manifest.exists(art.path, IMAGE))
@@ -335,7 +349,7 @@ class Content
                 if (!Manifest.exists(art.presentPath, IMAGE) && !art.framed)
                     addError('Missing ${art.presentPath}');
                 if (!presentIds.contains(art.id) && !art.framed)
-                    addError('Missing present in village, id:${art.id}');
+                    addError('Missing present in "outside#.json", id:${art.id}');
                 if (art.authors == null)
                     addError('Missing artwork authors id:${art.id}');
                 for (author in art.authors)
