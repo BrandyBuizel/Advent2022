@@ -4,9 +4,6 @@ import ui.Button;
 import ui.Controls;
 import ui.Font;
 import utils.GameSize;
-import flixel.text.FlxBitmapText;
-import flixel.input.gamepad.FlxGamepadInputID;
-import flixel.graphics.FlxGraphic;
 import data.Manifest;
 import data.Content;
 import data.Calendar;
@@ -16,25 +13,28 @@ import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxSubState;
+import flixel.graphics.FlxGraphic;
 import flixel.group.FlxSpriteGroup;
+import flixel.input.gamepad.FlxGamepadInputID;
 import flixel.math.FlxAngle;
 import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
-import flixel.text.FlxText;
 import flixel.ui.FlxSpriteButton;
 import flixel.util.FlxColor;
 import flixel.input.gamepad.FlxGamepad;
+
+typedef Text = ui.AAText.RoundedText;
 
 /**
  * ...
  * @author NInjaMuffin99
  */
-class GallerySubstate extends FlxSubState 
+class GallerySubstate extends FlxSubState
 {
 	
 	private var data:ArtCreation;
 	private var curAnimPlaying:Int = 0;
-	private var imageText:FlxBitmapText;
+	private var imageText:Text;
 	private var infoBox:FlxSpriteButton;
 	private var bigPreview:FlxSprite;
 	private var bigImage:FlxSpriteGroup;
@@ -60,20 +60,23 @@ class GallerySubstate extends FlxSubState
 		bigImage.add(bigPreview);
 		add(bigImage);
 		
-		imageText = new FlxBitmapText();
-		imageText.y = FlxG.height - 20;
+		imageText = new Text();
+		var title = data.name != null ? data.name : "Art";
+		imageText.text = title + " by " + Content.listAuthorsProper(data.authors) + "\n"
+			+ (FlxG.onMobile ? "Tap" : "Click") + " here to view their profile";
+		imageText.y = FlxG.height - imageText.height - 5;
 		imageText.width = FlxG.width / 2;
-		imageText.lineSpacing = 2;
+		// imageText.lineSpacing = 2;
 		imageText.updateHitbox();
-		imageText.alignment = FlxTextAlign.CENTER;
-		add(imageText);
+		imageText.alignment = CENTER;
 		
 		var profileUrl = LinkTools.getNgLink(Content.credits[data.authors[0]].id);
 		infoBox = new FlxSpriteButton(0, imageText.y - 5, null, ()->FlxG.openURL(profileUrl));
-		infoBox.makeGraphic(Std.int(FlxG.width / 2) + 4, 20, FlxColor.BLACK);
+		infoBox.makeGraphic(Std.int(FlxG.width / 2) + 4, Std.int(imageText.height) + 10, FlxColor.BLACK);
 		infoBox.alpha = 0.5;
 		infoBox.screenCenter(X);
 		add(infoBox);
+		add(imageText);
 		
 		var button = new BackButton(4, 4, close);
 		button.x = FlxG.width - button.width - 4;
@@ -87,9 +90,9 @@ class GallerySubstate extends FlxSubState
 	
 	function loadImage()
 	{
-		final text = new FlxBitmapText(new NokiaFont16());
+		final text = new Text();
 		text.text = "Loading";
-		text.setBorderStyle(OUTLINE, FlxColor.BLACK, 2);
+		// text.setBorderStyle(OUTLINE, FlxColor.BLACK, 2);
 		text.autoSize = true;
 		text.x = camera.scroll.x + (camera.width  - text.width) / 2;
 		text.y = camera.scroll.y + (camera.height - text.height) / 2;
@@ -108,10 +111,6 @@ class GallerySubstate extends FlxSubState
 		curAnimPlaying = 0;
 		bigImage.visible = true;
 		
-		// regular artwork
-		var title = data.name != null ? data.name : "Art";
-		imageText.text = title+ " by " + Content.listAuthorsProper(data.authors) + "\n"
-			+ (FlxG.onMobile ? "Tap" : "Click") +" here to view their profile";
 		imageText.screenCenter(X);
 		bigPreview.loadGraphic(graphic);
 		

@@ -5,6 +5,7 @@ import data.Game;
 import data.PlayerSettings;
 import data.Skins;
 import states.rooms.RoomState;
+import ui.AAText;
 
 import flixel.FlxG;
 import flixel.FlxObject;
@@ -44,7 +45,7 @@ class Player extends flixel.FlxSprite
     public var hitTarget(get, never):FlxObject;
     inline function get_hitTarget() return hitbox;
     
-    public var nameText(default, null):FlxBitmapText;
+    public var nameText(default, null):RoundedText;
     var nameColor = 0xFF000000;
     var nameShadowColor = 0xFFffffff;
     var targetPos:FlxPoint;
@@ -54,7 +55,11 @@ class Player extends flixel.FlxSprite
     
     public function new(x = 0.0, y = 0.0, name, settings:PlayerSettings)
     {
-        nameText = new FlxBitmapText();
+        nameText = new RoundedText();
+        nameText.color = nameColor;
+        // nameText.textField.textColor = nameColor;
+        // nameText.textField.borderColor = nameShadowColor;
+        // nameText.textField.border = true;
         nameText.alignment = CENTER;
         #if FLX_DEBUG
         nameText.ignoreDrawDebug = true;
@@ -295,12 +300,12 @@ class Player extends flixel.FlxSprite
         if (nameText.visible)
         {
             // draw shadow
-            nameText.color = nameColor;
+            // nameText.textField.textColor = nameColor;
             nameText.alpha = alpha;
             nameText.x = x + 1 + (width - nameText.width) / 2;
             nameText.y = y + 1 + height - frameHeight - nameText.height - 16;
-            nameText.draw();
-            nameText.color = nameShadowColor;
+            // nameText.draw();
+            // nameText.textField.textColor = nameShadowColor;
             nameText.x--;
             nameText.y--;
             nameText.draw();

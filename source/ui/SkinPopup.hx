@@ -27,8 +27,8 @@ class SkinPopup extends FlxTypedSpriteGroup<FlxSprite>
         
         FlxG.signals.preStateSwitch.remove(tweener.clear);
         
-        add(bg = new FlxSprite(PATH));
-        add(text = new FlxBitmapText());
+        add(bg = new FlxSprite(PATH)).antialiasing = false;
+        add(text = new FlxBitmapText()).antialiasing = false;
         
         #if FLX_DEBUG
         ignoreDrawDebug = true;

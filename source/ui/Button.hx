@@ -15,6 +15,9 @@ class Button extends FlxTypedButton<FlxSprite>
         allowSwiping = false;
         this.statusAnimations[FlxButton.HIGHLIGHT] = "normal";
         setGraphic(graphic);
+        scale.set(2, 2);
+        updateHitbox();
+        this.antialiasing = false;
         
         if (labelGraphic != null)
             setLabelGraphic(labelGraphic);
