@@ -12,6 +12,7 @@
         , "roles"  : ["2018 stuff"]
         }
     , "cymbourine"      : { "proper": "Cymbourine"      }
+	, "knosedoge"       : { "proper": "knosedoge"       }
     , "predatormusic"   : { "proper": "PredatorMusic"   }
     , "karlestonchew"   : { "proper": "Karlestonchew"   }
     , "sirlenward"      : { "proper": "SirLenward"      }
@@ -21,6 +22,7 @@
     , "dry"             : { "proper": "Dry"             }
     , "splatterdash"    : { "proper": "SplatterDash"    }
     , "carmet"          : { "proper": "Carmet"          }
+    , "danfrombavaria"  : { "proper": "danfrombavaria"  }
     }
 ,   "extras":
     {
@@ -90,7 +92,15 @@
     }
 ,   "arcades":
     [
-        
+        { "id"     : "chimney"
+        , "name"   : "Holiday Hominid Drop"
+        , "authors": ["brandybuizel:design", "knosedoge:code", "danfrombavaria:music"]
+        , "day"    : 29
+        , "mobile" : false
+        , "medal"  : false
+        , "type"   : "overlay"
+        , "camera" : { "width":240, "height": 270 }
+        }
     ]
 ,   "unused_arcades":
     [

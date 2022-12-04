@@ -97,7 +97,17 @@
 		<assets path="yeti/assets" rename="assets/arcades/yeti" library="yeti" exclude="*.ase|*.wav" />
 		
 	</section> -->
-	
+<!--
+	<define name="INCLUDE_CHIMNEY_GAME"/>
+	<section if="INCLUDE_CHIMNEY_GAME">
+		
+		<classpath name="chimney/source"/>
+		<library name="chimney" preload="false" />
+		<assets path="chimney/assets" rename="assets/arcades/chimney" library="chimney" exclude="*.ase|*.wav"/>
+		
+	</section>
+-->
+
 	<!-- <define name="PRELOAD_INSTRUMENTS"/> -->
 	<!-- <define name="PRELOAD_INSTRUMENTS" if="PRELOAD_ALL"/>
 	<section if="PRELOAD_INSTRUMENTS">

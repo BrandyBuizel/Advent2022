@@ -1,5 +1,6 @@
 package props;
 
+import ui.Font.XmasFont;
 import Types;
 import data.Game;
 import data.PlayerSettings;
@@ -13,6 +14,7 @@ import flixel.FlxSprite;
 import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
 import flixel.text.FlxBitmapText;
+import flixel.graphics.frames.FlxBitmapFont;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxDestroyUtil;
 
@@ -46,8 +48,9 @@ class Player extends flixel.FlxSprite
     inline function get_hitTarget() return hitbox;
     
     public var nameText(default, null):RoundedText;
-    var nameColor = 0xFF000000;
-    var nameShadowColor = 0xFFffffff;
+    public var nameTextShadow(default, null):RoundedText;
+    var nameColor = 0xFFFFFFFF;
+    var nameShadowColor = 0xff000000;
     var targetPos:FlxPoint;
     var movePath:Array<FlxPoint>;
     var bobTimer = 0.0;
@@ -56,11 +59,13 @@ class Player extends flixel.FlxSprite
     public function new(x = 0.0, y = 0.0, name, settings:PlayerSettings)
     {
         nameText = new RoundedText();
+        //nameText = new FlxBitmapText(new ui.Font.XmasFont());
         nameText.color = nameColor;
         // nameText.textField.textColor = nameColor;
         // nameText.textField.borderColor = nameShadowColor;
         // nameText.textField.border = true;
         nameText.alignment = CENTER;
+
         #if FLX_DEBUG
         nameText.ignoreDrawDebug = true;
         #end
@@ -297,13 +302,14 @@ class Player extends flixel.FlxSprite
             emote.draw();
         }
         
+        // Set the name height and display for players
         if (nameText.visible)
         {
             // draw shadow
             // nameText.textField.textColor = nameColor;
             nameText.alpha = alpha;
-            nameText.x = x + 1 + (width - nameText.width) / 2;
-            nameText.y = y + 1 + height - frameHeight - nameText.height - 16;
+            nameText.x = x + 2 + (width - nameText.width) / 2;
+            nameText.y = y + 1 + height - frameHeight - nameText.height - 0;
             // nameText.draw();
             // nameText.textField.textColor = nameShadowColor;
             nameText.x--;

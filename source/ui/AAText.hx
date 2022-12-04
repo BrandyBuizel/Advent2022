@@ -16,7 +16,8 @@ abstract AAText(FlxText) to FlxText
 @:forward
 abstract RoundedText(AAText) to AAText to FlxText
 {
-    static inline var font = "fonts/SFNSRounded.ttf";
+    //change player name font here
+    static inline var font = "fonts/alagard.ttf";
     
     public function new (x = 0.0, y = 0.0, text = "", size = 16)
     {

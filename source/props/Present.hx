@@ -41,7 +41,7 @@ class Present extends flixel.FlxSprite
         animation.add("opening", [1]);
         animation.play(opened ? "opened" : "closed");
         graphic.bitmap.fillRect(new openfl.geom.Rectangle(32, 0, 32, 2), 0x0);
-        scale.set(0.5, 0.5);
+        scale.set(1, 1);
         offset.x = 8;
         offset.y = -8;
         
