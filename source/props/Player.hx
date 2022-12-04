@@ -49,6 +49,7 @@ class Player extends flixel.FlxSprite
     
     public var nameText(default, null):RoundedText;
     public var nameTextShadow(default, null):RoundedText;
+    //name text colors
     var nameColor = 0xFFFFFFFF;
     var nameShadowColor = 0xff000000;
     var targetPos:FlxPoint;
