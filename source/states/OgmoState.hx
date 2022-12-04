@@ -405,7 +405,7 @@ abstract OgmoDecal(FlxSprite) to FlxSprite from FlxSprite
         this = new FlxSprite(path);
         this.x = data.x;
         this.y = data.y;
-        
+            
         if (path.indexOf("_ogmo.") != -1)
         {
             var oldSize = FlxPoint.get(this.frameWidth, this.frameHeight);
@@ -437,8 +437,11 @@ abstract OgmoDecal(FlxSprite) to FlxSprite from FlxSprite
         // allow player to go behind stuff
         if (data.values != null)
         {
+            var isTree = path.indexOf("tree") > -1;
             var values = data.values;
-            if (values.bottomHeight == null || values.bottomHeight == 0)
+            if (isTree)
+                setBottomHeight(this.height / 4);
+            else if (values.bottomHeight == null || values.bottomHeight == 0)
                 setBottomHeight(this.height / 3);
             else if (values.bottomHeight != -1)
                 setBottomHeight(values.bottomHeight);

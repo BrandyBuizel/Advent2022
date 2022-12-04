@@ -25,8 +25,8 @@ import haxe.Json;
 class DressUpSubstate extends flixel.FlxSubState
 {
     inline static var BAR_MARGIN = 8;
-    inline static var SIDE_GAP = 48;
-    inline static var SPACING = 28;
+    inline static var SIDE_GAP = 96;
+    inline static var SPACING = 64;
     
     var sprites = new FlxTypedSpriteGroup<SkinDisplay>();
     var current = -1;
@@ -118,11 +118,11 @@ class DressUpSubstate extends flixel.FlxSubState
         bg.scrollFactor.set(0, 0);
         
         add(arrowLeft  = new Button(0, 0, toPrev, "assets/images/ui/leftArrow.png"));
-        arrowLeft.x  = (FlxG.width - arrowLeft.width  - SIDE_GAP - SPACING) / 2;
+        arrowLeft.x  = (FlxG.width - arrowLeft.width  - SIDE_GAP - SPACING) / 3;
         arrowLeft.y  = bg.y + (bg.height - arrowLeft.height ) / 2;
         arrowLeft.scrollFactor.set(0, 0);
         add(arrowRight = new Button(0, 0, toNext, "assets/images/ui/rightArrow.png"));
-        arrowRight.x = (FlxG.width - arrowRight.width + SIDE_GAP + SPACING) / 2;
+        arrowRight.x = (FlxG.width - arrowRight.width + SIDE_GAP + SPACING) / 1.5;
         arrowRight.y = bg.y + (bg.height - arrowRight.height) / 2;
         arrowRight.scrollFactor.set(0, 0);
         add(ok = new OkButton(0, 0, select));
@@ -151,7 +151,7 @@ class DressUpSubstate extends flixel.FlxSubState
             if (data.index == PlayerSettings.user.skin)
             {
                 current = i;
-                sprite.x += SIDE_GAP;
+                sprite.x += SIDE_GAP - 12;
                 camera.follow(sprite);
             }
             else if (i > current && current > -1)

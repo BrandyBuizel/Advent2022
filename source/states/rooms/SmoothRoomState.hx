@@ -4,8 +4,9 @@ class SmoothRoomState extends RoomState
 {
     override function create()
     {
-        flixel.FlxSprite.defaultAntialiasing = true;
-        camera.pixelPerfectRender = false;
+        //anti-aliasing????
+        flixel.FlxSprite.defaultAntialiasing = false;
+        camera.pixelPerfectRender = true;
         super.create();
     }
 }

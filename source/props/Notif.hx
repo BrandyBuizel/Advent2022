@@ -20,7 +20,7 @@ class Notif extends flixel.FlxSprite
             tween.cancel();
         
         offset.y = height;
-        tween = FlxTween.tween(this, { "offset.y": height - 8 }, 0.75, { type:PINGPONG, ease:FlxEase.sineInOut, loopDelay: 0.25 });
+        tween = FlxTween.tween(this, { "offset.y": height - 8 }, 0.5, { type:PINGPONG, ease:FlxEase.sineInOut, loopDelay: 0.33 });
     }
     
     override function draw()

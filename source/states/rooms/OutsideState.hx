@@ -2,10 +2,17 @@ package states.rooms;
 
 import ui.Phone;
 
+import data.Skins;
+import props.Notif;
+import states.OgmoState;
+
 import flixel.math.FlxMath;
 
 class OutsideState extends SmoothRoomState
 {
+    var changingRoom:OgmoDecal;
+    var changingRoomNotif:Notif;
+    
     override function create()
     {
         super.create();
@@ -25,6 +32,15 @@ class OutsideState extends SmoothRoomState
     override function initEntities()
     {
         super.initEntities();
+
+        changingRoom = foreground.getByName("sign");
+        changingRoom.setBottomHeight(16);
+        addHoverTextTo(changingRoom, "CHANGE CLOTHES", onOpenDresser);
+        changingRoomNotif = new Notif();
+        changingRoomNotif.x = changingRoom.x + (changingRoom.width - changingRoomNotif.width) / 2;
+        changingRoomNotif.y = changingRoom.y + changingRoom.height - changingRoom.frameHeight - 8;
+        changingRoomNotif.animate();
+        topGround.add(changingRoomNotif);
     }
     
     override function update(elapsed:Float)
@@ -53,5 +69,16 @@ class OutsideState extends SmoothRoomState
         camLerp = (height - (player.y - top)) / height * CAM_LERP_OFFSET;
         
         camOffset = camSnap + FlxMath.bound(camLerp, 0, CAM_LERP_OFFSET);
+    }
+
+    function onOpenDresser()
+    {
+        changingRoomNotif.visible = false;
+        var dressUp = new DressUpSubstate();
+        dressUp.closeCallback = function()
+        {
+           player.settings.applyTo(player);
+        }
+        openSubState(dressUp);
     }
 }

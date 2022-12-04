@@ -21,6 +21,7 @@ class Present extends flixel.FlxSprite
     public var contents:FlxSprite;
     
     var confetti:FlxSprite;
+    var presentNotif:Notif;
     
     public function new (id:String, x = 0.0, y = 0.0)
     {
