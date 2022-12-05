@@ -27,4 +27,16 @@
     , "unlocksBy": "day:3"
     , "users": ["brandybuizel", "domromart"]
     }
+,   { "id": "purple_imposter"
+    , "proper": "Purple Imposter"
+    , "description": "A not so nice crewmate from Among Us."
+    , "unlocksBy": "day:4"
+    , "users": ["puffballsunited", "fortebass", "aemu"]
+    }
+,   { "id": "spoople"
+    , "proper": "Spoople"
+    , "description": "\"I wasn’t born in the traditional sense but rather constructed. An impossible, technical\nmarriage of flesh and paradox. At least that's what my baby pictures say.\""
+    , "unlocksBy": "medal:5"
+    , "users": ["frasermcniven", "geokureli", "ellsketchlr"]
+    }
 ]
