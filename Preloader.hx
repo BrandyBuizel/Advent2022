@@ -89,14 +89,14 @@ class Preloader extends flixel.system.FlxBasePreloader
 		loadingText = new Bitmap(new Loading(0, 0));
 		loadingText.smoothing = false;
 		loadingText.x = cane.x + 30;
-		loadingText.y = cane.y + 30;
+		loadingText.y = cane.y + 18;
 		loadingText.scrollRect = new Rectangle(0, 0, 194, 48);
 		addChild(loadingText);
 		
 		startText = new Bitmap(new Start(0, 0));
 		startText.smoothing = false;
 		startText.x = loadingText.x;
-		startText.y = loadingText.y - 16;
+		startText.y = loadingText.y - 24;
 		startText.scrollRect = new Rectangle(0, 0, 0, 63);
 		addChild(startText);
 		

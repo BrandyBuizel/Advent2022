@@ -23,6 +23,7 @@
     , "splatterdash"    : { "proper": "SplatterDash"    }
     , "carmet"          : { "proper": "Carmet"          }
     , "danfrombavaria"  : { "proper": "danfrombavaria"  }
+    , "nuclear-smash"   : { "proper": "nuclear-smash"  }
     }
 ,   "extras":
     {
@@ -78,6 +79,11 @@
     ,   { "id"       : "sevi"
         , "name"     : "Grýla"
         , "day"      : 5
+        , "medal"    : true
+        }
+    ,   { "id"       : "nuclear-smash"
+        , "name"     : "Happy Holidays, gamerz"
+        , "day"      : 6
         , "medal"    : true
         }
     ,   { "id"       : "microbihon"
