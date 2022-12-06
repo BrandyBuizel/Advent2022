@@ -423,7 +423,7 @@ class Player extends flixel.FlxSprite
 class Emote extends FlxSprite
 {
     inline static var SMOOCH_PATH = "assets/images/emotes/heart.png";
-    inline static var SMOOCH_FRAMES = 13;
+    inline static var SMOOCH_FRAMES = 16;
     inline static var SMOOCH_FPS = 10;
     
     public var type(default, null) = None;
@@ -464,8 +464,8 @@ class Emote extends FlxSprite
         this.offset.x += frameWidth / 2;
         this.offset.y += frameHeight;
         
-        animation.add("anim", [for (i in 0...fps) i], fps, false);
-        animation.add("anim", [for (i in 0...fps) i], fps, false);
+        animation.add("anim", [for (i in 0...frames) i], fps, false);
+        animation.add("anim", [for (i in 0...frames) i], fps, false);
         animation.play("anim");
         animation.finishCallback = onAnimComplete;
     }
