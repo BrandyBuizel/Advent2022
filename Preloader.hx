@@ -56,9 +56,9 @@ class Preloader extends flixel.system.FlxBasePreloader
 		
 		var tank = new Bitmap(new XmasTank(318, 318));
 		tank.smoothing = false;
-		// tank.scaleX *= 3;
-		// tank.scaleY *= 3;
-		tank.x = (this._width - 318 * tank.scaleX) / 2;
+		tank.scaleX /= 2;
+		tank.scaleY /= 2;
+		tank.x = (this._width - 318 * (tank.scaleX*2)) / 2;
 		tank.y = 25;
 		addChild(tank);
 		

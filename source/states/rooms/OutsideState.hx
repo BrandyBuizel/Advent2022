@@ -41,6 +41,14 @@ class OutsideState extends SmoothRoomState
         changingRoomNotif.y = changingRoom.y + changingRoom.height - changingRoom.frameHeight - 8;
         changingRoomNotif.animate();
         topGround.add(changingRoomNotif);
+
+        //Note by blue door saying it's closed
+        var blue_door = foreground.getByName("blue_door");
+        addHoverTextTo(blue_door, "      BLUE DOOR\nCOFFEE + WAFFLES\n\nCURRENTLY CLOSED"); //()->{ note.visible = !note.visible; });
+        
+        //foreground.remove(note);
+        //topGround.add(note);
+        //note.visible = false;
     }
     
     override function update(elapsed:Float)
@@ -49,6 +57,7 @@ class OutsideState extends SmoothRoomState
         updateCam(elapsed);
     }
     
+    inline static var TREE_FADE_TIME = 3.0;
     inline static var MAX_CAM_OFFSET = 200;
     inline static var CAM_SNAP_OFFSET = 30;
     inline static var CAM_SNAP_TIME = 3.0;
