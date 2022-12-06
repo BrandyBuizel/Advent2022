@@ -33,12 +33,14 @@ class OutsideState extends SmoothRoomState
     {
         super.initEntities();
 
-        changingRoom = foreground.getByName("sign");
+        changingRoom = foreground.getByName("snowmanCC");
         changingRoom.setBottomHeight(16);
-        addHoverTextTo(changingRoom, "CHANGE CLOTHES", onOpenDresser);
+        addHoverTextTo(changingRoom, "CHANGE OUTFIT", onOpenDresser);
+
+        //Clay notif
         changingRoomNotif = new Notif();
         changingRoomNotif.x = changingRoom.x + (changingRoom.width - changingRoomNotif.width) / 2;
-        changingRoomNotif.y = changingRoom.y + changingRoom.height - changingRoom.frameHeight - 8;
+        changingRoomNotif.y = changingRoom.y + changingRoom.height - changingRoom.frameHeight - 12;
         changingRoomNotif.animate();
         topGround.add(changingRoomNotif);
 

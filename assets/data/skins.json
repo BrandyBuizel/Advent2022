@@ -46,4 +46,10 @@
     , "users": ["strawberryclock"]
     , "group":"clocks"
     }
+,   { "id": "ena"
+    , "proper": "ENA"
+    , "description": "Between her and Margo, the people chose her. Welcome to Newgrounds ENA!"
+    , "unlocksBy": "day:5"
+    , "users": ["joelg"]
+    }
 ]

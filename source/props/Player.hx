@@ -50,7 +50,7 @@ class Player extends flixel.FlxSprite
     public var nameText(default, null):RoundedText;
     public var nameTextShadow(default, null):RoundedText;
     //name text colors
-    var nameColor = 0xFF000000;
+    var nameColor = 0xFFFFFFFF;
     var nameShadowColor = 0xff000000;
     var targetPos:FlxPoint;
     var movePath:Array<FlxPoint>;
@@ -63,9 +63,12 @@ class Player extends flixel.FlxSprite
         //nameText = new FlxBitmapText(new ui.Font.XmasFont());
         nameText.color = nameColor;
         // nameText.textField.textColor = nameColor;
-        // nameText.textField.borderColor = nameShadowColor;
-        // nameText.textField.border = true;
+        //nameText.textField.borderColor = nameShadowColor;
+        //nameText.textField.border = true;
         nameText.alignment = CENTER;
+        
+        nameTextShadow = new RoundedText();
+        nameTextShadow.alignment = CENTER;      
 
         #if FLX_DEBUG
         nameText.ignoreDrawDebug = true;
@@ -315,6 +318,18 @@ class Player extends flixel.FlxSprite
             // nameText.textField.textColor = nameShadowColor;
             nameText.x--;
             nameText.y--;
+            nameText.draw();
+
+            
+            nameTextShadow.text = nameText.text;
+            nameTextShadow.x = nameText.x + 2;
+            nameTextShadow.y = nameText.y + 2;
+            nameTextShadow.color = 0xff000000;
+            nameTextShadow.bold = true;
+            nameTextShadow.draw();
+
+            nameText.color = nameColor;
+            nameText.bold = false;
             nameText.draw();
         }
     }

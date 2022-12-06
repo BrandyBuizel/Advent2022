@@ -84,11 +84,13 @@
     ,   { "id"       : "nuclear-smash"
         , "name"     : "Happy Holidays, gamerz"
         , "day"      : 6
+		, "ext"   	 : "jpg"
         , "medal"    : true
         }
     ,   { "id"       : "microbihon"
         , "name"     : "九時 Christmas Tree"
         , "day"      : 8
+		, "ext"  	 : "jpg"
         , "medal"    : true
         }
     ]

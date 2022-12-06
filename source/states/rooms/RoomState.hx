@@ -310,7 +310,8 @@ class RoomState extends OgmoState
         ui.add(musicPopup = MusicPopup.getInstance());
         ui.add(skinPopup = SkinPopup.getInstance());
         
-        final MARGIN = 4;
+        //margin for UI buttons
+        final MARGIN = 16;
         var settings = new SettingsButton(openSettings);
         settings.updateHitbox();
         settings.x = FlxG.width - settings.width - MARGIN;
@@ -318,7 +319,7 @@ class RoomState extends OgmoState
         ui.add(settings);
         
         // if (FlxG.onMobile)
-            ui.add(new EmoteButton(MARGIN, MARGIN, player.mobileEmotePressed));
+        ui.add(new EmoteButton(MARGIN, MARGIN, player.mobileEmotePressed));
         
         add(ui);
     }
