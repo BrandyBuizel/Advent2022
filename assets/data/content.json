@@ -23,7 +23,8 @@
     , "splatterdash"    : { "proper": "SplatterDash"    }
     , "carmet"          : { "proper": "Carmet"          }
     , "danfrombavaria"  : { "proper": "danfrombavaria"  }
-    , "nuclear-smash"   : { "proper": "nuclear-smash"  }
+    , "nuclear-smash"   : { "proper": "nuclear-smash"  	}
+    , "mkmaffo" 		: { "proper": "mkmaffo"  		}
     }
 ,   "extras":
     {
@@ -85,6 +86,11 @@
         , "name"     : "Happy Holidays, gamerz"
         , "day"      : 6
 		, "ext"   	 : "jpg"
+        , "medal"    : true
+        }
+    ,   { "id"       : "mkmaffo"
+        , "name"     : ""
+        , "day"      : 7
         , "medal"    : true
         }
     ,   { "id"       : "microbihon"

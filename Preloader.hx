@@ -23,6 +23,7 @@ import flixel.tweens.FlxEase;
 @:bitmap("assets/preloader/start.png"   ) class Start    extends BitmapData { }
 @:bitmap("assets/preloader/caneAnim.png") class CaneAnim extends BitmapData { }
 @:bitmap("assets/preloader/xmasTank.png") class XmasTank extends BitmapData { }
+@:bitmap("assets/preloader/bg.png"		) class BG		 extends BitmapData { }
 
 class Preloader extends flixel.system.FlxBasePreloader
 {
@@ -54,6 +55,14 @@ class Preloader extends flixel.system.FlxBasePreloader
 		this._width = Lib.current.stage.stageWidth;
 		this._height = Lib.current.stage.stageHeight;
 		
+		//bg
+		var BG = new Bitmap(new BG(960, 540));
+		BG.smoothing = false;
+		//bg.scaleX /= 2;
+		//bg.scaleY /= 2;
+		addChild(BG);
+
+		//tank image
 		var tank = new Bitmap(new XmasTank(318, 318));
 		tank.smoothing = false;
 		tank.scaleX /= 2;
@@ -62,6 +71,7 @@ class Preloader extends flixel.system.FlxBasePreloader
 		tank.y = 25;
 		addChild(tank);
 		
+		//cane loading base
 		cane = new Bitmap(new Cane(400, 150));
 		var caneMask = new Bitmap(new CaneMask(0, 0));
 		addChild(cane);
@@ -86,6 +96,7 @@ class Preloader extends flixel.system.FlxBasePreloader
 		maskShape.y = caneMask.y;
 		stripes.mask = maskShape;
 		
+		//text
 		loadingText = new Bitmap(new Loading(0, 0));
 		loadingText.smoothing = false;
 		loadingText.x = cane.x + 30;
@@ -100,6 +111,7 @@ class Preloader extends flixel.system.FlxBasePreloader
 		startText.scrollRect = new Rectangle(0, 0, 0, 63);
 		addChild(startText);
 		
+		//pull version from project.xml
 		var versionText = new TextField();
 		var format = new TextFormat("_sans", null, 0x999999);
 		versionText.defaultTextFormat = format;
