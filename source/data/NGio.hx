@@ -360,11 +360,13 @@ class NGio
 		#end
 	}
 	
+	//Day medal unlocks
 	static public function hasDayMedal(date:Int):Bool
 	{
 		return hasMedal(DAY_MEDAL_0 + date - 1);
 	}
 	
+	//Any medal unlocks
 	static public function hasMedal(id:Int):Bool
 	{
 		#if NG_DEBUG_API_KEY

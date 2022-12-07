@@ -59,4 +59,10 @@
     , "users": ["tomfulp", "danpaladin", "travsaus"]
     , "group":"alien_hominid"
     }
+,   { "id": "alan"
+    , "proper": "Alan"
+    , "description": "My personal favourite Smiling Friend :)\nyou found his piece of cheese in 2020!"
+    , "unlocksBy": "day:30"
+    , "users": ["psychicpebbles", "geokureli"]
+    }
 ]

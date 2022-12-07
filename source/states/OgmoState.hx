@@ -406,6 +406,7 @@ abstract OgmoDecal(FlxSprite) to FlxSprite from FlxSprite
         this.x = data.x;
         this.y = data.y;
             
+        //making fancy _ogmo animated sprites work
         if (path.indexOf("_ogmo.") != -1)
         {
             var oldSize = FlxPoint.get(this.frameWidth, this.frameHeight);

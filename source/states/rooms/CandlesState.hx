@@ -19,9 +19,11 @@ import flixel.tweens.FlxTween;
 
 import openfl.filters.ShaderFilter;
 
-class CandleState extends SmoothRoomState
+class CandlesState extends RoomState
 {
     var shade:ShadowSprite;
+    var floor:OgmoDecal;
+
     var clayfire:OgmoDecal;
     //var changingRoomNotif:Notif;
     
@@ -30,7 +32,7 @@ class CandleState extends SmoothRoomState
         super.create();
         
         add(new vfx.Snow());
-
+        
         clayfire.visible = false;
         
         //background.getByName("background").scrollFactor.set(0, 0.35);
@@ -47,14 +49,6 @@ class CandleState extends SmoothRoomState
     {
         super.initEntities();
 
-        //Note by blue door saying it's closed
-        var sigil = foreground.getByName("sigil");
-        addHoverTextTo(sigil, "INTERACT"); //()->{ note.visible = !note.visible; });
-        
-        //foreground.remove(note);
-        //topGround.add(note);
-        //note.visible = false;
-
         if (Game.allowShaders)
         {
             var floor = getDaySprite(background, "intro_candles");
@@ -63,21 +57,10 @@ class CandleState extends SmoothRoomState
             shade.makeGraphic(floor.frameWidth, floor.frameHeight, 0xD8000022);
                         
             shade.shadow.setLightRadius(1, 60);
-            for (i=>candle in background.getAllWithName("clayfire").members)
+            for (i=>candle in background.getAllWithName("clayfire_ogmo").members)
                 shade.shadow.setLightPos(i + 2, candle.x + candle.width / 2, candle.y);
             topGround.add(shade);
         }
-    }
-
-    function tweenLightRadius(light:Int, from:Float, to:Float, duration:Float, options:TweenOptions)
-    {
-        if (options == null)
-            options = {};
-                
-        if (options.ease == null)
-            options.ease = FlxEase.circOut;
-            
-        FlxTween.num(from, to, duration, options, (num)->shade.shadow.setLightRadius(light, num));
     }
     
     override function update(elapsed:Float)
@@ -85,15 +68,11 @@ class CandleState extends SmoothRoomState
         super.update(elapsed);
         updateCam(elapsed);
 
+        trace("I'm in candles room...");
+
         if (Game.allowShaders)
         {
-            shade.shadow.setLightPos(1, player.x + player.width / 2, player.y - 48);
-            
-            if (player.x < shade.shadow.getLightX(2))
-            {
-                for (i in 0...4)
-                    tweenLightRadius(i + 2, 0, 80, 0.6, { startDelay:i * 0.75 });
-            }
+            shade.shadow.setLightPos(1, player.x + player.width / 2, player.y - 8);
         }
     }
     

@@ -136,7 +136,31 @@
     }
 ,   "arcades":
     [
-        { "id"     : "chimney"
+		{ "id"     : "2020"
+        , "name"   : "Tankmas ADVENTure 2020"
+        , "authors": 
+            [ "geokureli"
+            , "brandybuizel"
+            ]
+        , "type"   : "external"
+        }
+	,	{ "id"     : "2019"
+        , "name"   : "Christmas ADVENTure 2019"
+        , "authors": 
+            [ "geokureli"
+            , "brandybuizel"
+            ]
+        , "type"   : "external"
+        }
+    ,   { "id"     : "2018"
+        , "name"   : "Christmas ADVENTure 2018"
+        , "authors": 
+            [ "ninjamuffin99"
+            , "brandybuizel"
+            ]
+		, "type"   : "external"
+        }
+    ,	{ "id"     : "chimney"
         , "name"   : "Holiday Hominid Drop"
         , "authors": ["brandybuizel:design", "knosedoge:code", "danfrombavaria:music"]
         , "day"    : 10
