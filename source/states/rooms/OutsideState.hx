@@ -6,11 +6,13 @@ import data.Skins;
 import props.Notif;
 import states.OgmoState;
 
+import flixel.FlxG;
 import flixel.math.FlxMath;
 
 class OutsideState extends SmoothRoomState
 {
     var changingRoom:OgmoDecal;
+    var easterEgg:OgmoDecal;
     var changingRoomNotif:Notif;
     
     override function create()
@@ -33,7 +35,20 @@ class OutsideState extends SmoothRoomState
     {
         super.initEntities();
 
+        //Changing Room snowman and scary snowman
+        var easter_egg_snowman_brandy = FlxG.random.bool(1); // 1% chance to return 'true'
         changingRoom = foreground.getByName("snowmanCC");
+        easterEgg = foreground.getByName("snowmanCC_brandy");
+        
+        if(easter_egg_snowman_brandy)
+        {
+            easterEgg.visible = true;
+            topGround.add(easterEgg);
+            easterEgg.setBottomHeight(16);
+        }else{
+            easterEgg.visible = false;
+        }
+
         changingRoom.setBottomHeight(16);
         addHoverTextTo(changingRoom, "CHANGE OUTFIT", onOpenDresser);
 

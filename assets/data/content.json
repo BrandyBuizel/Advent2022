@@ -29,6 +29,10 @@
     , "albegian" 		: { "proper": "AlbeGian"  		}
     , "gallowjolt" 		: { "proper": "GallowJolt"  	}
     , "bingowaders" 	: { "proper": "BingoWaders"  	}
+    , "matthewlopz" 	: { "proper": "MatthewLopz"  	}
+    , "krinkels"	 	: { "proper": "Krinkels"  		}
+    , "travsaus" 		: { "proper": "travsaus"  		}
+    , "clatform" 		: { "proper": "Clatform"  		}
     }
 ,   "extras":
     {
@@ -72,7 +76,7 @@
         , "medal"    : true
         }
     ,   { "id"       : "sirlenward"
-        , "name"     : "Xmas night at NG park"
+        , "name"     : "Xmas Night at NG Park"
         , "day"      : 3
         , "medal"    : true
         }
@@ -98,10 +102,31 @@
 		, "ext"   	 : "jpg"
         , "medal"    : true
         }
+    ,   { "id"       : "matthewlopz"
+        , "name"     : "Little Candles"
+        , "day"      : 7
+        , "medal"    : false
+        }
     ,   { "id"       : "microbihon"
         , "name"     : "九時 Christmas Tree"
         , "day"      : 8
 		, "ext"  	 : "jpg"
+        , "medal"    : true
+        }
+	,   { "id"       : "krinkels"
+        , "name"     : "PA-bot overcharge"
+        , "day"      : 9
+		, "ext"  	 : "jpg"
+        , "medal"    : true
+        }
+	,   { "id"       : "travsaus"
+        , "name"     : ""
+        , "day"      : 10
+        , "medal"    : true
+        }
+	,   { "id"       : "clatform"
+        , "name"     : "Taverny NG Christmas"
+        , "day"      : 12
         , "medal"    : true
         }
     ]

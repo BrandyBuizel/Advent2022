@@ -30,7 +30,7 @@ class CandleState extends SmoothRoomState
         super.create();
         
         add(new vfx.Snow());
-        
+
         clayfire.visible = false;
         
         //background.getByName("background").scrollFactor.set(0, 0.35);
@@ -89,7 +89,7 @@ class CandleState extends SmoothRoomState
         {
             shade.shadow.setLightPos(1, player.x + player.width / 2, player.y - 48);
             
-            if (player.x > shade.shadow.getLightX(2))
+            if (player.x < shade.shadow.getLightX(2))
             {
                 for (i in 0...4)
                     tweenLightRadius(i + 2, 0, 80, 0.6, { startDelay:i * 0.75 });
