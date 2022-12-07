@@ -32,7 +32,7 @@ class Cabinet extends flixel.FlxSprite
             if (Manifest.exists(path, IMAGE))
                 loadGraphic(path, true, 40, 60);
             else
-                loadGraphic('assets/images/props/arcade/cabinet_ogmo.png');
+                loadGraphic('assets/images/props/shared/cabinet_ogmo.png');
             #else
             loadGraphic(path, true, 40, 60);
             #end
@@ -40,7 +40,7 @@ class Cabinet extends flixel.FlxSprite
             animation.play("anim");
         }
         else
-            loadGraphic('assets/images/props/arcade/cabinet_broken.png');
+            loadGraphic('assets/images/props/shared/cabinet_broken.png');
         
         (this:OgmoDecal).setBottomHeight(this.frameHeight / 4);
         immovable = true;

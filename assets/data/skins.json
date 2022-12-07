@@ -52,4 +52,11 @@
     , "unlocksBy": "day:5"
     , "users": ["joelg"]
     }
+,   { "id": "alien_hominid"
+    , "proper": "Alien Hominid"
+    , "description": "This cute alien has been escaping the clutches of the\ngovernment for a long time. Sound familiar?"
+    , "unlocksBy": "login"
+    , "users": ["tomfulp", "danpaladin", "travsaus"]
+    , "group":"alien_hominid"
+    }
 ]

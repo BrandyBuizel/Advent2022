@@ -24,7 +24,11 @@
     , "carmet"          : { "proper": "Carmet"          }
     , "danfrombavaria"  : { "proper": "danfrombavaria"  }
     , "nuclear-smash"   : { "proper": "nuclear-smash"  	}
-    , "mkmaffo" 		: { "proper": "mkmaffo"  		}
+    , "mkmaffo" 		: { "proper": "MKMaffo"  		}
+    , "axolstudio" 		: { "proper": "AxolStudio"  	}
+    , "albegian" 		: { "proper": "AlbeGian"  		}
+    , "gallowjolt" 		: { "proper": "GallowJolt"  	}
+    , "bingowaders" 	: { "proper": "BingoWaders"  	}
     }
 ,   "extras":
     {
@@ -89,8 +93,9 @@
         , "medal"    : true
         }
     ,   { "id"       : "mkmaffo"
-        , "name"     : ""
+        , "name"     : "asdcore baking"
         , "day"      : 7
+		, "ext"   	 : "jpg"
         , "medal"    : true
         }
     ,   { "id"       : "microbihon"
@@ -109,11 +114,19 @@
         { "id"     : "chimney"
         , "name"   : "Holiday Hominid Drop"
         , "authors": ["brandybuizel:design", "knosedoge:code", "danfrombavaria:music"]
-        , "day"    : 29
+        , "day"    : 1
         , "mobile" : false
         , "medal"  : false
         , "type"   : "overlay"
         , "camera" : { "width":240, "height": 270 }
+        }
+	,   { "id"     : "yule"
+        , "name"   : "Yule Duel"
+        , "authors": ["axolstudio:code", "bingowaders:art", "gallowjolt:art", "albegian:music"]
+        , "day"    : 10
+        , "mobile" : false
+        , "type"   : "overlay"
+        , "camera" : { "width":960, "height": 540 }
         }
     ]
 ,   "unused_arcades":
@@ -121,8 +134,8 @@
         
     ]
 ,   "medals":
-    {
-        
+    { 
+		
     }
 ,   "instruments":
     [
