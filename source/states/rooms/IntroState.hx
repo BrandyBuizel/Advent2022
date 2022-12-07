@@ -96,8 +96,10 @@ class IntroState extends RoomState
             pixelTankman.alpha = 1 - amount;
             player.alpha = amount * 4;
             
+            //fixed bish
             pixelFloor.alpha = 1 - amount;
-            // floor.alpha = amount;
+            trace(pixelFloor.alpha);
+            floor.alpha = amount * 2;
         }
     }
 }
