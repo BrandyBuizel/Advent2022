@@ -114,7 +114,7 @@
         { "id"     : "chimney"
         , "name"   : "Holiday Hominid Drop"
         , "authors": ["brandybuizel:design", "knosedoge:code", "danfrombavaria:music"]
-        , "day"    : 1
+        , "day"    : 10
         , "mobile" : false
         , "medal"  : false
         , "type"   : "overlay"
@@ -134,8 +134,10 @@
         
     ]
 ,   "medals":
-    { 
-		
+    { "cheese"    		: 61555
+	, "yuleYeti"  		: 71373
+    , "yuleSanta" 		: 71374
+    , "yuleAllCards"	: 71375
     }
 ,   "instruments":
     [
