@@ -2,7 +2,7 @@ package states.rooms;
 
 import data.Calendar;
 import ui.Phone;
-
+import data.NGio;
 import data.Game;
 import data.Manifest;
 import data.Skins;
@@ -103,7 +103,11 @@ class CandlesState extends RoomState
         }
 
         if(Calendar.day == 7){
-            trace("day 7");
+            if(player.x < 400)
+            {
+                trace("day 7");
+                NGio.unlockMedalByName("candles");
+            }
         }
     }
     
