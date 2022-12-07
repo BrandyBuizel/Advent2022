@@ -62,6 +62,7 @@ class Present extends flixel.FlxSprite
     /** Yes, this is a Simpsons reference */
     public function embiggen()
     {
+        //present scaling mipmap
         scale.set(1, 1);
         width *= 2;
         offset.x -= 4;
