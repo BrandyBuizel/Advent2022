@@ -1,5 +1,6 @@
 package states.rooms;
 
+import data.Calendar;
 import ui.Phone;
 
 import data.Game;
@@ -18,6 +19,7 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 
 import openfl.filters.ShaderFilter;
+import flixel.util.FlxSpriteUtil;
 
 class CandlesState extends RoomState
 {
@@ -33,7 +35,7 @@ class CandlesState extends RoomState
         
         add(new vfx.Snow());
         
-        clayfire.visible = false;
+        //clayfire.alpha = 0;
         
         //background.getByName("background").scrollFactor.set(0, 0.35);
     }
@@ -53,12 +55,34 @@ class CandlesState extends RoomState
         {
             var floor = getDaySprite(background, "intro_candles");
             floor.setBottomHeight(floor.frameHeight);
+
             shade = new ShadowSprite(floor.x, floor.y);
-            shade.makeGraphic(floor.frameWidth, floor.frameHeight, 0xD8000022);
-                        
-            shade.shadow.setLightRadius(1, 60);
-            for (i=>candle in background.getAllWithName("clayfire_ogmo").members)
-                shade.shadow.setLightPos(i + 2, candle.x + candle.width / 2, candle.y);
+            //set shade to a solid rectangle
+            //shade.makeGraphic(floor.frameWidth, floor.frameHeight, 0xD8000022);
+            shade.loadGraphic("assets/images/props/candles/intro_candles_mask_ogmo.png", true, 1536);
+            shade.x = 384/-8;
+            shade.y = 150/-4;
+            //shade.scale.x = 0.8;
+            //shade.scale.y = 0.8;
+            shade.shadow.setLightRadius(1, 120);
+
+            //DITHER LIMITED TO 5 LIGHTS
+            /*
+            for (i=>candle in background.getAllWithName("clayfire").members)
+                shade.shadow.setLightPos(i + 2, candle.x, candle.y);
+            for (i=>candle in foreground.getAllWithName("clayfire").members)
+                shade.shadow.setLightPos(i + 2, candle.x, candle.y);
+            */
+
+            /*
+            for (i=>candle in background.getAllWithName("clayfire").members)
+            {
+                if(candle.x < player.x)
+                {
+                    shade.shadow.setLightPos(i + 2, candle.x, candle.y);
+                }
+            }
+            */
             topGround.add(shade);
         }
     }
@@ -72,7 +96,14 @@ class CandlesState extends RoomState
 
         if (Game.allowShaders)
         {
-            shade.shadow.setLightPos(1, player.x + player.width / 2, player.y - 8);
+            shade.shadow.setLightPos(1, player.x + 50, player.y + 30);
+
+            //Animated tween to flicker
+            //shade.shadow.setLightRadius(1, 120);
+        }
+
+        if(Calendar.day == 7){
+            trace("day 7");
         }
     }
     

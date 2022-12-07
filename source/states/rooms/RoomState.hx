@@ -871,7 +871,10 @@ class RoomState extends OgmoState
 
 enum abstract RoomName(String) to String
 {
+    //ADD NEW ROOMS HERE
     var Intro = "intro";
     var Outside = "outside";
+    var Cafe  = "cafe";
+    var Candles  = "candles";
     var Arcade  = "arcade";
 }

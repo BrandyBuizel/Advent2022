@@ -44,10 +44,15 @@ class Game
         #end
         
         roomTypes = [];
-        addRoom(Outside, OutsideState.new);
         addRoom(Intro, IntroState.new, false);
+        addRoom(Outside, OutsideState.new);
+        //addRoom(Cafe, CafeState.new);
+        addRoom(Candles, CandlesState.new);
         
         arcadeTypes = [];
+        #if INCLUDE_DIG_GAME
+        arcadeTypes[Chimney] = chimney.MenuState.new.bind(0);
+        #end
         
         
         #if SKIP_INTRO
