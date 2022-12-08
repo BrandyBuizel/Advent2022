@@ -102,7 +102,7 @@ class CandlesState extends RoomState
             //shade.shadow.setLightRadius(1, 120);
         }
 
-        if(Calendar.day == 7){
+        if(Calendar.day >= 7){
             if(player.x < 400)
             {
                 trace("day 7");
