@@ -33,6 +33,8 @@
     , "krinkels"	 	: { "proper": "Krinkels"  		}
     , "travsaus" 		: { "proper": "travsaus"  		}
     , "clatform" 		: { "proper": "Clatform"  		}
+    , "thedyingsun" 	: { "proper": "TheDyingSun"  	}
+    , "imkevin" 		: { "proper": "ImKevin"  		}
     }
 ,   "extras":
     {
@@ -129,6 +131,13 @@
         , "day"      : 12
         , "medal"    : true
         }
+	,   { "id"     : "a_gift_to_never_forget"
+        , "name"   : "A Gift To Never Forget"
+        , "authors": ["imkevin"]
+        , "day"    : 8
+        , "comic"  : { "pages": 11 }
+        , "medal"  : true
+        }
     ]
 ,   "events":
     {
@@ -136,7 +145,18 @@
     }
 ,   "arcades":
     [
-		{ "id"     : "2020"
+		{ "id"     : "2021"
+        , "name"   : "Tankmas ADVENTure 2021"
+        , "authors": 
+            [ "splatterdash"
+			, "knosedoge"
+			, "thedyingsun"
+			, "geokureli"
+            , "brandybuizel"
+            ]
+        , "type"   : "external"
+        }
+	,	{ "id"     : "2020"
         , "name"   : "Tankmas ADVENTure 2020"
         , "authors": 
             [ "geokureli"

@@ -55,7 +55,7 @@
 	<!-- <define name="USE_LOCAL_SERVER" if="debug"/> -->
 	<!-- <define name="USE_DEBUG_SERVER"/> -->
 	
-	<!-- <define name="LOAD_DISK_CAROUSEL"/> -->
+	<!--<define name="LOAD_DISK_CAROUSEL"/>-->
 	<!-- <define name="CLEAR_SAVE" if="debug"/> -->
 	<!-- <define name="DISABLE_SAVE" if="debug"/> -->
 	<!-- <define name="FORGET_INSTRUMENT" if="debug"/> -->
@@ -88,16 +88,16 @@
 	<define name="ADVENT"/>
 	
 	<!-- embedded game example from 2021 -->
-	<!-- <define name="INCLUDE_YETI_GAME"/>
-	<section if="INCLUDE_YETI_GAME">
-		<define name="SKIP_TO_YETI_GAME" if="debug"/>
+	<define name="INCLUDE_YULE_GAME"/>
+	<section if="INCLUDE_YULE_GAME">
+		<define name="SKIP_TO_YULE_GAME" if="debug"/>
 		
-		<classpath name="yeti/source"/>
-		<library name="yeti" preload="false" />
-		<assets path="yeti/assets" rename="assets/arcades/yeti" library="yeti" exclude="*.ase|*.wav" />
+		<classpath name="yule/source"/>
+		<library name="yule" preload="false" />
+		<assets path="yule/assets" rename="assets/arcades/yeti" library="yule" exclude="*.ase|*.wav" />
 		
 	</section> -->
-<!--
+
 	<define name="INCLUDE_CHIMNEY_GAME"/>
 	<section if="INCLUDE_CHIMNEY_GAME">
 		
@@ -106,7 +106,6 @@
 		<assets path="chimney/assets" rename="assets/arcades/chimney" library="chimney" exclude="*.ase|*.wav"/>
 		
 	</section>
--->
 
 	<!-- <define name="PRELOAD_INSTRUMENTS"/> -->
 	<!-- <define name="PRELOAD_INSTRUMENTS" if="PRELOAD_ALL"/>
@@ -134,8 +133,8 @@
 	<assets path="assets/notes/piano"        exclude="*.wav" library="piano" /> -->
 	
 	<!-- Example comic from 2021 -->
-	<!-- <library name="convict_sukz" preload="false" />
-	<assets path="assets/comics/convict_sukz" rename="assets/convict_sukz" library="convict_sukz"/> -->
+	<library name="a_gift_to_never_forget" preload="false" />
+	<assets path="assets/comics/a_gift_to_never_forget" rename="assets/a_gift_to_never_forget" library="a_gift_to_never_forget"/>
 	
 	<define name="ADVENT"/>
 

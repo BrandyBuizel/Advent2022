@@ -160,6 +160,7 @@ class CafeState extends RoomState
             case Advent2018: "https://www.newgrounds.com/portal/view/721061";
             case Advent2019: "https://www.newgrounds.com/portal/view/743161";
             case Advent2020: "https://www.newgrounds.com/portal/view/773236";
+           //case Advent2021: "https://www.newgrounds.com/portal/view/824174";
             default:
                 throw "Unhandled arcade id:" + id;
         }
@@ -232,7 +233,7 @@ class CafeState extends RoomState
                 //end
             }
         }
-        
+
         var placemats = new FlxTypedGroup<Placemat>();
         for (placemat in spots)
             placemats.add(placemat);
@@ -314,7 +315,7 @@ class CafeState extends RoomState
             addHoverTextTo(waiter, "TALK", talkToWaiter.bind(waiter));
         
         #if LOAD_DISK_CAROUSEL
-        var juke = foreground.assertByName("cafe-juke");
+        var juke = foreground.assertByName("juke");
         addHoverTextTo(juke, "Music", ()->openSubState(new MusicSelectionSubstate()));
         #end
     }
@@ -409,6 +410,7 @@ class CafeState extends RoomState
         speech.showMsgQueue(msgs,
             function onComplete()
             {
+                /*
                 var oldOrder = player.state.order;
                 var menu = new CafeOrderSubstate();
                 menu.closeCallback = function()
@@ -430,6 +432,7 @@ class CafeState extends RoomState
                     }
                 }
                 openSubState(menu);
+                */
             }
         );
     }

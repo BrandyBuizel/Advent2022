@@ -874,7 +874,7 @@ enum abstract RoomName(String) to String
     //ADD NEW ROOMS HERE
     var Intro = "intro";
     var Outside = "outside";
-    var Cafe  = "cafe";
     var Candles  = "candles";
+    var Cafe  = "cafe";
     var Arcade  = "arcade";
 }

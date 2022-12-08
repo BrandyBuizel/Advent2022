@@ -37,8 +37,8 @@ class Waiter extends Npc
         // instead of waiting in an update
         else if (PlayerSettings.user.order == RANDOM)
         {
-            notif = new Notif();
-            notif.animate();
+            //notif = new Notif();
+            //notif.animate();
         }
     }
     

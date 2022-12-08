@@ -46,8 +46,8 @@ class Game
         roomTypes = [];
         addRoom(Intro, IntroState.new, false);
         addRoom(Outside, OutsideState.new);
-        //addRoom(Cafe, CafeState.new);
         addRoom(Candles, CandlesState.new);
+        addRoom(Cafe, CafeState.new);
         
         arcadeTypes = [];
         #if INCLUDE_DIG_GAME
