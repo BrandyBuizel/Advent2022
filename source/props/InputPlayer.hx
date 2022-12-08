@@ -97,11 +97,13 @@ class InputPlayer extends Player
     
     public function gotKissed(player:Player)
     {
+        /*
         if (state.infected == false && (player.state.infected || player.name.toLowerCase() == "tomfulp"))
         {
             NGio.unlockMedalByName("warm_winter_feelings");
             state.infected = true;
         }
+        */
     }
     
     public function mobileEmotePressed()
