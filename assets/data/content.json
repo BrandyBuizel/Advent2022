@@ -35,6 +35,7 @@
     , "clatform" 		: { "proper": "Clatform"  		}
     , "thedyingsun" 	: { "proper": "TheDyingSun"  	}
     , "imkevin" 		: { "proper": "ImKevin"  		}
+    , "chromacee" 		: { "proper": "ChromaCee"  		}
     }
 ,   "extras":
     {
@@ -63,6 +64,10 @@
     ,   { "id"       : "carmet"
         , "name"     : "Kirpakka"
         , "day"      : 7
+        }
+    ,   { "id"       : "chromacee"
+        , "name"     : "Deck The Halls Lofi"
+        , "day"      : 9
         }
     ]
 ,   "artwork":

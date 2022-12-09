@@ -59,6 +59,13 @@
     , "users": ["tomfulp", "danpaladin", "travsaus"]
     , "group":"alien_hominid"
     }
+,   { "id": "madness_grunt"
+    , "proper": "Madness Grunt"
+    , "description": "This isn’t Hank, this isn’t Deimos or anyone canonically cool or special.\nThis is the guy who dies, repeatedly."
+    , "unlocksBy": "login"
+    , "users": ["krinkels"]
+    , "group":"madness"
+    }
 ,   { "id": "alan"
     , "proper": "Alan"
     , "description": "My personal favourite Smiling Friend :)\nyou found his piece of cheese in 2020!"
