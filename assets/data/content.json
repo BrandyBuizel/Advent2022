@@ -36,6 +36,7 @@
     , "thedyingsun" 	: { "proper": "TheDyingSun"  	}
     , "imkevin" 		: { "proper": "ImKevin"  		}
     , "chromacee" 		: { "proper": "ChromaCee"  		}
+    , "cynicallysly" 	: { "proper": "cynicallysly"  	}
     }
 ,   "extras":
     {
@@ -63,10 +64,14 @@
         }
     ,   { "id"       : "carmet"
         , "name"     : "Kirpakka"
+		, "key"      : "f#Maj"
+        , "bpm"      : 130
         , "day"      : 7
         }
     ,   { "id"       : "chromacee"
         , "name"     : "Deck The Halls Lofi"
+		, "key"      : "dMaj"
+        , "bpm"      : 78
         , "day"      : 9
         }
     ]
@@ -127,8 +132,13 @@
         , "medal"    : true
         }
 	,   { "id"       : "travsaus"
-        , "name"     : ""
+        , "name"     : "Christmas Shopping"
         , "day"      : 10
+        , "medal"    : true
+        }
+	,   { "id"       : "cynicallysly"
+        , "name"     : "Stay Indoors"
+        , "day"      : 11
         , "medal"    : true
         }
 	,   { "id"       : "clatform"
