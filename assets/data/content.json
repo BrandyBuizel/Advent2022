@@ -198,16 +198,16 @@
     ,	{ "id"     : "chimney"
         , "name"   : "Holiday Hominid Drop"
         , "authors": ["brandybuizel:design", "knosedoge:code", "danfrombavaria:music"]
-        , "day"    : 10
+        , "day"    : 12
         , "mobile" : false
         , "medal"  : false
         , "type"   : "overlay"
         , "camera" : { "width":240, "height": 270 }
         }
-	,   { "id"     : "yule"
+	,   { "id"     : "yuleduel"
         , "name"   : "Yule Duel"
         , "authors": ["axolstudio:code", "bingowaders:art", "gallowjolt:art", "albegian:music"]
-        , "day"    : 10
+        , "day"    : 12
         , "mobile" : false
         , "type"   : "overlay"
         , "camera" : { "width":960, "height": 540 }

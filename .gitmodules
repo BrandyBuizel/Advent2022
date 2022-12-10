@@ -4,3 +4,6 @@
 [submodule "coffee"]
 	path = coffee
 	url = https://github.com/Jvarca77/BlueDoor
+[submodule "yuleduel"]
+	path = yuleduel
+	url = https://github.com/AxolStudio/NGTankmas2022Game
