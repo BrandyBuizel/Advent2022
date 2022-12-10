@@ -116,11 +116,11 @@ class CafeState extends RoomState
     function playCabinet(data:ArcadeCreation)
     {
         /*
-        if (data.id == Yeti && yetiNotif != null)
+        if (data.id == YuleDuel && yuleNotif != null)
         {
-            Save.yetiSeen();
-            yetiNotif.kill();
-            yetiNotif = null;
+            //Save.yuleSeen();
+            yuleNotif.kill();
+            yuleNotif = null;
         }
         */
         
@@ -143,14 +143,26 @@ class CafeState extends RoomState
             FlxG.sound.music.stop();
         FlxG.sound.music = null;
         
-        var overlay = Game.createArcadeOverlay(id);
+        var data = Content.arcades[id];
+        var overlay = switch(id)
+        {
+            #if INCLUDE_CHIMNEY_GAME
+            case Chimney: new OverlaySubstate(data, new chimney.PlayState());
+            #end
+            #if INCLUDE_YULE_GAME
+            case YuleDuel: new OverlaySubstate(data, new holidayccg.states.PlayState());
+            #end
+            default:
+                throw "Unhandled arcade id:" + id;
+        }
+        
         overlay.closeCallback = ()->
         {
             if (FlxG.sound.music != null)
                 FlxG.sound.music.stop();
             Manifest.playMusic(Game.chosenSong);
         }
-        openSubState(overlay);
+        //openSubState(overlay);
     }
     
     function openExternalArcade(id:ArcadeName)

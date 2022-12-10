@@ -50,10 +50,12 @@ class Game
         addRoom(Cafe, CafeState.new);
         
         arcadeTypes = [];
-        #if INCLUDE_DIG_GAME
+        #if INCLUDE_CHIMNEY_GAME
         arcadeTypes[Chimney] = chimney.MenuState.new.bind(0);
         #end
-        
+        #if INCLUDE_YULE_GAME
+        arcadeTypes[YuleDuel] = holidayccg.states.PlayState.new.bind(0);
+        #end        
         
         #if SKIP_INTRO
         var showIntro = false;

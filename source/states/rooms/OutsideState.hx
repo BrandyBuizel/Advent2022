@@ -22,6 +22,7 @@ class OutsideState extends SmoothRoomState
         add(new vfx.Snow());
         
         background.getByName("background").scrollFactor.set(0, 0.35);
+        background.getByName("midground").scrollFactor.set( 0.7, 0.5);
     }
     
     // override function initUi()

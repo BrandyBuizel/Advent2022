@@ -151,7 +151,7 @@
         , "authors": ["imkevin"]
         , "day"    : 12
         , "comic"  : { "pages": 11 }
-        , "medal"  : true
+        , "medal"  : false
         }
     ]
 ,   "events":
@@ -207,6 +207,7 @@
 	,   { "id"     : "yuleduel"
         , "name"   : "Yule Duel"
         , "authors": ["axolstudio:code", "bingowaders:art", "gallowjolt:art", "albegian:music"]
+        , "day"    : 12
         , "day"    : 12
         , "mobile" : false
         , "type"   : "overlay"

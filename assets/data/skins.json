@@ -66,6 +66,13 @@
     , "users": ["krinkels"]
     , "group":"madness"
     }
+,   { "id": "guard"
+    , "proper": "Cat Guard"
+    , "description": "But I guess there's no reasoning with madness. Or cats for that matter!\nSeriously, try talking sense into a cat. They just stare at you with their lifeless, patronizing eyeballs..."
+    , "unlocksBy": "day:6"
+    , "users": ["brandybuizel", "travsaus"]
+    , "group":"battleblock"
+    }
 ,   { "id": "alan"
     , "proper": "Alan"
     , "description": "My personal favourite Smiling Friend :)\nyou found his piece of cheese in 2020!"
