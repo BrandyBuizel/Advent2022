@@ -37,6 +37,7 @@
     , "imkevin" 		: { "proper": "ImKevin"  		}
     , "chromacee" 		: { "proper": "ChromaCee"  		}
     , "cynicallysly" 	: { "proper": "cynicallysly"  	}
+    , "tebythecat" 		: { "proper": "TebyTheCat"  	}
     }
 ,   "extras":
     {
@@ -73,6 +74,11 @@
 		, "key"      : "dMaj"
         , "bpm"      : 78
         , "day"      : 9
+        }
+	,   { "id"       : "tebythecat"
+        , "name"     : "Snowed Surroundings"
+        , "bpm"      : 112
+        , "day"      : 11
         }
     ]
 ,   "artwork":
