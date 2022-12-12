@@ -438,16 +438,8 @@ abstract OgmoDecal(FlxSprite) to FlxSprite from FlxSprite
         // allow player to go behind stuff
         if (data.values != null)
         {
-            var isTree = path.indexOf("tree") > -1;
-            var isCandle = path.indexOf("clayfire") > -1;
             var values = data.values;
-
-            //cheap candlelight fix
-            if (isCandle)
-                setBottomHeight(-100);
-            else if (isTree)
-                setBottomHeight(this.height / 4);
-            else if (values.bottomHeight == null || values.bottomHeight == 0)
+            if (values.bottomHeight == null || values.bottomHeight == 0)
                 setBottomHeight(this.height / 3);
             else if (values.bottomHeight != -1)
                 setBottomHeight(values.bottomHeight);

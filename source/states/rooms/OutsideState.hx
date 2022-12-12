@@ -1,5 +1,6 @@
 package states.rooms;
 
+import data.Save;
 import ui.Phone;
 
 import data.Skins;
@@ -14,6 +15,7 @@ class OutsideState extends SmoothRoomState
     var changingRoom:OgmoDecal;
     var easterEgg:OgmoDecal;
     var changingRoomNotif:Notif;
+    var tree:OgmoDecal;
     
     override function create()
     {
@@ -23,6 +25,23 @@ class OutsideState extends SmoothRoomState
         
         background.getByName("background").scrollFactor.set(0, 0.35);
         background.getByName("midground").scrollFactor.set( 0.7, 0.5);
+        tree = foreground.getIndexNamedObject("tree", 33);
+        if (tree != null)
+            tree.setBottomHeight(tree.frameHeight / 4);
+        
+        // final treeBase = background.getByName("tree_base");
+        // if (treeBase != null)
+        // {
+        //     background.remove(treeBase);
+        //     foreground.add(treeBase);
+        //     treeBase.setBottomHeight(90);
+        // }
+        
+        for (candle in foreground.getAllWithName("clayfire"))
+        {
+            foreground.remove(candle);
+            topGround.add(candle);
+        }
     }
     
     // override function initUi()
@@ -46,7 +65,9 @@ class OutsideState extends SmoothRoomState
             easterEgg.visible = true;
             topGround.add(easterEgg);
             easterEgg.setBottomHeight(16);
-        }else{
+        }
+        else
+        {
             easterEgg.visible = false;
         }
 
@@ -58,6 +79,7 @@ class OutsideState extends SmoothRoomState
         changingRoomNotif.x = changingRoom.x + (changingRoom.width - changingRoomNotif.width) / 2;
         changingRoomNotif.y = changingRoom.y + changingRoom.height - changingRoom.frameHeight - 12;
         changingRoomNotif.animate();
+        changingRoomNotif.visible = Skins.checkHasUnseen();
         topGround.add(changingRoomNotif);
 
         //Note by blue door saying it's closed

@@ -37,6 +37,12 @@ class CandlesState extends RoomState
         
         //clayfire.alpha = 0;
         
+        for (candle in foreground.getAllWithName("clayfire"))
+        {
+            foreground.remove(candle);
+            topGround.add(candle);
+        }
+        
         //background.getByName("background").scrollFactor.set(0, 0.35);
     }
     
