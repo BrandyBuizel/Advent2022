@@ -93,7 +93,7 @@ class CafeState extends RoomState
         }
         #end
         
-        initPlacemats(seatsByName, placematsByName);
+        //initPlacemats(seatsByName, placematsByName);
     }
     
     // --- --- --- --- --- --- Cabinets --- --- --- --- --- --- --- ---
@@ -268,9 +268,9 @@ class CafeState extends RoomState
             return table;
         }
         
-        createBarTable("bar1", "bar2");
-        createBarTable("bar3", "bar4");
-        createBarTable("bar5", "bar6");
+        //createBarTable("bar1", "bar2");
+        //createBarTable("bar3", "bar4");
+        //createBarTable("bar5", "bar6");
         
         FlxG.overlap(placemats, tableHitboxes,
             (placemat:Placemat, tableHitbox:FlxObject)->
