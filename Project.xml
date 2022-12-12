@@ -98,7 +98,7 @@
 		<assets path="yuleduel/assets" rename="assets/arcades/yuleduel" library="yuleduel" exclude="*.ase|*.wav" />
 		
 	</section>
-
+	
 	<define name="INCLUDE_CHIMNEY_GAME"/>
 	<section if="INCLUDE_CHIMNEY_GAME">
 		

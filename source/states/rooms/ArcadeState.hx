@@ -1,15 +1,24 @@
 package states.rooms;
 
-import data.Manifest;
-import states.OgmoState;
-import data.Calendar;
 import data.Game;
+import data.Manifest;
+import data.Save;
+import data.Calendar;
 import data.Content;
+import data.Net;
+
+import states.OgmoState;
+
 import props.Cabinet;
 import ui.Prompt;
 
 import flixel.FlxG;
-import flixel.math.FlxMath;
+import flixel.FlxObject;
+import flixel.FlxSprite;
+import flixel.group.FlxGroup;
+import flixel.group.FlxSpriteGroup;
+import flixel.math.FlxPoint;
+import flixel.math.FlxVector;
 
 class ArcadeState extends RoomState
 {
