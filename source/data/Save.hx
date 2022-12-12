@@ -67,9 +67,6 @@ class Save
             data = Json.parse(NG.core.saveSlots[1].contents);
         #end
         
-        /** bugfix */
-        data.skin = 0;
-        
         log("presents: " + data.presents);
         log("seen days: " + data.days);
         log("seen skins: " + data.skins);
