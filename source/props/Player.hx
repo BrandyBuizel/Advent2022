@@ -158,8 +158,8 @@ class Player extends flixel.FlxSprite
             velocity.length = MAX_SPEED;
         
         hitbox.update(elapsed);
-        final marginX = (hitbox.width - width) / 2 + hitboxOffset.x;
-        final marginY = (hitbox.height - height) / 2 + hitboxOffset.y;
+        final marginX = hitbox.width - width + hitboxOffset.x;
+        final marginY = hitbox.height - height + hitboxOffset.y;
         hitbox.setPosition(x - marginX, y + height + marginY - hitbox.height - 4);
         
         #if debug
@@ -429,8 +429,13 @@ class Player extends flixel.FlxSprite
             skinOffset.set(data.offset.x, data.offset.y);
             offset.addPoint(skinOffset);
         }
-        hitbox.width  = width  + 12;
-        hitbox.height = height + 14;
+        
+        var bounds = this.getScreenBounds();
+        hitboxOffset.x = -offset.x;
+        hitboxOffset.y = -offset.y;
+        hitbox.width  = frameWidth;
+        hitbox.height = frameHeight;
+        bounds.put();
     }
     #end
 }
