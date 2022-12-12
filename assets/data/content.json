@@ -156,7 +156,7 @@
         , "name"   : "A Gift To Never Forget"
         , "authors": ["imkevin"]
         , "day"    : 12
-        , "comic"  : { "pages": 11 }
+        , "comic"  : { "pages": 25 }
         , "medal"  : false
         }
     ]
