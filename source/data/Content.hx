@@ -1,5 +1,7 @@
 package data;
 
+import data.ArcadeGame;
+
 import flixel.FlxG;
 import states.OgmoState;
 
@@ -418,13 +420,19 @@ class Content
                         addError('Missing ${arcade.path}');
                     if (!cabinetIds.contains(arcade.id))
                         addError('Missing Cabinet in arcade id:${arcade.id}');
-                    if (arcade.type == State && !teleportIds.contains(arcade.id))
+                    if (arcade.type == STATE && !teleportIds.contains(arcade.id))
                         addError('Missing Teleport in arcade id:${arcade.id}');
                 }
-                if (arcade.type != External && arcade.medal && !Manifest.exists(arcade.medalPath, IMAGE))
+                
+                if (arcade.type == EXTERNAL && arcade.url == null)
+                    addError('Missing url for external arcade ${arcade.id}');
+                
+                if (arcade.type != EXTERNAL && arcade.medal && !Manifest.exists(arcade.medalPath, IMAGE))
                     addError('Missing ${arcade.medalPath}');
+                
                 // if (arcade.authors == null)
                 //     errors.push('Missing arcade authors id:${arcade.id}');
+                
                 if (arcade.authors != null)
                 {
                     for (author in arcade.authors)
@@ -687,27 +695,6 @@ typedef SongCreation
     var ext:String;
 }
 
-typedef ArcadeCamera =
-{
-    var width:Int;
-    var height:Int;
-    var zoom:Int;
-}
-
-typedef ArcadeCreation
-= Creation &
-{
-    var ngId:Int;
-    var scoreboard:String;
-    var scoreboardId:Int;
-    var medalPath:String;
-    var mobile:Bool;
-    var medal:Bool;
-    var type:ArcadeType;
-    var camera:ArcadeCamera;
-    var cabinet:Bool;
-}
-
 typedef ComicCreation =
 {
     var pages:Int;
@@ -717,20 +704,6 @@ typedef ComicCreation =
 
 typedef MovieCreation = Creation &
 {
-}
-
-enum abstract ArcadeName(String) to String
-{
-    var Advent2018 = "2018";
-    var Advent2019 = "2019";
-    var Advent2020 = "2020";
-}
-
-enum abstract ArcadeType(String) to String
-{
-    var State    = "state";
-    var Overlay  = "overlay";
-    var External = "external";
 }
 
 typedef InstrumentData =

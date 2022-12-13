@@ -1,27 +1,28 @@
 package states;
 
-import openfl.utils.Assets;
-import ui.Font;
-import flixel.math.FlxRect;
-import flixel.FlxSprite;
-import flixel.text.FlxBitmapText;
+import data.ArcadeGame;
 import data.Content;
 import ui.Controls;
+import ui.Font;
 import utils.OverlayGlobal;
 import vfx.CrtShader;
 
+import flixel.FlxSprite;
 import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.group.FlxGroup;
+import flixel.math.FlxRect;
+import flixel.text.FlxBitmapText;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 
 import openfl.filters.ShaderFilter;
+import openfl.utils.Assets;
 
 class OverlaySubstate extends flixel.FlxSubState
 {
-    public var data:ArcadeCreation;
+    public var data:ArcadeGame;
     public var state(default, null):FlxState = null;
     
     var requestedState:FlxState = null;
@@ -33,7 +34,7 @@ class OverlaySubstate extends flixel.FlxSubState
     var oldBounds:FlxRect;
     var bg:FlxSprite;
     
-    public function new(data:ArcadeCreation, initialState:FlxState)
+    public function new(data:ArcadeGame, initialState:FlxState)
     {
         super();
         

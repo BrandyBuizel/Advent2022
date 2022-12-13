@@ -793,27 +793,9 @@ class RoomState extends OgmoState
         FlxG.camera.fade(0xD8000022, 0.25, false, () -> Game.goToRoom(target));
     }
     
-    function openUrl(url:String, ?customMsg:String, ?onYes:()->Void):Void
+    function openUrl(url:URL, ?customMsg:String, ?onYes:()->Void):Void
     {
-        var prompt = new Prompt();
-        add(prompt);
-        
-        if (customMsg == null)
-            customMsg = "";
-        else
-            customMsg += "\n\n";
-        customMsg += 'Open external page?\n${prettyUrl(url)}';
-        
-        prompt.setupYesNo
-            ( customMsg
-            , ()->
-            {
-                FlxG.openURL(url);
-                if (onYes != null) onYes();
-            }
-            , null
-            , remove.bind(prompt)
-            );
+        url.open(customMsg, onYes);
     }
     
     
@@ -838,14 +820,6 @@ class RoomState extends OgmoState
     function onInstrumentClick():Void
     {
         openSubState(new PianoSubstate());
-    }
-    
-    function prettyUrl(url:String)
-    {
-        if (url.indexOf("://") != -1)
-            url = url.split("://").pop();
-        
-        return url.split("default.aspx").join("");
     }
     
     override function destroy()

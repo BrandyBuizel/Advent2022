@@ -1,5 +1,6 @@
 package data;
 
+import data.ArcadeGame;
 import data.Content;
 import data.Calendar;
 import data.Save;
@@ -16,13 +17,11 @@ class Game
 {
     static public var room(get, never):RoomState;
     static function get_room() return Std.downcast(FlxG.state, RoomState);
-    static public var arcadeName(default, null):ArcadeName = null;
     
     static public var state:EventState = NONE;
     static public var chosenSong:String = null;
     
     static var roomTypes:Map<RoomName, RoomConstructor>;
-    static var arcadeTypes:Map<ArcadeName, ()->FlxState>;
     static public var allowShaders(default, null):Bool = true;
     static public var disableShaders(get, never):Bool;
     inline static function get_disableShaders() return !allowShaders;
@@ -50,13 +49,7 @@ class Game
         addRoom(Candles, CandlesState.new);
         addRoom(Cafe, CafeState.new);
         
-        arcadeTypes = [];
-        #if INCLUDE_CHIMNEY_GAME
-        arcadeTypes[Chimney] = chimney.MenuState.new.bind(0);
-        #end
-        #if INCLUDE_YULE_GAME
-        arcadeTypes[YuleDuel] = holidayccg.states.PlayState.new.bind(0);
-        #end        
+        initArcades();
         
         #if SKIP_INTRO
         var showIntro = false;
@@ -79,6 +72,11 @@ class Game
         //     state = LuciaDay(Started);
         // else if (Save.noPresentsOpened())
         //     state = Intro(Started);
+    }
+    
+    inline static function initArcades()
+    {
+        ArcadeGame.init();
     }
     
     inline static function addRoom(name, constructor, isNetworked = true)
@@ -118,36 +116,14 @@ class Game
         Game.goToRoom(initialRoom);
     }
     
-    static public function createArcadeOverlay(id:ArcadeName)
+    inline static public function playCabinet(id:ArcadeName)
     {
-        if (arcadeTypes.exists(id))
-            return new OverlaySubstate(Content.arcades[id], arcadeTypes[id]());
-        
-        throw "Unhandled arcade id:" + id;
+        ArcadeGame.playById(id);
     }
     
-    /** Switches the state to an arcade game state */
-    static public function goToArcade(name:ArcadeName):Void
+    inline static public function exitArcadeGame():Void
     {
-        if (!arcadeTypes.exists(name))
-            throw "No constructor found for arcade:" + name;
-        
-        if (FlxG.sound.music != null)
-            FlxG.sound.music.stop();
-        FlxG.sound.music = null;
-        
-        arcadeName = name;
-        FlxG.switchState(arcadeTypes[name]());
-    }
-    
-    static public function exitArcade():Void
-    {
-        goToRoom(Arcade + "." + arcadeName);
-        
-        if (FlxG.sound.music != null)
-            FlxG.sound.music.stop();
-        FlxG.sound.music = null;
-        Manifest.playMusic(chosenSong);
+        ArcadeGame.exitActiveGame();
     }
 }
 

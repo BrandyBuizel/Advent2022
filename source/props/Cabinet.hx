@@ -1,5 +1,6 @@
 package props;
 
+import data.ArcadeGame;
 import data.Calendar;
 import data.Content;
 import data.Manifest;
@@ -8,12 +9,12 @@ import states.OgmoState;
 
 import flixel.FlxSprite;
 
-typedef CabinetValues = { id:String }
+typedef CabinetValues = { id:ArcadeName }
 
 class Cabinet extends flixel.FlxSprite
 {
     public final enabled = false;
-    public final data:ArcadeCreation;
+    public final data:ArcadeGame;
     
     public function new (id:String, x = 0.0, y = 0.0)
     {

@@ -88,10 +88,9 @@
 	<define name="ADVENT"/>
 	
 	<!-- embedded game example from 2021 -->
-	<!--
-	<define name="INCLUDE_YULE_GAME"/>
-	<section if="INCLUDE_YULE_GAME">
-		<define name="SKIP_TO_YULE_GAME" if="debug"/>
+	<define name="exclude_yule_game"/>
+	<section unless="exclude_yule_game">
+		<define name="skip_to_yule_game" if="debug"/>
 		
 		<classpath name="yuleduel/source"/>
 		<library name="yuleduel" preload="false" />
@@ -99,16 +98,16 @@
 		
 	</section>
 	
-	<define name="INCLUDE_CHIMNEY_GAME"/>
-	<section if="INCLUDE_CHIMNEY_GAME">
+	<define name="exclude_chimney_game"/>
+	<section unless="exclude_chimney_game">
+		<define name="skip_to_chimney_game" if="debug"/>
 		
 		<classpath name="chimney/source"/>
 		<library name="chimney" preload="false" />
 		<assets path="chimney/assets" rename="assets/arcades/chimney" library="chimney" exclude="*.ase|*.wav"/>
 		
 	</section>
-	-->
-
+	
 	<!-- <define name="PRELOAD_INSTRUMENTS"/> -->
 	<!-- <define name="PRELOAD_INSTRUMENTS" if="PRELOAD_ALL"/>
 	<section if="PRELOAD_INSTRUMENTS">
@@ -149,7 +148,9 @@
 
 	<!--In case you want to use the addons package-->
 	<haxelib name="flixel-addons" />
+	<haxelib name="flixel-ui" />
 	<haxelib name="hscript" if="debug"/>
+	<haxelib name="tjson" />
 
 	<!--In case you want to use the ui package-->
 	<!--<haxelib name="flixel-ui" />-->
