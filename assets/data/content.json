@@ -38,6 +38,7 @@
     , "chromacee"      : { "proper": "ChromaCee"      }
     , "cynicallysly"   : { "proper": "cynicallysly"   }
     , "tebythecat"     : { "proper": "TebyTheCat"     }
+    ,"chocoholicmonkey": { "proper":"chocoholicmonkey"}
     }
 ,   "extras":
     {
@@ -158,6 +159,11 @@
         , "day"    : 12
         , "comic"  : { "pages": 25 }
         , "medal"  : false
+        }
+    ,   { "id"   : "chocoholicmonkey"
+        , "name" : ""
+        , "day"  : 13
+        , "medal": true
         }
     ]
 ,   "events":

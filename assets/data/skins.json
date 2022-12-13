@@ -73,6 +73,12 @@
     , "users": ["brandybuizel", "travsaus"]
     , "group":"battleblock"
     }
+,   { "id": "pengu"
+    , "proper": "Pengu"
+    , "description": "Last year this little fella saved Christmas <3"
+    , "unlocksBy": "medal:13"
+    , "users": ["brandybuizel", "chocoholicmonkey", "stannco", "stepford", "fractalcounty"]
+    }
 ,   { "id": "alan"
     , "proper": "Alan"
     , "description": "My personal favourite Smiling Friend :)\nyou found his piece of cheese in 2020!"
