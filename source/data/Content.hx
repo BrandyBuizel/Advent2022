@@ -418,10 +418,10 @@ class Content
                 {
                     if (!Manifest.exists(arcade.path, IMAGE))
                         addError('Missing ${arcade.path}');
-                    if (!cabinetIds.contains(arcade.id))
-                        addError('Missing Cabinet in arcade id:${arcade.id}');
-                    if (arcade.type == STATE && !teleportIds.contains(arcade.id))
-                        addError('Missing Teleport in arcade id:${arcade.id}');
+                    // if (!cabinetIds.contains(arcade.id))
+                    //     addError('Missing Cabinet in arcade id:${arcade.id}');
+                    // if (arcade.type == STATE && !teleportIds.contains(arcade.id))
+                    //     addError('Missing Teleport in arcade id:${arcade.id}');
                 }
                 
                 if (arcade.type == EXTERNAL && arcade.url == null)

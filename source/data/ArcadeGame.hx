@@ -1,7 +1,10 @@
 package data;
 
-import states.OverlaySubstate;
 import data.Content;
+import data.Manifest;
+import states.rooms.RoomState;
+import states.OverlaySubstate;
+import ui.Controls;
 import ui.Prompt;
 
 import flixel.FlxG;
@@ -50,8 +53,12 @@ typedef ArcadeCreation
 @:forward
 abstract ArcadeGame(ArcadeCreation) from ArcadeCreation
 {
+    static public var activeGame(default, null):ArcadeName = null;
+    static public var skipToGameEnabled(default, null) = false;
+    
     static final states = new Map<ArcadeName, ()->FlxState>();
-    static var activeGame:ArcadeName = null;
+    static final destructors = new Map<ArcadeName, ()->Void>();
+    static var skipToID:ArcadeName = null;
     
     static function get(id:ArcadeName):ArcadeGame
     {
@@ -60,43 +67,76 @@ abstract ArcadeGame(ArcadeCreation) from ArcadeCreation
     
     static public function init()
     {
-        #if !exclude_chimney_game
+        #if !exclude_chimney
         states[Chimney] = chimney.MenuState.new.bind(0);
         #end
-        #if !exclude_yule_game
+        #if !exclude_yule_duel
         states[YuleDuel] = yuleduel.states.TitleState.new.bind(0);
+        destructors[YuleDuel] = yuleduel.globals.GameGlobals.uninit;
         #end
         
-        #if (skip_to_chimney_game || skip_to_yule_duel)
-            #error "Cannot have both flags: `skip_to_chimney_game` and `skip_to_yule_duel`";
+        #if (skip_to_chimney && skip_to_yule_duel)
+            #error "Cannot have both flags: `skip_to_chimney_duel` and `skip_to_yule_duel`";
         #end
-        #if (skip_to_chimney_game && exclude_chimney_game)
+        #if (skip_to_chimney && exclude_chimney)
             #error "cannot skip to Chimney game when excluded";
         #end
-        #if (skip_to_yule_duel && exclude_yule_game)
+        #if (skip_to_yule_duel && exclude_yule_duel)
+            trace("skipping to excluded");
             #error "cannot skip to YuleDuel when excluded";
         #end
         
-        var startingGameName:ArcadeName = null;
-        #if skip_to_chimney_game
-        startingGameName = Chimney;
+        skipToID = null;
+        #if skip_to_chimney
+        skipToID = Chimney;
         #end
         #if skip_to_yule_duel
-        startingGameName = YuleDuel;
+        skipToID = YuleDuel;
         #end
         
-        if (startingGameName != null)
+        if (skipToID != null)
         {
-            var game = get(startingGameName);
+            var game = get(skipToID);
             switch(game.type)
             {
-                case STATE: // unused
-                case EXTERNAL | OVERLAY:
-                    // FlxG.signals.
+                case STATE:
+                    if (game.hasState() == false)
+                        throw 'Attempting to skip to invalid arcade game: ${skipToID}';
+                    
+                    skipToGameEnabled = true;
+                    
+                case EXTERNAL:
+                    
+                    game.play();
+                    skipToID = null;
+                    
+                case OVERLAY:
+                    
+                    if (game.hasState() == false)
+                        throw 'Attempting to skip to invalid arcade game: ${skipToID}';
+                    
+                    function onRoomJoin()
+                    {
+                        if (FlxG.state is RoomState)
+                        {
+                            FlxG.signals.postStateSwitch.remove(onRoomJoin);
+                            game.play();
+                        }
+                    }
+                    
+                    FlxG.signals.postStateSwitch.add(onRoomJoin);
+                    skipToID = null;
             }
-            if (states.exists(startingGameName))
-                throw 'Attempting to play invalid arcade game: ${startingGameName}';
         }
+    }
+    
+    static public function switchToStartingGame(room:RoomName)
+    {
+        skipToGameEnabled = false;
+        activeGame = skipToID;
+        skipToID = null;
+        
+        get(activeGame).switchStateUnsafe(room);
     }
     
     static public function playById(id:ArcadeName)
@@ -108,16 +148,19 @@ abstract ArcadeGame(ArcadeCreation) from ArcadeCreation
         game.play();
     }
     
-    static public function exitActiveGame()
+    static public function exitActiveGameState(toRoom:RoomName)
     {
+        Game.goToRoom(toRoom + "." + activeGame);
         activeGame = null;
-        // Game.goToRoom(Arcade + "." + arcadeName);
-        // Game.goToRoom(Outside);
         
         if (FlxG.sound.music != null)
             FlxG.sound.music.stop();
         FlxG.sound.music = null;
-        Manifest.playMusic(Game.chosenSong);
+        
+        if (Game.chosenSong == null)
+            Content.playTodaysSong();
+        else
+            Manifest.playMusic(Game.chosenSong);
     }
     
     public var id(get, never):ArcadeName;
@@ -181,6 +224,7 @@ abstract ArcadeGame(ArcadeCreation) from ArcadeCreation
             activeGame = null;
             if (FlxG.sound.music != null)
                 FlxG.sound.music.stop();
+            
             Manifest.playMusic(Game.chosenSong);
         }
         
@@ -209,13 +253,42 @@ abstract ArcadeGame(ArcadeCreation) from ArcadeCreation
     }
     
     /** Switches the state to an arcade game state */
-    function switchStateUnsafe()
+    function switchStateUnsafe(?room:RoomName)
     {
         if (FlxG.sound.music != null)
             FlxG.sound.music.stop();
         FlxG.sound.music = null;
         
         activeGame = id;
-        FlxG.switchState(states[id]());
+        
+        if (room == null)
+            room = Game.room.name;
+        
+        FlxG.plugins.list.push(new ArcadeStatePlugin(room));
+        FlxG.switchState(new LoadingState(states[activeGame](), activeGame));
+    }
+}
+
+private class ArcadeStatePlugin extends flixel.FlxBasic
+{
+    var prevRoom:RoomName;
+    public function new(prevRoom:RoomName)
+    {
+        this.prevRoom = prevRoom;
+        super();
+    }
+    
+    override function update(elapsed)
+    {
+        super.update(elapsed);
+        
+        if (Controls.pressed.EXIT)
+            exitGame();
+    }
+    
+    inline function exitGame()
+    {
+        FlxG.plugins.list.remove(this);
+        ArcadeGame.exitActiveGameState(prevRoom);
     }
 }

@@ -88,9 +88,9 @@
 	<define name="ADVENT"/>
 	
 	<!-- embedded game example from 2021 -->
-	<define name="exclude_yule_game"/>
-	<section unless="exclude_yule_game">
-		<define name="skip_to_yule_game" if="debug"/>
+	<!-- <define name="exclude_yule_duel "/> -->
+	<section unless="exclude_yule_duel">
+		<define name="skip_to_yule_duel" if="debug"/>
 		
 		<classpath name="yuleduel/source"/>
 		<library name="yuleduel" preload="false" />
@@ -98,9 +98,9 @@
 		
 	</section>
 	
-	<define name="exclude_chimney_game"/>
-	<section unless="exclude_chimney_game">
-		<define name="skip_to_chimney_game" if="debug"/>
+	<define name="exclude_chimney"/>
+	<section unless="exclude_chimney">
+		<define name="skip_to_chimney" if="debug"/>
 		
 		<classpath name="chimney/source"/>
 		<library name="chimney" preload="false" />

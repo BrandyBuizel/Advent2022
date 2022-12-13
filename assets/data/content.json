@@ -206,7 +206,7 @@
         , "authors": ["axolstudio:code", "bingowaders:art", "gallowjolt:art", "albegian:music"]
         , "day"    : 12
         , "mobile" : false
-        , "type"   : "overlay"
+        , "type"   : "state"
         , "camera" : { "width":960, "height": 540 }
         }
     ]

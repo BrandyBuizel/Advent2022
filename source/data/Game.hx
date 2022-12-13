@@ -49,7 +49,7 @@ class Game
         addRoom(Candles, CandlesState.new);
         addRoom(Cafe, CafeState.new);
         
-        initArcades();
+        ArcadeGame.init();
         
         #if SKIP_INTRO
         var showIntro = false;
@@ -72,11 +72,6 @@ class Game
         //     state = LuciaDay(Started);
         // else if (Save.noPresentsOpened())
         //     state = Intro(Started);
-    }
-    
-    inline static function initArcades()
-    {
-        ArcadeGame.init();
     }
     
     inline static function addRoom(name, constructor, isNetworked = true)
@@ -107,6 +102,12 @@ class Game
         init();
         Controls.init();
         
+        if (ArcadeGame.skipToGameEnabled)
+        {
+            ArcadeGame.switchToStartingGame(Cafe);
+            return;
+        }
+        
         switch (Game.state)
         {
             case INTRO(START):
@@ -121,9 +122,9 @@ class Game
         ArcadeGame.playById(id);
     }
     
-    inline static public function exitArcadeGame():Void
+    inline static public function exitArcadeGameState(toRoom:RoomName):Void
     {
-        ArcadeGame.exitActiveGame();
+        ArcadeGame.exitActiveGameState(toRoom);
     }
 }
 
