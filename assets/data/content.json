@@ -11,34 +11,36 @@
         { "proper": "ninjamuffin99"
         , "roles"  : ["2018 stuff"]
         }
-    , "cymbourine"     : { "proper": "Cymbourine"     }
-    , "knosedoge"      : { "proper": "knosedoge"      }
-    , "predatormusic"  : { "proper": "PredatorMusic"  }
-    , "karlestonchew"  : { "proper": "Karlestonchew"  }
-    , "sirlenward"     : { "proper": "SirLenward"     }
-    , "minasagas"      : { "proper": "MinaSagas"      }
-    , "sevi"           : { "proper": "Sevi"           }
-    , "microbihon"     : { "proper": "MicroBihon"     }
-    , "dry"            : { "proper": "Dry"            }
-    , "splatterdash"   : { "proper": "SplatterDash"   }
-    , "carmet"         : { "proper": "Carmet"         }
-    , "danfrombavaria" : { "proper": "danfrombavaria" }
-    , "nuclear-smash"  : { "proper": "nuclear-smash"  }
-    , "mkmaffo"        : { "proper": "MKMaffo"        }
-    , "axolstudio"     : { "proper": "AxolStudio"     }
-    , "albegian"       : { "proper": "AlbeGian"       }
-    , "gallowjolt"     : { "proper": "GallowJolt"     }
-    , "bingowaders"    : { "proper": "BingoWaders"    }
-    , "matthewlopz"    : { "proper": "MatthewLopz"    }
-    , "krinkels"       : { "proper": "Krinkels"       }
-    , "travsaus"       : { "proper": "travsaus"       }
-    , "clatform"       : { "proper": "Clatform"       }
-    , "thedyingsun"    : { "proper": "TheDyingSun"    }
-    , "imkevin"        : { "proper": "ImKevin"        }
-    , "chromacee"      : { "proper": "ChromaCee"      }
-    , "cynicallysly"   : { "proper": "cynicallysly"   }
-    , "tebythecat"     : { "proper": "TebyTheCat"     }
-    ,"chocoholicmonkey": { "proper":"chocoholicmonkey"}
+    , "cymbourine"      : { "proper": "Cymbourine"       }
+    , "knosedoge"       : { "proper": "knosedoge"        }
+    , "predatormusic"   : { "proper": "PredatorMusic"    }
+    , "karlestonchew"   : { "proper": "Karlestonchew"    }
+    , "sirlenward"      : { "proper": "SirLenward"       }
+    , "minasagas"       : { "proper": "MinaSagas"        }
+    , "sevi"            : { "proper": "Sevi"             }
+    , "microbihon"      : { "proper": "MicroBihon"       }
+    , "dry"             : { "proper": "Dry"              }
+    , "splatterdash"    : { "proper": "SplatterDash"     }
+    , "carmet"          : { "proper": "Carmet"           }
+    , "danfrombavaria"  : { "proper": "danfrombavaria"   }
+    , "nuclear-smash"   : { "proper": "nuclear-smash"    }
+    , "mkmaffo"         : { "proper": "MKMaffo"          }
+    , "axolstudio"      : { "proper": "AxolStudio"       }
+    , "albegian"        : { "proper": "AlbeGian"         }
+    , "gallowjolt"      : { "proper": "GallowJolt"       }
+    , "bingowaders"     : { "proper": "BingoWaders"      }
+    , "matthewlopz"     : { "proper": "MatthewLopz"      }
+    , "krinkels"        : { "proper": "Krinkels"         }
+    , "travsaus"        : { "proper": "travsaus"         }
+    , "clatform"        : { "proper": "Clatform"         }
+    , "thedyingsun"     : { "proper": "TheDyingSun"      }
+    , "imkevin"         : { "proper": "ImKevin"          }
+    , "chromacee"       : { "proper": "ChromaCee"        }
+    , "cynicallysly"    : { "proper": "cynicallysly"     }
+    , "tebythecat"      : { "proper": "TebyTheCat"       }
+    , "chocoholicmonkey": { "proper": "chocoholicmonkey" }
+    , "bacun"           : { "proper": "Bacun"            }
+    , "phonometrologist": { "proper": "Phonometrologist" }
     }
 ,   "extras":
     {
@@ -58,7 +60,7 @@
         , "loopEnd": 144000
         , "day"    : 3
         }
-    ,   { "id"       : "splatterdash"
+    ,   { "id"  : "splatterdash"
         , "name": "Wool Scarf in a Brisk Wind"
         , "key" : "aMin"
         , "bpm" : 120
@@ -75,11 +77,18 @@
         , "key" : "dMaj"
         , "bpm" : 78
         , "day" : 9
-        }
+    }
     ,   { "id"  : "tebythecat"
         , "name": "Snowed Surroundings"
+        , "key" : "cMaj"
         , "bpm" : 112
         , "day" : 11
+        }
+    ,   { "id"  : "phonometrologist"
+        , "name": "Water from the Rock"
+        , "key" : "dMaj"
+        , "bpm" : 112
+        , "day" : 13
         }
     ]
 ,   "artwork":
@@ -165,6 +174,11 @@
         , "day"  : 13
         , "medal": true
         }
+    ,   { "id"   : "bacun"
+        , "name" : "Prickly Present Pleasantries"
+        , "day"  : 14
+        , "medal": true
+        }
     ]
 ,   "events":
     {
@@ -192,15 +206,6 @@
         , "authors": ["ninjamuffin99", "brandybuizel"]
         , "type"   : "external", "url": "https://www.newgrounds.com/portal/view/721061"
         }
-    ,   { "id"     : "chimney"
-        , "name"   : "Holiday Hominid Drop"
-        , "authors": ["brandybuizel:design", "knosedoge:code", "danfrombavaria:music"]
-        , "day"    : 12
-        , "mobile" : false
-        , "medal"  : false
-        , "type"   : "overlay"
-        , "camera" : { "width":240, "height": 270 }
-        }
     ,   { "id"     : "yuleduel"
         , "name"   : "Yule Duel"
         , "authors": ["axolstudio:code", "bingowaders:art", "gallowjolt:art", "albegian:music"]
@@ -208,6 +213,15 @@
         , "mobile" : false
         , "type"   : "state"
         , "camera" : { "width":960, "height": 540 }
+        }
+    ,   { "id"     : "chimney"
+        , "name"   : "Holiday Hominid Drop"
+        , "authors": ["brandybuizel:design", "knosedoge:code", "danfrombavaria:music"]
+        , "day"    : 15
+        , "mobile" : false
+        , "medal"  : false
+        , "type"   : "overlay"
+        , "camera" : { "width":240, "height": 270 }
         }
     ]
 ,   "unused_arcades":

@@ -3,6 +3,7 @@ package props;
 import flixel.FlxObject;
 
 import states.OgmoState;
+import states.rooms.RoomState;
 
 typedef TeleportValues = { target:String, id:String, isDefault:Bool, enabled:Bool };
 
@@ -13,6 +14,14 @@ class Teleport extends FlxObject
     public var enabled(get, set):Bool;
     inline function get_enabled() return solid;
     inline function set_enabled(value:Bool) return solid = value;
+    
+    /**
+     * Finds destination of this teleporter
+     */
+    public function getTargetRoom():RoomName
+    {
+        return cast target.split(".")[0];
+    }
     
     public function new(x = 0.0, y = 0.0, width = 0.0, height = 0.0)
     {

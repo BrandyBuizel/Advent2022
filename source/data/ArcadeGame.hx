@@ -45,6 +45,7 @@ typedef ArcadeCreation
     var mobile:Bool;
     var medal:Bool;
     var type:ArcadeType;
+    var notif:Bool;
     var url:Null<URL>;
     var camera:ArcadeCamera;
     var cabinet:Bool;
@@ -171,6 +172,9 @@ abstract ArcadeGame(ArcadeCreation) from ArcadeCreation
         if (activeGame != null)
             throw 'Already playing $activeGame, cannot play $id';
         
+        if(this.notif)
+            Save.notifs.setArcadePlayed(id);
+        
         if (this.mobile == false && FlxG.onMobile)
             Prompt.showOKInterrupt("This game is not available on mobile\n...yet.");
         else
@@ -282,7 +286,7 @@ private class ArcadeStatePlugin extends flixel.FlxBasic
     {
         super.update(elapsed);
         
-        if (Controls.pressed.EXIT)
+        if (Controls.pressed.EXIT && !(FlxG.state is LoadingState))
             exitGame();
     }
     

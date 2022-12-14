@@ -12,6 +12,11 @@ import flixel.math.FlxMath;
 
 class OutsideState extends SmoothRoomState
 {
+    static public function hasNotifs()
+    {
+        return Skins.showNotif;
+    }
+    
     var changingRoom:OgmoDecal;
     var easterEgg:OgmoDecal;
     var changingRoomNotif:Notif;
@@ -85,7 +90,7 @@ class OutsideState extends SmoothRoomState
 
         //Note by blue door saying it's closed
         var blue_door = foreground.getByName("blue_door");
-        addHoverTextTo(blue_door, "      BLUE DOOR\nCOFFEE + WAFFLES\n\nCURRENTLY CLOSED"); //()->{ note.visible = !note.visible; });
+        addHoverTextTo(blue_door, "      BLUE DOOR\nCOFFEE + WAFFLES"); //()->{ note.visible = !note.visible; });
         
         //foreground.remove(note);
         //topGround.add(note);

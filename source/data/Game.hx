@@ -22,6 +22,7 @@ class Game
     static public var chosenSong:String = null;
     
     static var roomTypes:Map<RoomName, RoomConstructor>;
+    static var notifHandlers:Map<RoomName, ()->Bool>;
     static public var allowShaders(default, null):Bool = true;
     static public var disableShaders(get, never):Bool;
     inline static function get_disableShaders() return !allowShaders;
@@ -44,10 +45,11 @@ class Game
         #end
         
         roomTypes = [];
+        notifHandlers = [];
         addRoom(Intro, IntroState.new, false);
-        addRoom(Outside, OutsideState.new);
+        addRoom(Outside, OutsideState.new);//, OutsideState.hasNotifs); // don't need to show skin notifs in cafe
         addRoom(Candles, CandlesState.new);
-        addRoom(Cafe, CafeState.new);
+        addRoom(Cafe, CafeState.new, CafeState.hasNotifs);
         
         ArcadeGame.init();
         
@@ -74,11 +76,22 @@ class Game
         //     state = Intro(Started);
     }
     
-    inline static function addRoom(name, constructor, isNetworked = true)
+    inline static function addRoom(name, constructor, isNetworked = true, ?notifHandler:()->Bool)
     {
         roomTypes[name] = constructor;
         RoomState.roomOrder.push(name);
         Net.netRooms.push(name);
+        
+        if (notifHandler != null)
+            notifHandlers[name] = notifHandler;
+    }
+    
+    inline static public function roomHasNotifs(room:RoomName)
+    {
+        if (notifHandlers.exists(room))
+            return notifHandlers[room]();
+        
+        return false;
     }
     
     static public function goToRoom(target:String):Void

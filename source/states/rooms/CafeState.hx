@@ -1,5 +1,6 @@
 package states.rooms;
 
+import data.ArcadeGame;
 import data.Game;
 import data.Manifest;
 import data.Save;
@@ -30,13 +31,11 @@ import flixel.math.FlxVector;
 
 class CafeState extends RoomState
 {
-    /*
     static public function hasNotifs()
     {
-        return Save.getOrder() == RANDOM
-            || (Save.seenYeti() == false && Calendar.day >= 31);
+        trace(Save.notifs.yuleDuel);
+        return Save.notifs.yuleDuel == false;
     }
-    */
     
     var seats = new FlxTypedGroup<FlxObject>();
     var spots = new Map<FlxObject, Placemat>();
@@ -46,7 +45,7 @@ class CafeState extends RoomState
     var tables = new Array<CafeTable>();
     var patrons = new Map<Player, Placemat>();
     
-    var yuleNotif:Notif;
+    var arcadeNotifs = new Map<ArcadeName, Notif>();
     
     override function create()
     {
@@ -81,9 +80,6 @@ class CafeState extends RoomState
         
         super.create();
         
-        if (yuleNotif != null)
-            topGround.add(yuleNotif);
-        
         #if debug
         if (waiterNodes != null)
         {
@@ -100,18 +96,31 @@ class CafeState extends RoomState
     
     function initCabinet(data:OgmoEntityData<CabinetValues>)
     {
-        var cabinet = Cabinet.fromEntity(data);
+        final cabinet = Cabinet.fromEntity(data);
+        final game = cabinet.data;
         if (cabinet.enabled)
-            addHoverTextTo(cabinet, cabinet.data.name, Game.playCabinet.bind(cabinet.data.id));
-        
-        //if (cabinet.data.id == Yeti && Save.seenYeti() == false)
         {
-            yuleNotif = new Notif(0, cabinet.y - 16);
-            yuleNotif.x = cabinet.x + (cabinet.width - yuleNotif.width) / 2;
-            yuleNotif.animate();
+            addHoverTextTo(cabinet, cabinet.data.name, playCabinet.bind(game.id));
+            
+            if (game.notif && Save.notifs.getArcadePlayed(game.id) == false)
+            {
+                final notif = new Notif(0, cabinet.y - 16);
+                notif.x = cabinet.x + (cabinet.width - notif.width) / 2;
+                notif.animate();
+                arcadeNotifs[game.id] = notif;
+                topGround.add(notif);
+            }
         }
         
         return cabinet;
+    }
+    
+    function playCabinet(id:ArcadeName)
+    {
+        if (arcadeNotifs.exists(id))
+            arcadeNotifs[id].visible = false;
+        
+        Game.playCabinet(id);
     }
     
     // --- --- --- --- --- --- Waiter --- --- --- --- --- --- --- ---

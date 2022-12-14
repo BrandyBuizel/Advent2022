@@ -16,6 +16,7 @@ using StringTools;
 class Skins
 {
     static public var numUnlocked(default, null) = 0;
+    static public var showNotif:Bool = false;
     
     static var byIndex:Array<SkinData>;
     static var sorted:Array<SkinData>;
@@ -113,8 +114,12 @@ class Skins
             }
         );
         
-        if (showPopup && newUnlocks > 0)
-            ui.SkinPopup.show(newUnlocks);
+        if (newUnlocks > 0)
+        {
+            showNotif = true;
+            if (showPopup)
+                ui.SkinPopup.show(newUnlocks);
+        }
     }
     
     static function sortGroup(a:String, b:String)

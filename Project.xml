@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Tankmas2022" file="Tankmas2022" main="Main" version="0.2.1" company="Newgrounds" />
+	<app title="Tankmas2022" file="Tankmas2022" main="Main" version="0.3.0" company="Newgrounds" />
 
 	<!--The flixel preloader is not accurate in Chrome. You can use it regularly if you embed the swf into a html file
 		or you can set the actual size of your file manually at "FlxPreloaderBase-onUpdate-bytesTotal"-->
@@ -90,17 +90,17 @@
 	<!-- embedded game example from 2021 -->
 	<!-- <define name="exclude_yule_duel "/> -->
 	<section unless="exclude_yule_duel">
-		<define name="skip_to_yule_duel" if="debug"/>
+		<!-- <define name="skip_to_yule_duel" if="debug"/> -->
 		
 		<classpath name="yuleduel/source"/>
 		<library name="yuleduel" preload="false" />
 		<assets path="yuleduel/assets" rename="assets/arcades/yuleduel" library="yuleduel" exclude="*.ase|*.wav" />
-		
+
 	</section>
 	
 	<define name="exclude_chimney"/>
 	<section unless="exclude_chimney">
-		<define name="skip_to_chimney" if="debug"/>
+		<!-- <define name="skip_to_chimney" if="debug"/> -->
 		
 		<classpath name="chimney/source"/>
 		<library name="chimney" preload="false" />

@@ -1,5 +1,6 @@
 package data;
 
+import data.ArcadeGame;
 import data.Content;
 import states.rooms.RoomState;
 
@@ -27,7 +28,13 @@ class Save
     
     static var save:FlxSave;
     static var data:SaveData;
+    
     static public var showName(get, set):Bool;
+    static public var notifs(get, never):SeenNotifs;
+    inline static function get_notifs()
+    {
+        return data.seenNotifs;
+    }
     
     static public function init(callback:(Outcome<CallError>)->Void)
     {
@@ -64,12 +71,25 @@ class Save
             flush();
         }
         else
+        {
             data = Json.parse(NG.core.saveSlots[1].contents);
+            
+            // Every time a new save field is added, check for it here and add it
+            
+            if (data.seenNotifs == null)
+                data.seenNotifs = new SeenNotifs();
+        }
+        #end
+        
+        #if clear_notifs
+        data.skins = new BitArray();
+        data.seenNotifs = new SeenNotifs();
         #end
         
         log("presents: " + data.presents);
         log("seen days: " + data.days);
         log("seen skins: " + data.skins);
+        log("seen notifs: " + data.seenNotifs);
         log("skin: " + data.skin);
         log("instrument: " + data.instrument);
         log("instruments seen: " + data.seenInstruments);
@@ -101,6 +121,7 @@ class Save
         data.days            = new BitArray();
         data.skins           = new BitArray();
         data.seenInstruments = new BitArray();
+        data.seenNotifs      = new SeenNotifs();
         data.skin            = 0;
         data.instrument      = -1;
         data.showName        = false;
@@ -344,6 +365,7 @@ typedef SaveData2020 =
     var skin:Int;
     var instrument:Int;
     var seenInstruments:BitArray;
+    var seenNotifs:SeenNotifs;
 }
 
 typedef SaveData = SaveData2020 &
@@ -351,4 +373,51 @@ typedef SaveData = SaveData2020 &
     var showName:Bool;
     var cafeOrder:Order;
     var introComplete:Bool;
+}
+
+abstract SeenNotifs(BitArray) from BitArray to BitArray
+{
+    inline static var YULE_DUEL = 0;
+    inline static var CHIMNEY = 1;
+    
+    public var yuleDuel(get, set):Bool;
+    inline function get_yuleDuel() return this[YULE_DUEL];
+    inline function set_yuleDuel(value:Bool):Bool return setValue(YULE_DUEL, value);
+    
+    public var chimney(get, set):Bool;
+    inline function get_chimney() return this[CHIMNEY];
+    inline function set_chimney(value:Bool):Bool return setValue(CHIMNEY, value);
+    
+    public function getArcadePlayed(id:ArcadeName)
+    {
+        return switch(id)
+        {
+            case YuleDuel: yuleDuel;
+            case Chimney: chimney;
+            default: true;
+        }
+    }
+    
+    public function setArcadePlayed(id:ArcadeName)
+    {
+        switch(id)
+        {
+            case YuleDuel: yuleDuel = true;
+            case Chimney: chimney = true;
+            default:
+        }
+    }
+    
+    function setValue(index:Int, value:Bool):Bool
+    {
+        if (this[index] != value)
+        {
+            this[YULE_DUEL] = value;
+            
+            Save.flush();
+        }
+        return value;
+    }
+    
+    public function new() { this = new BitArray(); }
 }

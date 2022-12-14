@@ -278,6 +278,7 @@ class DressUpSubstate extends flixel.FlxSubState
 
     override function close()
     {
+        Skins.showNotif = false;
         FlxG.cameras.remove(camera);
         if (flushOnExit)
             Save.flush();

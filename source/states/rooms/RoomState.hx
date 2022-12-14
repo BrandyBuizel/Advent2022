@@ -201,7 +201,7 @@ class RoomState extends OgmoState
     
     function hasTeleportNotifs(teleport:Teleport)
     {
-        return false;
+        return Game.roomHasNotifs(teleport.getTargetRoom());
     }
     
     function initNpc(data, ?skin, ?name, isUser = false)

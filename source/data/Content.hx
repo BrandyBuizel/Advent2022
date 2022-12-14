@@ -91,6 +91,8 @@ class Content
         {
             arcadeData.path = 'assets/images/props/cabinets/${arcadeData.id}.png';
             arcadeData.medalPath = 'assets/images/medals/${arcadeData.id}.png';
+            if (arcadeData.notif == null)
+                arcadeData.notif = arcadeData.type != EXTERNAL;
             if (arcadeData.medal == null)
                 arcadeData.medal = false;
             if (arcadeData.scoreboard == null)
