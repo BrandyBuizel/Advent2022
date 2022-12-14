@@ -1,5 +1,6 @@
 package states.rooms;
 
+import data.NGio;
 import data.ArcadeGame;
 import data.Game;
 import data.Manifest;
@@ -90,6 +91,13 @@ class CafeState extends RoomState
         #end
         
         //initPlacemats(seatsByName, placematsByName);
+    }
+    
+    override function openComicPresent(present, data)
+    {
+        super.openComicPresent(present, data);
+        if (data.id == "a_gift_to_never_forget")
+            NGio.unlockMedalByName("a_gift_to_never_forget");
     }
     
     // --- --- --- --- --- --- Cabinets --- --- --- --- --- --- --- ---

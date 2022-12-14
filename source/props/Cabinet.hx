@@ -16,7 +16,7 @@ class Cabinet extends flixel.FlxSprite
     public final enabled = false;
     public final data:ArcadeGame;
     
-    public function new (id:String, x = 0.0, y = 0.0)
+    public function new (id:String, x = 0.0, y = 0.0, scale = 1.0)
     {
         super(x, y);
         
@@ -31,25 +31,26 @@ class Cabinet extends flixel.FlxSprite
             final path = 'assets/images/props/cabinets/${id}.png';
             #if debug
             if (Manifest.exists(path, IMAGE))
-                loadGraphic(path, true, 40, 60);
+                loadGraphic(path);
             else
                 loadGraphic('assets/images/props/shared/cabinet_ogmo.png');
             #else
-            loadGraphic(path, true, 40, 60);
+            loadGraphic(path);
             #end
-            animation.add("anim", [for (i in 0...animation.frames) i], 4);
-            animation.play("anim");
         }
         else
             loadGraphic('assets/images/props/shared/cabinet_broken.png');
         
-        (this:OgmoDecal).setBottomHeight(this.frameHeight / 4);
+        this.scale.set(scale, scale);
+        updateHitbox();
+        
+        (this:OgmoDecal).setBottomHeight(100 * scale);
         immovable = true;
     }
     
     static public function fromEntity(data:OgmoEntityData<CabinetValues>)
     {
-        var cabinet = new Cabinet(data.values.id, data.x, data.y);
+        var cabinet = new Cabinet(data.values.id, data.x, data.y, data.width / 136);
         return cabinet;
     }
 }

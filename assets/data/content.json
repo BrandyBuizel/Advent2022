@@ -229,11 +229,12 @@
         
     ]
 ,   "medals":
-    { "cheese"       : 61555
-    , "yuleYeti"     : 71373
-    , "yuleSanta"    : 71374
-    , "yuleAllCards" : 71375
-    , "candles"      : 71376
+    { "cheese"                 : 61555
+    , "yuleYeti"               : 71373
+    , "yuleSanta"              : 71374
+    , "yuleAllCards"           : 71375
+    , "candles"                : 71376
+    , "a_gift_to_never_forget" : 71377
     }
 ,   "instruments":
     [

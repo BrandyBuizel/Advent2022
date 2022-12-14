@@ -268,6 +268,7 @@ abstract ArcadeGame(ArcadeCreation) from ArcadeCreation
         if (room == null)
             room = Game.room.name;
         
+        Net.safeLeaveCurrentRoom();
         FlxG.plugins.list.push(new ArcadeStatePlugin(room));
         FlxG.switchState(new LoadingState(states[activeGame](), activeGame));
     }

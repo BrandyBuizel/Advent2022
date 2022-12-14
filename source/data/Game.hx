@@ -29,7 +29,7 @@ class Game
     
     public static var initialRoom(default, null) = 
         #if debug
-        RoomName.Outside;
+        RoomName.Cafe + ".yuleduel";
         #else
         RoomName.Outside;
         #end
