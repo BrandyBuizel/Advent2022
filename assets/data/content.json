@@ -217,7 +217,7 @@
     ,   { "id"     : "chimney"
         , "name"   : "Holiday Hominid Drop"
         , "authors": ["brandybuizel:design", "knosedoge:code", "danfrombavaria:music"]
-        , "day"    : 15
+        , "day"    : 13
         , "mobile" : false
         , "medal"  : false
         , "type"   : "overlay"

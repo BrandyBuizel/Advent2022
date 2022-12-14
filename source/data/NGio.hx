@@ -289,8 +289,9 @@ class NGio
 		if (boardsByName.exists(id))
 			return boardsByName[id];
 		
-		if (Content.arcades.exists(id))
-			return Content.arcades[id].scoreboardId;
+		final arcades = Content.arcades;
+		if (arcades.exists(id) && arcades[id].scoreboardId != null)
+			return arcades[id].scoreboardId;
 		
 		return -1;
 	}

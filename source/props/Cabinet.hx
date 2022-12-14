@@ -51,6 +51,8 @@ class Cabinet extends flixel.FlxSprite
     static public function fromEntity(data:OgmoEntityData<CabinetValues>)
     {
         var cabinet = new Cabinet(data.values.id, data.x, data.y, data.width / 136);
+        if (data.flippedX != null)
+            cabinet.flipX = data.flippedX;
         return cabinet;
     }
 }

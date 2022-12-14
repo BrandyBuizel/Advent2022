@@ -44,12 +44,16 @@ class OverlaySubstate extends flixel.FlxSubState
         var cameraData = data.camera;
         if (cameraData == null)
             cameraData = { width:FlxG.width, height:FlxG.height, zoom:1 };
+        
+        final scale = Std.int(Math.min(FlxG.width / cameraData.width, FlxG.height / cameraData.height));
         final zoom = cameraData.zoom != null ? cameraData.zoom : 1;
-        camera = new FlxCamera(0, 0, cameraData.width, cameraData.height, zoom);
+        camera = new FlxCamera(0, 0, cameraData.width, cameraData.height, zoom * scale);
+        
+        
         camera.setFilters([new ShaderFilter(new CrtShader())]);
         camera.bgColor = 0x0;
-        camera.x = (FlxG.width - camera.width * zoom) / 2;
-        camera.y = (FlxG.height - camera.height * zoom) / 2;
+        camera.x = (FlxG.width - camera.width * scale) / 2;
+        camera.y = (FlxG.height - camera.height * scale) / 2;
     }
     
     override function create()
