@@ -1,6 +1,6 @@
 [submodule "chimney"]
 	path = chimney
-	url = https://github.com/oscarcederberg/adventcollab2020-chimney
+	url = https://github.com/oscarcederberg/adventcollab2020-chimney.git
 [submodule "coffee"]
 	path = coffee
 	url = https://github.com/Jvarca77/BlueDoor
