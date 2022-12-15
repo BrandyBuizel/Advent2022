@@ -412,7 +412,7 @@ abstract SeenNotifs(BitArray) from BitArray to BitArray
     {
         if (this[index] != value)
         {
-            this[YULE_DUEL] = value;
+            this[index] = value;
             
             Save.flush();
         }
