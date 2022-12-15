@@ -112,7 +112,7 @@ class CafeState extends RoomState
             
             if (game.notif && Save.notifs.getArcadePlayed(game.id) == false)
             {
-                final notif = new Notif(0, cabinet.y - 16);
+                final notif = new Notif(0, cabinet.y - 60);
                 notif.x = cabinet.x + (cabinet.width - notif.width) / 2;
                 notif.animate();
                 arcadeNotifs[game.id] = notif;

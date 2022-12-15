@@ -41,6 +41,8 @@
     , "chocoholicmonkey": { "proper": "chocoholicmonkey" }
     , "bacun"           : { "proper": "Bacun"            }
     , "phonometrologist": { "proper": "Phonometrologist" }
+    , "czyszy" 			: { "proper": "CzySzy" 			 }
+    , "mimny" 			: { "proper": "Mimny" 			 }
     }
 ,   "extras":
     {
@@ -89,6 +91,12 @@
         , "key" : "dMaj"
         , "bpm" : 112
         , "day" : 13
+        }
+    ,   { "id"  : "czyszy"
+        , "name": "Darkmas in Europe"
+        , "key" : "bMaj"
+        , "bpm" : 136
+        , "day" : 15
         }
     ]
 ,   "artwork":
@@ -177,6 +185,11 @@
     ,   { "id"   : "bacun"
         , "name" : "Prickly Present Pleasantries"
         , "day"  : 14
+        , "medal": true
+        }
+    ,   { "id"   : "mimny"
+        , "name" : "The spook before KRIH'MAAAAH!"
+        , "day"  : 15
         , "medal": true
         }
     ]

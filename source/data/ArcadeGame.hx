@@ -69,7 +69,7 @@ abstract ArcadeGame(ArcadeCreation) from ArcadeCreation
     static public function init()
     {
         #if !exclude_chimney
-        states[Chimney] = chimney.MenuState.new.bind(0);
+        states[Chimney] = chimney.PlayState.new.bind(0);
         #end
         #if !exclude_yule_duel
         states[YuleDuel] = yuleduel.states.TitleState.new.bind(0);
