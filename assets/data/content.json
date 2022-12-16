@@ -43,6 +43,7 @@
     , "phonometrologist": { "proper": "Phonometrologist" }
     , "czyszy" 			: { "proper": "CzySzy" 			 }
     , "mimny" 			: { "proper": "Mimny" 			 }
+    , "lobstermango" 	: { "proper": "LobsterMango" 	 }
     }
 ,   "extras":
     {
@@ -190,6 +191,11 @@
     ,   { "id"   : "mimny"
         , "name" : "The spook before KRIH'MAAAAH!"
         , "day"  : 15
+        , "medal": true
+        }
+    ,   { "id"   : "lobstermango"
+        , "name" : "wacky wonderful whimsical tankmas"
+        , "day"  : 16
         , "medal": true
         }
     ]
