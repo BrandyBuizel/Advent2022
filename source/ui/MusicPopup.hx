@@ -1,5 +1,6 @@
 package ui;
 
+import ui.Font.XmasFont;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
 import data.Content;
@@ -33,6 +34,8 @@ class MusicPopup extends FlxTypedSpriteGroup<FlxSprite>
         add(bar = new FlxSprite(BAR_PATH));
         add(main = new FlxSprite());
         add(text = new FlxBitmapText());
+
+        //scale.set(2.0, 2.0);
         
         #if FLX_DEBUG
         ignoreDrawDebug = true;
@@ -48,7 +51,7 @@ class MusicPopup extends FlxTypedSpriteGroup<FlxSprite>
         bar.x = main.width;
         bar.y = main.y + main.height - bar.height;
         
-        text.x = 4;
+        text.x = 16;
         text.y = main.y + main.height - text.height;
         
         // visible = false;
@@ -74,7 +77,7 @@ class MusicPopup extends FlxTypedSpriteGroup<FlxSprite>
     
     function playAnim():Void
     {
-        return;// temp remove
+        //return;// temp remove
         visible = true;
         
         tweener.cancelTweensOf(this);

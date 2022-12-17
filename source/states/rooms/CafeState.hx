@@ -13,6 +13,7 @@ import props.Cabinet;
 import props.CafeTable;
 import props.GhostPlayer;
 import props.Notif;
+import props.Note;
 import props.Player;
 import props.Placemat;
 import props.SpeechBubble;
@@ -47,6 +48,9 @@ class CafeState extends RoomState
     var patrons = new Map<Player, Placemat>();
     
     var arcadeNotifs = new Map<ArcadeName, Notif>();
+
+    var disc:OgmoDecal;
+    var notesById = new Map<String, Note>();
     
     override function create()
     {
@@ -77,6 +81,13 @@ class CafeState extends RoomState
             if (waiter.ogmoPath != null && waiterNodes == null)
                 waiterNodes = waiter.ogmoPath;
             return waiter;
+        }
+
+        entityTypes["Note"] = cast function(data)
+        {
+            var note = Note.fromEntity(data);
+            notesById[data.values.id] = note;
+            return note;
         }
         
         super.create();
@@ -274,6 +285,11 @@ class CafeState extends RoomState
         super.initEntities();
         
         initInstruments();
+
+        /*
+        disc = foreground.getByName("disc");
+        addHoverTextTo(disc, "ADVENT BEST HITS");
+        */
         
         for (waiter in waiters)
             addHoverTextTo(waiter, "TALK", talkToWaiter.bind(waiter));

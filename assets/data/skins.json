@@ -85,4 +85,25 @@
     , "unlocksBy": "day:30"
     , "users": ["psychicpebbles", "geokureli"]
     }
+,   { "id": "isaac"
+    , "proper": "Isaac"
+    , "description": "He cried all the way from his mother's basement to be here!"
+    , "unlocksBy": "day:7"
+    , "users": ["bluebaby", "dannybstyle", "eighthronin", "komix"]
+    }
+,   { "id": "madness_auditor"
+    , "proper": "The Auditor"
+    , "description": "Antagonist, creator of the Improbability Drive? Is that a Douglas Adams reference?\nLemme DM Krinkels real quick. Okay, he said: 'it absolutely is!' while streaming Furi."
+    , "unlocksBy": "supporter"
+    , "frames": 4
+    , "users": ["krinkels"]
+    , "group": "madness"
+    }
+,   { "id": "boyfriend"
+    , "proper": "Boyfriend"
+    , "description": "The boyfriend from the number one rated rhythm game of all time on Newgrounds, Friday Night Funkin'"
+    , "unlocksBy": "login"
+    , "users": ["ninjamuffin99", "phantomarcade", "evilsk8r", "kawaisprite", "geokureli", "brandybuizel"]
+    , "group": "funkin"
+    }
 ]

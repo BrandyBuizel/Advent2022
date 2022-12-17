@@ -50,7 +50,7 @@ class Game
         addRoom(Outside, OutsideState.new);//, OutsideState.hasNotifs); // don't need to show skin notifs in cafe
         addRoom(Candles, CandlesState.new);
         addRoom(Cafe, CafeState.new, CafeState.hasNotifs);
-        
+
         ArcadeGame.init();
         
         #if SKIP_INTRO

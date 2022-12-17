@@ -31,6 +31,9 @@ class OutsideState extends SmoothRoomState
         background.getByName("background").scrollFactor.set(0, 0.35);
         background.getByName("midground").scrollFactor.set( 0.7, 0.5);
         
+        tree = foreground.getIndexNamedObject("tree", 33);
+        tree.animation.curAnim.frameRate = 2;
+
         // tree = foreground.getIndexNamedObject("tree", 33);
         // if (tree != null)
         //     tree.setBottomHeight(tree.frameHeight / 4);
