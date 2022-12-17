@@ -21,6 +21,7 @@ class OutsideState extends SmoothRoomState
     var easterEgg:OgmoDecal;
     var changingRoomNotif:Notif;
     var tree:OgmoDecal;
+    var midground:OgmoDecal;
     
     override function create()
     {
@@ -29,7 +30,8 @@ class OutsideState extends SmoothRoomState
         add(new vfx.Snow());
         
         background.getByName("background").scrollFactor.set(0, 0.35);
-        background.getByName("midground").scrollFactor.set( 0.7, 0.5);
+        midground = background.getIndexNamedObject("midground", 33);
+        midground.scrollFactor.set( 0.7, 0.5);
         
         tree = foreground.getIndexNamedObject("tree", 33);
         tree.animation.curAnim.frameRate = 2;
