@@ -46,6 +46,7 @@
     , "lobstermango" 	: { "proper": "LobsterMango" 	 }
     , "connorgrail" 	: { "proper": "ConnorGrail" 	 }
     , "mogy64" 			: { "proper": "mogy64" 	 		 }
+    , "kekiiro" 		: { "proper": "Kekiiro" 	 	 }
     }
 ,   "extras":
     {
@@ -209,6 +210,11 @@
     ,   { "id"   : "mogy64"
         , "name" : "Tankmas Cake"
         , "day"  : 17
+        , "medal": true
+        }
+    ,   { "id"   : "kekiiro"
+        , "name" : "Portal's This Way c:"
+        , "day"  : 18
         , "medal": true
         }
     ]
