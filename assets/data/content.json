@@ -41,12 +41,13 @@
     , "chocoholicmonkey": { "proper": "chocoholicmonkey" }
     , "bacun"           : { "proper": "Bacun"            }
     , "phonometrologist": { "proper": "Phonometrologist" }
-    , "czyszy" 			: { "proper": "CzySzy" 			 }
-    , "mimny" 			: { "proper": "Mimny" 			 }
-    , "lobstermango" 	: { "proper": "LobsterMango" 	 }
-    , "connorgrail" 	: { "proper": "ConnorGrail" 	 }
-    , "mogy64" 			: { "proper": "mogy64" 	 		 }
-    , "kekiiro" 		: { "proper": "Kekiiro" 	 	 }
+    , "czyszy"          : { "proper": "CzySzy"           }
+    , "mimny"           : { "proper": "Mimny"            }
+    , "lobstermango"    : { "proper": "LobsterMango"     }
+    , "connorgrail"     : { "proper": "ConnorGrail"      }
+    , "mogy64"          : { "proper": "mogy64"           }
+    , "kekiiro"         : { "proper": "Kekiiro"          }
+    , "tiny"            : { "proper": "Tiny"             }
     }
 ,   "extras":
     {
@@ -107,6 +108,12 @@
         , "key" : "gMaj"
         , "bpm" : 85
         , "day" : 17
+        }
+    ,   { "id"  : "tiny"
+        , "name": "GRINCH"
+        , "key" : "gMaj"
+        , "bpm" : 85
+        , "day" : -1
         }
     ]
 ,   "artwork":

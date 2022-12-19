@@ -145,6 +145,9 @@ class RoomState extends OgmoState
         
         FlxG.camera.fade(0xD8000022, 0.5, true);
     }
+    
+    public function onExit() {}
+    
     function addPresent(data)
     {
         var present = Present.fromEntity(data);
@@ -635,7 +638,7 @@ class RoomState extends OgmoState
             {
                 if (teleport == spawnTeleport)
                     touchingSpawn = true;
-                else if (teleport.target != "")
+                else if (teleport.target != "" && player.active)
                     activateTeleport(teleport.target);
             }
         );
@@ -846,9 +849,11 @@ class RoomState extends OgmoState
 enum abstract RoomName(String) to String
 {
     //ADD NEW ROOMS HERE
-    var Intro = "intro";
-    var Outside = "outside";
-    var Candles  = "candles";
-    var Cafe  = "cafe";
-    var Arcade  = "arcade";
+    var Intro    = "intro"   ;
+    var Outside  = "outside" ;
+    var Candles  = "candles" ;
+    var Cafe     = "cafe"    ;
+    var Arcade   = "arcade"  ;
+    var Bathroom = "bathroom";
+    var Igloo    = "igloo"   ;
 }

@@ -50,6 +50,8 @@ class Game
         addRoom(Outside, OutsideState.new);//, OutsideState.hasNotifs); // don't need to show skin notifs in cafe
         addRoom(Candles, CandlesState.new);
         addRoom(Cafe, CafeState.new, CafeState.hasNotifs);
+        addRoom(Bathroom, BathroomState.new);
+        addRoom(Igloo, IglooState.new);
 
         ArcadeGame.init();
         
@@ -105,6 +107,8 @@ class Game
         }
         
         final constructor = roomTypes.exists(name) ? roomTypes[name] : RoomState.new;
+        if (room != null)
+            room.onExit();
         Net.safeLeaveCurrentRoom();
         FlxG.switchState(constructor(target));
     }
