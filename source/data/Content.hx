@@ -74,8 +74,7 @@ class Content
             
             songData.path = 'assets/music/${songData.id}.mp3';
             //songData.samplePath = 'assets/sounds/samples/${songData.id}.mp3';
-            songData.sideDiskPath = 'assets/images/ui/carousel/disks/side_${songData.id}.png';
-            songData.frontDiskPath = 'assets/images/ui/carousel/disks/front_${songData.id}.png';
+            songData.diskPath = 'assets/images/ui/carousel/disks/${songData.id}.png';
             if (songData.volume == null)
                 songData.volume = 1.0;
             songs[songData.id] = songData;
@@ -83,6 +82,10 @@ class Content
         }
         
         songsOrdered.sort((a, b)->a.day - b.day);
+        
+        while (songsOrdered[0].day == -1)
+            songsOrdered.push(songsOrdered.shift());
+        
         for (i=>song in songsOrdered)
             song.index = i;
         
@@ -385,12 +388,16 @@ class Content
                 if (!Manifest.exists(song.path, MUSIC))
                     addError('Missing ${song.path}');
                 #if LOAD_DISK_CAROUSEL
-                if (!Manifest.exists(song.samplePath, MUSIC))
-                    addError('Missing ${song.samplePath}');
-                if (!Manifest.exists(song.sideDiskPath, IMAGE))
-                    addWarning('Missing ${song.sideDiskPath}');
-                if (!Manifest.exists(song.frontDiskPath, IMAGE))
-                    addWarning('Missing ${song.frontDiskPath}');
+                // if (song.samplePath == null)
+                //     addError('Missing sample: ${song.id}');
+                // else if (!Manifest.exists(song.samplePath, MUSIC))
+                //     addError('Missing ${song.samplePath}');
+                
+                if (song.ngId == null)
+                {
+                    if (!Manifest.exists(song.diskPath, IMAGE))
+                        addWarning('Missing ${song.diskPath}');
+                }
                 #end
                 if (song.bpm == null)
                     addWarning('Missing bpm song:${song.id}');
@@ -685,8 +692,7 @@ typedef SongCreation
 = Creation &
 {
     var samplePath:String;
-    var sideDiskPath:String;
-    var frontDiskPath:String;
+    var diskPath:String;
     var loopStart:Null<Int>;
     var loopEnd:Null<Int>;
     var key:Null<String>;

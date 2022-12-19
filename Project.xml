@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Tankmas2022" file="Tankmas2022" main="Main" version="0.5.1" company="Newgrounds" />
+	<app title="Tankmas2022" file="Tankmas2022" main="Main" version="0.6.0" company="Newgrounds" />
 
 	<!--The flixel preloader is not accurate in Chrome. You can use it regularly if you embed the swf into a html file
 		or you can set the actual size of your file manually at "FlxPreloaderBase-onUpdate-bytesTotal"-->
@@ -55,7 +55,7 @@
 	<!-- <define name="USE_LOCAL_SERVER" if="debug"/> -->
 	<!-- <define name="USE_DEBUG_SERVER"/> -->
 	
-	<!--<define name="LOAD_DISK_CAROUSEL"/>-->
+	<define name="LOAD_DISK_CAROUSEL"/>
 	<!-- <define name="CLEAR_SAVE" if="debug"/> -->
 	<!-- <define name="DISABLE_SAVE" if="debug"/> -->
 	<!-- <define name="FORGET_INSTRUMENT" if="debug"/> -->

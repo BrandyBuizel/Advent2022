@@ -7,6 +7,7 @@ import data.Content;
 import data.Game;
 import data.Manifest;
 import data.NGio;
+import data.NGAudioData;
 import ui.Button;
 import ui.Font;
 import utils.MultiCallback;
@@ -116,6 +117,7 @@ class BootState extends flixel.FlxState
             function ()
             {
                 Calendar.onGameInit();
+                NGAudioData.loadAll();
                 setState(Waiting);
                 #if ALLOW_DAY_SKIP
                 if (Calendar.canSkip()
