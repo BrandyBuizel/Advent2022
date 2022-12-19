@@ -73,7 +73,7 @@ class Content
             }
             
             songData.path = 'assets/music/${songData.id}.mp3';
-            //songData.samplePath = 'assets/sounds/samples/${songData.id}.mp3';
+            songData.samplePath = 'assets/sounds/samples/${songData.id}.mp3';
             songData.diskPath = 'assets/images/ui/carousel/disks/${songData.id}.png';
             if (songData.volume == null)
                 songData.volume = 1.0;
@@ -388,10 +388,10 @@ class Content
                 if (!Manifest.exists(song.path, MUSIC))
                     addError('Missing ${song.path}');
                 #if LOAD_DISK_CAROUSEL
-                // if (song.samplePath == null)
-                //     addError('Missing sample: ${song.id}');
-                // else if (!Manifest.exists(song.samplePath, MUSIC))
-                //     addError('Missing ${song.samplePath}');
+                if (song.samplePath == null)
+                    addWarning('Missing sample: ${song.id}');
+                else if (!Manifest.exists(song.samplePath, MUSIC))
+                    addWarning('Missing ${song.samplePath}');
                 
                 if (song.ngId == null)
                 {

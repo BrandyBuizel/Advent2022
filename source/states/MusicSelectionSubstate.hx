@@ -42,11 +42,11 @@ class MusicSelectionSubstate extends flixel.FlxSubState
         camera.scroll.y = carousel.y;
         
         var left = new Button(0, 0, carousel.toPrev, LEFT_PATH);
-        left.scrollFactor.set(1,1);
-        left.updateHitbox();
         left.scale.set(1.0, 1.0);
+        left.updateHitbox();
         left.x = carousel.x;
         left.y = carousel.y + carousel.height - left.height;
+        left.scrollFactor.set(1,1);
         add(left);
         var right = new Button(0, 0, carousel.toNext, RIGHT_PATH);
         right.scale.set(1.0, 1.0);
@@ -295,7 +295,6 @@ class Carousel extends FlxSpriteGroup
     override function get_height():Float return back.height;
 }
 
-
 class DiskSprite extends FlxSprite
 {
     static public inline var SILENCE = "assets/images/ui/carousel/disks/silence.png";
@@ -309,9 +308,9 @@ class DiskSprite extends FlxSprite
         this.data = data;
         super(x, y);
         
-        scale.set(0.5, 0.5);
         loadDiskGraphic();
         setSideGraphic();
+        antialiasing = true;
     }
     
     inline public function loadDiskGraphic()

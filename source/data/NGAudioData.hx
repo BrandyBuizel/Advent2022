@@ -94,7 +94,7 @@ abstract NGAudioData(NGAudioDataRaw) from NGAudioDataRaw
             
             data.loadIcon(function(icon)
             {
-                addFakeAsset('assets/images/ui/carousel/disks/${song.id}', scaleDrawTo(icon, 120, 120));
+                addFakeAsset('assets/images/ui/carousel/disks/${song.id}', scaleDrawTo(icon, 60, 60));
                 
                 onDiskLoad();
             });
@@ -162,7 +162,7 @@ abstract NGAudioData(NGAudioDataRaw) from NGAudioDataRaw
         http.request();
     }
     
-    public function loadIcon(size:NGIconSize = LARGE, callback:(BitmapData)->Void)
+    public function loadIcon(size:NGIconSize = MEDIUM, callback:(BitmapData)->Void)
     {
         var loader = BitmapData.loadFromFile(getIconPath(size));
         loader.onError(function (e)
@@ -173,7 +173,7 @@ abstract NGAudioData(NGAudioDataRaw) from NGAudioDataRaw
         loader.onComplete(callback);
     }
     
-    inline public function getIconPath(size:NGIconSize = LARGE)
+    inline public function getIconPath(size:NGIconSize = MEDIUM)
     {
         return switch(size)
         {
@@ -183,7 +183,7 @@ abstract NGAudioData(NGAudioDataRaw) from NGAudioDataRaw
         }
     }
     
-    inline function getIconSize(size:NGIconSize = LARGE)
+    inline function getIconSize(size:NGIconSize = MEDIUM)
     {
         return switch(size)
         {
