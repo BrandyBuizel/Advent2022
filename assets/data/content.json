@@ -50,6 +50,7 @@
     , "tiny"            : { "proper": "Tiny"             }
     , "paulepz"         : { "proper": "paulepz"          }
     , "teravex"         : { "proper": "TeraVex"          }
+    , "chromxtic"       : { "proper": "chromxtic"        }
     , "theextreamh"     : { "proper": "TheExtreamH"      }
     , "pommisc"         : { "proper": "Pommisc"          }
     }
@@ -240,7 +241,7 @@
         , "ext"  : "jpg"
         , "medal": true
         }
-    ,   { "id"   : ""
+    ,   { "id"   : "chromxtic"
         , "name" : ""
         , "day"  : 20
         , "medal": true
