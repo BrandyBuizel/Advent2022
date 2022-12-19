@@ -262,7 +262,10 @@ class Carousel extends FlxSpriteGroup
         else
         {
             var song = getCurrentSong();
-            // FlxG.sound.playMusic(song.path, song.volume);
+            
+            if (song.samplePath != null && Manifest.exists(song.samplePath))
+                FlxG.sound.playMusic(song.samplePath, song.volume);
+            
             infoField.text = song.name + "\nby " + Content.listAuthorsProper(song.authors);
             infoField.x = back.x + (back.width - infoField.width) / 2;
         }
@@ -318,7 +321,7 @@ class DiskSprite extends FlxSprite
         var path = SILENCE;
         if (data != null)
         {
-            path = Manifest.exists(data.diskPath)
+            path = data.diskPath != null && Manifest.exists(data.diskPath)
                 ? data.diskPath
                 : MISSING;
         }

@@ -73,8 +73,12 @@ class Content
             }
             
             songData.path = 'assets/music/${songData.id}.mp3';
-            songData.samplePath = 'assets/sounds/samples/${songData.id}.mp3';
-            songData.diskPath = 'assets/images/ui/carousel/disks/${songData.id}.png';
+            if (Manifest.exists('assets/sounds/samples/${songData.id}.mp3', MUSIC))
+                songData.samplePath = 'assets/sounds/samples/${songData.id}.mp3';
+            
+            if (Manifest.exists('assets/images/ui/carousel/disks/${songData.id}.png', IMAGE))
+                songData.diskPath = 'assets/images/ui/carousel/disks/${songData.id}.png';
+            
             if (songData.volume == null)
                 songData.volume = 1.0;
             songs[songData.id] = songData;
@@ -391,11 +395,11 @@ class Content
                 if (song.samplePath == null)
                     addWarning('Missing sample: ${song.id}');
                 else if (!Manifest.exists(song.samplePath, MUSIC))
-                    addWarning('Missing ${song.samplePath}');
+                    addError('Invalid sample path ${song.samplePath}');
                 
                 if (song.ngId == null)
                 {
-                    if (!Manifest.exists(song.diskPath, IMAGE))
+                    if (song.diskPath == null || Manifest.exists(song.diskPath, IMAGE) == false)
                         addWarning('Missing ${song.diskPath}');
                 }
                 #end
@@ -701,6 +705,7 @@ typedef SongCreation
     var volume:Null<Float>;
     var index:Int;
     var ext:String;
+    var unlockBy:String;
 }
 
 typedef ComicCreation =
