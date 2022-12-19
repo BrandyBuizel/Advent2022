@@ -50,6 +50,8 @@
     , "tiny"            : { "proper": "Tiny"             }
     , "paulepz"         : { "proper": "paulepz"          }
     , "teravex"         : { "proper": "TeraVex"          }
+    , "theextreamh"     : { "proper": "TheExtreamH"      }
+    , "pommisc"         : { "proper": "Pommisc"          }
     }
 ,   "extras":
     {
@@ -236,6 +238,21 @@
         , "name" : "ALL ABOARD THE NG COOKIE TANKSPRESS!"
         , "day"  : 19
         , "ext"  : "jpg"
+        , "medal": true
+        }
+    ,   { "id"   : ""
+        , "name" : ""
+        , "day"  : 20
+        , "medal": true
+        }
+    ,   { "id"   : "theextreamh"
+        , "name" : "Christmas at the Peak"
+        , "day"  : 21
+         , "medal": true
+        }
+    ,   { "id"   : "pommisc"
+        , "name" : "Tankmas Scrumble"
+        , "day"  : 22
         , "medal": true
         }
     ]
