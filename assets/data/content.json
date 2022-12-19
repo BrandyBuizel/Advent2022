@@ -47,6 +47,8 @@
     , "connorgrail" 	: { "proper": "ConnorGrail" 	 }
     , "mogy64" 			: { "proper": "mogy64" 	 		 }
     , "kekiiro" 		: { "proper": "Kekiiro" 	 	 }
+    , "paulepz" 		: { "proper": "paulepz" 	 	 }
+    , "teravex" 		: { "proper": "TeraVex" 	 	 }
     }
 ,   "extras":
     {
@@ -107,6 +109,12 @@
         , "key" : "gMaj"
         , "bpm" : 85
         , "day" : 17
+        }
+	,   { "id"  : "teravex"
+        , "name": "Tankmas Snowday"
+        , "key" : "cMaj"
+        , "bpm" : 96
+        , "day" : 19
         }
     ]
 ,   "artwork":
@@ -215,6 +223,12 @@
     ,   { "id"   : "kekiiro"
         , "name" : "Portal's This Way c:"
         , "day"  : 18
+        , "medal": true
+        }
+    ,   { "id"   : "paulepz"
+        , "name" : "ALL ABOARD THE NG COOKIE TANKSPRESS!"
+        , "day"  : 19
+        , "ext"  : "jpg"
         , "medal": true
         }
     ]
