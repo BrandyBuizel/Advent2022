@@ -90,6 +90,9 @@ class CafeState extends RoomState
             return note;
         }
         
+        // preload now for BathroomState
+        Manifest.loadSong("tiny");
+        
         super.create();
         
         #if debug
