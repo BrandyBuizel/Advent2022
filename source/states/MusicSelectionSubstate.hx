@@ -4,6 +4,7 @@ import utils.GameSize;
 import data.Calendar;
 import data.Content;
 import data.Manifest;
+import data.NGAudioData;
 import ui.Button;
 import ui.Controls;
 
@@ -32,7 +33,7 @@ class MusicSelectionSubstate extends flixel.FlxSubState
         carousel.screenCenter(XY);
         add(carousel);
         
-        var camera = new FlxCamera(0, 0, Std.int(carousel.width), Std.int(carousel.height), 2);
+        var camera = new FlxCamera(0, 0, Std.int(carousel.width), Std.int(carousel.height), 4);
         cameras = [camera];
         camera.x = FlxG.width / camera.zoom - camera.width;
         camera.bgColor = 0x0;
@@ -41,11 +42,15 @@ class MusicSelectionSubstate extends flixel.FlxSubState
         camera.scroll.y = carousel.y;
         
         var left = new Button(0, 0, carousel.toPrev, LEFT_PATH);
-        left.scrollFactor.set(1,1);
+        left.scale.set(1.0, 1.0);
+        left.updateHitbox();
         left.x = carousel.x;
         left.y = carousel.y + carousel.height - left.height;
+        left.scrollFactor.set(1,1);
         add(left);
         var right = new Button(0, 0, carousel.toNext, RIGHT_PATH);
+        right.scale.set(1.0, 1.0);
+        right.updateHitbox();
         right.x = carousel.x + carousel.width - right.width;
         right.y = carousel.y + carousel.height - right.height;
         right.scrollFactor.set(1,1);
@@ -195,7 +200,7 @@ class Carousel extends FlxSpriteGroup
         
         add(new FlxSprite(SLOT_PATH));
         
-        animDisk = new FlxSprite(DiskSprite.SILENCE_FRONT);
+        animDisk = new FlxSprite(DiskSprite.SILENCE);
         animDisk.scale.set(0.5, 0.5);
         animDisk.updateHitbox();
         animDisk.x = (back.width - animDisk.width) / 2;
@@ -242,7 +247,7 @@ class Carousel extends FlxSpriteGroup
     
     function unhiliteCurrent()
     {
-        currentSprite.loadSideGraphic();
+        currentSprite.setSideGraphic();
     }
     
     function hiliteCurrent()
@@ -257,11 +262,11 @@ class Carousel extends FlxSpriteGroup
         else
         {
             var song = getCurrentSong();
-            FlxG.sound.playMusic(song.path, song.volume);
-            infoField.text = song.name + "\n" + Content.listAuthorsProper(song.authors);
+            // FlxG.sound.playMusic(song.path, song.volume);
+            infoField.text = song.name + "\nby " + Content.listAuthorsProper(song.authors);
             infoField.x = back.x + (back.width - infoField.width) / 2;
         }
-        currentSprite.loadFrontGraphic();
+        currentSprite.setFrontGraphic();
     }
     
     public function select(callback:(SongCreation)->Void)
@@ -290,14 +295,11 @@ class Carousel extends FlxSpriteGroup
     override function get_height():Float return back.height;
 }
 
-
 class DiskSprite extends FlxSprite
 {
-    static public inline var SILENCE_FRONT = "assets/images/ui/carousel/disks/front_silence.png";
-    static public inline var SILENCE_SIDE = "assets/images/ui/carousel/disks/side_silence.png";
+    static public inline var SILENCE = "assets/images/ui/carousel/disks/silence.png";
 
-    static public inline var MISSING_FRONT = "assets/images/ui/carousel/disks/front_template.png";
-    static public inline var MISSING_SIDE = "assets/images/ui/carousel/disks/side_template.png";
+    static public inline var MISSING = "assets/images/ui/carousel/disks/template.png";
     
     var data:SongCreation;
     
@@ -306,39 +308,38 @@ class DiskSprite extends FlxSprite
         this.data = data;
         super(x, y);
         
-        scale.set(0.5, 0.5);
-        loadSideGraphic();
+        loadDiskGraphic();
+        setSideGraphic();
+        antialiasing = true;
     }
     
-    inline public function loadSideGraphic()
+    inline public function loadDiskGraphic()
     {
-        var path = SILENCE_SIDE;
+        var path = SILENCE;
         if (data != null)
-            path = Manifest.exists(data.sideDiskPath)
-                ? data.sideDiskPath
-                : MISSING_SIDE;
+        {
+            path = Manifest.exists(data.diskPath)
+                ? data.diskPath
+                : MISSING;
+        }
         
-        return loadGraphicAndCenter(path);
+        return loadGraphic(path);
     }
     
-    inline public function loadFrontGraphic()
+    inline function resize(width:Int, height:Int)
     {
-        
-        var path = SILENCE_FRONT;
-        if (data != null)
-            path = Manifest.exists(data.frontDiskPath)
-                ? data.frontDiskPath
-                : MISSING_FRONT;
-        
-        return loadGraphicAndCenter(path);
-    }
-    
-    function loadGraphicAndCenter(graphic):FlxSprite
-    {
-        loadGraphic(graphic);
+        setGraphicSize(width, height);
         updateHitbox();
         offset.x = origin.x;
-        
-        return this;
+    }
+    
+    inline public function setSideGraphic()
+    {
+        resize(18, 60);
+    }
+    
+    inline public function setFrontGraphic()
+    {
+        resize(60, 60);
     }
 }

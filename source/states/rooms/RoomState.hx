@@ -316,10 +316,14 @@ class RoomState extends OgmoState
         //margin for UI buttons
         final MARGIN = 16;
         var settings = new SettingsButton(openSettings);
-        settings.updateHitbox();
         settings.x = FlxG.width - settings.width - MARGIN;
         settings.y = MARGIN;
         ui.add(settings);
+        
+        var music = new MusicButton(openMusicSelection);
+        music.x = settings.x - music.width - MARGIN;
+        music.y = MARGIN;
+        ui.add(music);
         
         // if (FlxG.onMobile)
         ui.add(new EmoteButton(MARGIN, MARGIN, player.mobileEmotePressed));
@@ -339,6 +343,18 @@ class RoomState extends OgmoState
                 player.updateNameText(NGio.userName);
         }
         openSubState(settings);
+    }
+    
+    function openMusicSelection():Void
+    {
+        ui.visible = false;
+        var oldShowName = Save.showName;
+        var musicSelection = new MusicSelectionSubstate();
+        musicSelection.closeCallback = function()
+        {
+            ui.visible = true;
+        }
+        openSubState(musicSelection);
     }
     
     function openComicPresent(present:Present, data:ArtCreation)
