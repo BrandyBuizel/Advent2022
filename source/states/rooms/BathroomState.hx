@@ -24,6 +24,7 @@ class BathroomState extends SmoothRoomState
             music = grinch;
             FlxG.sound.music.fadeOut(FADE_TIME, 0.2);
             music.play();
+            music.volume = 1.0;
         });
         
     }
@@ -43,6 +44,6 @@ class BathroomState extends SmoothRoomState
         music.stop();
         music = null;
         
-        MusicPopup.showInfo();
+        MusicPopup.showCurrentSongInfo();
     }
 }

@@ -1,14 +1,15 @@
 package ui;
 
 import ui.Font.XmasFont;
-import flixel.tweens.FlxTween;
-import flixel.tweens.FlxEase;
 import data.Content;
+import data.Game;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxSpriteGroup;
 import flixel.text.FlxBitmapText;
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
 
 class MusicPopup extends FlxTypedSpriteGroup<FlxSprite>
 {
@@ -129,6 +130,12 @@ class MusicPopup extends FlxTypedSpriteGroup<FlxSprite>
         MusicPopup.info = Playing(info);
         if (instance != null)
             instance.playAnim();
+    }
+    
+    static public function showCurrentSongInfo()
+    {
+        if (Game.chosenSong != null)
+            showInfo(Content.songs[Game.chosenSong]);
     }
     
     static public function showLoading(info:SongCreation)
