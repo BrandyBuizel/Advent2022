@@ -31,11 +31,13 @@ class MusicPopup extends FlxTypedSpriteGroup<FlxSprite>
         
         FlxG.signals.preStateSwitch.remove(tweener.clear);
         
-        add(bar = new FlxSprite(BAR_PATH));
-        add(main = new FlxSprite());
-        add(text = new FlxBitmapText());
-
-        //scale.set(2.0, 2.0);
+        add(bar = new FlxSprite(BAR_PATH)).antialiasing = false;
+        add(main = new FlxSprite()).antialiasing = false;
+        add(text = new FlxBitmapText()).antialiasing = false;
+        // scale.set(2, 2);
+        // bar.updateHitbox();
+        // main.updateHitbox();
+        // text.updateHitbox();
         
         #if FLX_DEBUG
         ignoreDrawDebug = true;
@@ -77,7 +79,6 @@ class MusicPopup extends FlxTypedSpriteGroup<FlxSprite>
     
     function playAnim():Void
     {
-        //return;// temp remove
         visible = true;
         
         tweener.cancelTweensOf(this);
@@ -110,7 +111,6 @@ class MusicPopup extends FlxTypedSpriteGroup<FlxSprite>
             FlxTween.tween(bar, { x:text.x + text.width - bar.width + 6 }, 0.25,
                 { ease:FlxEase.circInOut });
         }
-        
         
         if (y > FlxG.height - main.height)
         {
