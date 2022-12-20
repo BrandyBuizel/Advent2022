@@ -52,9 +52,6 @@ abstract Unlocks(String) from String
         if (inited == false)
             throw "Call Unlocks.init() first.";
         
-        if (this == null)
-            return false;
-        
         if (hasMany())
         {
             // check many
@@ -72,6 +69,7 @@ abstract Unlocks(String) from String
         // check lone
         return switch(split())
         {
+            case ["login"    ]: loggedIn;
             case ["login"    ]: loggedIn;
             case ["free"     ]: true;
             case ["supporter"]: loggedIn && NG.core.user.supporter;
@@ -95,5 +93,20 @@ abstract Unlocks(String) from String
         return cast this.split(",");
     }
     
-    inline public function split() return this.split(":");
+    inline function split() return this.split(":");
+    
+    inline static var TXT_KEEP_PLAYING = "Keep playing every day to unlock";
+    inline static var TXT_LOGIN = "Log in to Newgrounds to unlock this";
+    inline static var TXT_SUPPORTER = "Become a newgrounds supporter to unlock this";
+    
+    public function getUnlockInfo()
+    {
+        return switch (split())
+        {
+            case ["login"     ]: TXT_LOGIN;
+            case ["medal", day]: NGio.isLoggedIn ? TXT_KEEP_PLAYING : TXT_LOGIN;
+            case ["supporter" ]: TXT_SUPPORTER;
+            default: TXT_KEEP_PLAYING;
+        }
+    }
 }

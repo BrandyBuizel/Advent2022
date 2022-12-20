@@ -246,19 +246,10 @@ class DressUpSubstate extends flixel.FlxSubState
         else
         {
             nameText.text = "???";
-            final KEEP_PLAYING = "Keep playing every day to unlock";
-            final LOGIN = "Log in to Newgrounds to unlock this";
-            descText.text = KEEP_PLAYING;
+            descText.text = "Work in progress";
             if (currentSkin.unlocksBy != null)
-            {
-                descText.text = switch (currentSkin.unlocksBy.split())
-                {
-                    case ["login"    ]: LOGIN;
-                    case ["medal", day]: NGio.isLoggedIn ? KEEP_PLAYING : LOGIN;
-                    case ["supporter"]: "Become a newgrounds supporter to unlock this";
-                    default: KEEP_PLAYING;
-                }
-            }
+                descText.text = currentSkin.unlocksBy.getUnlockInfo();
+            
             ok.active = false;
             ok.alpha = 0.5;
         }

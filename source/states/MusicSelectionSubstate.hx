@@ -98,7 +98,9 @@ class MusicSelectionSubstate extends flixel.FlxSubState
     
     function selectCurrent()
     {
-        carousel.select(onSelectComplete);
+        var unlocks = carousel.getCurrentSong().unlocksBy;
+        if (unlocks == null || unlocks.check())
+            carousel.select(onSelectComplete);
     }
     
     function cancel()
@@ -214,6 +216,10 @@ class Carousel extends FlxSpriteGroup
         add(infoField = new FlxBitmapText());
         infoField.alignment = CENTER;
         infoField.color = 0xFF000000;
+        infoField.fieldWidth = 100;
+        infoField.wordWrap = true;
+        infoField.multiLine = true;
+        infoField.autoSize = false;
         hiliteCurrent();
         infoField.y = back.height - infoField.height - 4;
         
@@ -257,18 +263,23 @@ class Carousel extends FlxSpriteGroup
         if (current == -1)
         {
             infoField.text = "Silence\nby GeoKureli";
-            infoField.x = back.x + (back.width - infoField.width) / 2;
+        }
+        else if (currentSprite.locked)
+        {
+            var song = getCurrentSong();
+            infoField.text = "Work in progress";
+            if (song.unlocksBy != null)
+                infoField.text = song.unlocksBy.getUnlockInfo();
         }
         else
         {
             var song = getCurrentSong();
-            
             if (song.samplePath != null && Manifest.exists(song.samplePath))
                 FlxG.sound.playMusic(song.samplePath, song.volume);
             
             infoField.text = song.name + "\nby " + Content.listAuthorsProper(song.authors);
-            infoField.x = back.x + (back.width - infoField.width) / 2;
         }
+        infoField.x = back.x + (back.width - infoField.width) / 2;
         currentSprite.setFrontGraphic();
     }
     
@@ -304,8 +315,9 @@ class DiskSprite extends FlxSprite
 
     static public inline var MISSING = "assets/images/ui/carousel/disks/template.png";
     
+    public var locked:Bool = false;
+    
     var data:SongCreation;
-    var locked:Bool = false;
     
     public function new (data, x = 0.0, y = 0.0)
     {
@@ -316,7 +328,7 @@ class DiskSprite extends FlxSprite
         setSideGraphic();
         antialiasing = true;
         
-        if (data.unlocksBy.check() == false)
+        if (data != null && data.unlocksBy != null && data.unlocksBy.check() == false)
             lock();
     }
     
