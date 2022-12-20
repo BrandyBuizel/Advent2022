@@ -254,8 +254,9 @@
         , "medal": true
         }
     ,   { "id"   : "chromxtic"
-        , "name" : ""
+        , "name" : "Tankmas Gathering"
         , "day"  : 20
+		, "ext"  : "jpg"
         , "medal": true
         }
     ,   { "id"   : "theextreamh"
