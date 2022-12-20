@@ -82,8 +82,8 @@
 ,   { "id": "alan"
     , "proper": "Alan"
     , "description": "My personal favourite Smiling Friend :)\nyou found his piece of cheese in 2020!"
-    , "unlocksBy": "day:30"
-    , "users": ["psychicpebbles", "geokureli"]
+    , "unlocksBy": "medal2020:61555"
+    , "users": ["psychicpebbles"]
     }
 ,   { "id": "isaac"
     , "proper": "Isaac"

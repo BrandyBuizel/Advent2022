@@ -2,6 +2,7 @@ package data;
 
 
 import data.Calendar;
+import data.Unlocks;
 import utils.Log;
 
 import flixel.FlxSprite;
@@ -81,7 +82,7 @@ class Skins
         
         for (data in byIndex)
         {
-            if (!data.unlocked && (checkUser(data.users) || checkUnlockCondition(data.unlocksBy, data.year)))
+            if (!data.unlocked && (checkUser(data.users) || data.unlocksBy.check()))
             {
                 data.unlocked = true;
                 if (!Save.hasSeenSkin(data.index))
@@ -141,39 +142,6 @@ class Skins
     static function checkUser(users:Array<String>)
     {
         return users != null && NGio.isLoggedIn && users.contains(NGio.userName.toLowerCase());
-    }
-    
-    static function checkUnlockCondition(data:Null<String>, year:Null<Int>)
-    {
-        if (data == null)
-            return false;
-        
-        if (data.indexOf(",") != -1)
-        {
-            // check many
-            var conditions = data.split(",");
-            while (conditions.length > 0)
-            {
-                if (checkUnlockCondition(conditions.shift(), year))
-                    return true;
-            }
-            return false;
-        }
-        
-        var loggedIn = NGio.isLoggedIn;
-        
-        // check lone
-        return switch(data.split(":"))
-        {
-            case ["login"    ]: loggedIn;
-            case ["free"     ]: true;
-            case ["supporter"]: loggedIn && NG.core.user.supporter;
-            case [_]: throw "Unhandled unlockBy:" + data;
-            case ["day"  , day  ]: Save.countDaysSeen() >= Std.parseInt(day);
-            case ["medal", medal] if (medal.length < 3): NGio.hasDayMedal(Std.parseInt(medal));
-            case ["medal", medal]: NGio.hasMedal(Std.parseInt(medal));
-            default: throw "Unhandled unlockBy:" + data;
-        }
     }
     
     static public function isValidSkin(index:Int)
@@ -239,7 +207,7 @@ typedef SkinDataRaw =
     var id:String;
     var proper:String;
     var description:String;
-    var unlocksBy:String;
+    var unlocksBy:Unlocks;
     var frames:Null<Int>;
     var fps:Null<Int>;
     var offset:Null<{x:Float, y:Float}>;

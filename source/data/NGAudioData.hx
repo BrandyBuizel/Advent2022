@@ -75,7 +75,10 @@ abstract NGAudioData(NGAudioDataRaw) from NGAudioDataRaw
     
     static public function loadAll()
     {
-        var numLoading = Content.songsOrdered.length;
+        var numLoading = 0;
+        for (song in Content.songs)
+            numLoading++;
+        
         inline function onDiskLoad()
         {
             numLoading--;
@@ -100,7 +103,7 @@ abstract NGAudioData(NGAudioDataRaw) from NGAudioDataRaw
             });
         }
         
-        for (song in Content.songsOrdered)
+        for (song in Content.songs)
         {
             if (song.ngId == null)
             {

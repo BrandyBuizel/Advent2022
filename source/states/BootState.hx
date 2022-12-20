@@ -8,6 +8,7 @@ import data.Game;
 import data.Manifest;
 import data.NGio;
 import data.NGAudioData;
+import data.Unlocks;
 import ui.Button;
 import ui.Font;
 import utils.MultiCallback;
@@ -135,6 +136,7 @@ class BootState extends flixel.FlxState
         var callbacksSet = callbacks.add("wait");
         Manifest.init(callbacks.add("manifest"));
         Calendar.init(callbacks.add("calendar"));
+        Unlocks.init(callbacks.add("unlocks"));
         
         final saveCallback = callbacks.add("save");
         Save.init((outcome)->switch (outcome)

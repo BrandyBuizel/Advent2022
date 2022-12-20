@@ -305,6 +305,7 @@ class DiskSprite extends FlxSprite
     static public inline var MISSING = "assets/images/ui/carousel/disks/template.png";
     
     var data:SongCreation;
+    var locked:Bool = false;
     
     public function new (data, x = 0.0, y = 0.0)
     {
@@ -314,6 +315,9 @@ class DiskSprite extends FlxSprite
         loadDiskGraphic();
         setSideGraphic();
         antialiasing = true;
+        
+        if (data.unlocksBy.check() == false)
+            lock();
     }
     
     inline public function loadDiskGraphic()
@@ -327,6 +331,12 @@ class DiskSprite extends FlxSprite
         }
         
         return loadGraphic(path);
+    }
+    
+    inline function lock()
+    {
+        locked = true;
+        color = 0xFF000000;
     }
     
     inline function resize(width:Int, height:Int)

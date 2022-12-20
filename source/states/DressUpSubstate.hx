@@ -251,7 +251,7 @@ class DressUpSubstate extends flixel.FlxSubState
             descText.text = KEEP_PLAYING;
             if (currentSkin.unlocksBy != null)
             {
-                descText.text = switch (currentSkin.unlocksBy.split(":"))
+                descText.text = switch (currentSkin.unlocksBy.split())
                 {
                     case ["login"    ]: LOGIN;
                     case ["medal", day]: NGio.isLoggedIn ? KEEP_PLAYING : LOGIN;

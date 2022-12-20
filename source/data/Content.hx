@@ -705,7 +705,7 @@ typedef SongCreation
     var volume:Null<Float>;
     var index:Int;
     var ext:String;
-    var unlockBy:String;
+    var unlocksBy:Unlocks;
 }
 
 typedef ComicCreation =
