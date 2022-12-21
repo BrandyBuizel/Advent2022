@@ -135,6 +135,13 @@
         , "day" : 19
         , "ngId": 1180555
         }
+    ,   { "id"  : "mantlepiece"
+        , "name": "Mantlepiece"
+        , "authors": ["splatterdash"]
+        , "key" : "abMaj"
+        , "bpm" : 80
+        , "day" : 21
+        }
     ,   { "id"  : "tiny"
         , "name": "GRINCH"
         , "key" : "gMaj"

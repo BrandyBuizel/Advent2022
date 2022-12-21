@@ -33,9 +33,9 @@ class MusicSelectionSubstate extends flixel.FlxSubState
         carousel.screenCenter(XY);
         add(carousel);
         
-        var camera = new FlxCamera(0, 0, Std.int(carousel.width), Std.int(carousel.height), 4);
+        var camera = new FlxCamera(0, 0, Std.int(carousel.width), Std.int(carousel.height), 3);
         cameras = [camera];
-        camera.x = FlxG.width / camera.zoom - camera.width;
+        camera.x = FlxG.width / camera.zoom - camera.width * 0.67;
         camera.bgColor = 0x0;
         FlxG.cameras.add(camera);
         camera.scroll.x = carousel.x;
