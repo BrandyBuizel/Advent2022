@@ -106,4 +106,11 @@
     , "users": ["ninjamuffin99", "phantomarcade", "evilsk8r", "kawaisprite", "geokureli", "brandybuizel"]
     , "group": "funkin"
     }
+,   { "id": "pump_and_skid"
+    , "proper": "Pump'n'Skid"
+    , "description": "The spooky boys will be dancing all month,\nandthe next month, and does Halloween ever truly end?"
+    , "unlocksBy": "supporter"
+    , "frames": 4
+    , "users": ["srpelo"]
+    }
 ]
