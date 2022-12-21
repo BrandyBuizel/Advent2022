@@ -55,7 +55,6 @@
     , "pommisc"         : { "proper": "Pommisc"          }
     , "twelfthchromatic": { "proper": "TwelfthChromatic" }
     , "precipitation24" : { "proper": "Precipitation24"  }
-    , "danfrombavaria"  : { "proper": "DanFromBavaria"   }
     , "hyenaedon"       : { "proper": "Hyenaedon"        }
     , "everratic"       : { "proper": "Everratic"        }
     , "tenodiboris"     : { "proper": "TenodiBoris"      }
@@ -122,7 +121,7 @@
         , "day" : 15
         , "ngId": 1179612
         }
-	,   { "id"  : "connorgrail"
+    ,   { "id"  : "connorgrail"
         , "name": "Fireplace"
         , "key" : "gMaj"
         , "bpm" : 85
@@ -136,16 +135,16 @@
         , "day" : 19
         , "ngId": 1180555
         }
-    ,   { "id"       : "tiny"
-        , "name"     : "GRINCH"
-        , "key"      : "gMaj"
-        , "bpm"      : 85
-        , "day"      : -1
-        , "ngId"     : 1180658
+    ,   { "id"  : "tiny"
+        , "name": "GRINCH"
+        , "key" : "gMaj"
+        , "bpm" : 85
+        , "day" : -1
+        , "ngId": 1180658
         }
     ,   { "id"       : "bonus1"
         , "name"     : "Mantlepiece Guitar NG Xmas"
-		, "authors": ["czyszy"]
+        , "authors"  : ["czyszy"]
         , "key"      : "cMaj"
         , "day"      : -1
         , "ngId"     : 895653
@@ -153,8 +152,8 @@
         }
     ,   { "id"       : "bonus2"
         , "name"     : "The Gift of Smiling"
-		, "authors": ["albegian"]
-		, "loopStart": 7111
+        , "authors"  : ["albegian"]
+        , "loopStart": 7111
         , "key"      : "f#Maj"
         , "bpm"      : 135
         , "day"      : -1
@@ -163,7 +162,7 @@
         }
     ,   { "id"       : "bonus3"
         , "name"     : "A Perfect Day"
-		, "authors": ["everratic"]
+        , "authors"  : ["everratic"]
         , "key"      : "aMaj"
         , "bpm"      : 96
         , "day"      : -1
@@ -172,14 +171,14 @@
         }
     ,   { "id"       : "bonus4"
         , "name"     : "Christmas Cheer"
-		, "authors": ["twelfthchromatic"]
+        , "authors"  : ["twelfthchromatic"]
         , "day"      : -1
         , "ngId"     : 598611
         , "unlocksBy": "medal:71378"
         }
     ,   { "id"       : "bonus5"
         , "name"     : "woodlandsprites"
-		, "authors": ["hyenaedon"]
+        , "authors": ["hyenaedon"]
         , "key"      : "g#Maj"
         , "bpm"      : 153
         , "day"      : -1
@@ -188,14 +187,14 @@
         }
     ,   { "id"       : "bonus6"
         , "name"     : "No Time Like Christmas"
-		, "authors": ["tenodiboris"]
+        , "authors": ["tenodiboris"]
         , "day"      : -1
         , "ngId"     : 1096621
         , "unlocksBy": "medal:71378"
         }
     ,   { "id"       : "bonus7"
         , "name"     : "Anastasia and Cinderella"
-		, "authors": ["precipitation24"]
+        , "authors": ["precipitation24"]
         , "key"      : "aMaj"
         , "bpm"      : 130
         , "day"      : -1
@@ -204,10 +203,10 @@
         }
     ,   { "id"       : "bonus8"
         , "name"     : "Coming Home for Newgrounds"
-		, "authors": ["danfrombavaria"]
+        , "authors": ["danfrombavaria"]
         , "loopStart": 17142
         , "loopEnd"  : 120000
-		, "key"      : "cMaj"
+        , "key"      : "cMaj"
         , "bpm"      : 70
         , "day"      : -1
         , "ngId"     : 985036
@@ -331,7 +330,7 @@
     ,   { "id"   : "chromxtic"
         , "name" : "Tankmas Gathering"
         , "day"  : 20
-		, "ext"  : "jpg"
+        , "ext"  : "jpg"
         , "medal": true
         }
     ,   { "id"   : "theextreamh"
@@ -400,7 +399,7 @@
     , "yuleAllCards"           : 71375
     , "candles"                : 71376
     , "a_gift_to_never_forget" : 71377
-	, "disc" 				   : 71378
+    , "disc"                   : 71378
     }
 ,   "instruments":
     [
