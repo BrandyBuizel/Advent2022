@@ -216,7 +216,7 @@ class Carousel extends FlxSpriteGroup
         add(infoField = new FlxBitmapText());
         infoField.alignment = CENTER;
         infoField.color = 0xFF000000;
-        infoField.fieldWidth = 100;
+        infoField.fieldWidth = 130;
         infoField.wordWrap = true;
         infoField.multiLine = true;
         infoField.autoSize = false;
