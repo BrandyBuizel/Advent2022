@@ -25,7 +25,7 @@ import haxe.Json;
 
 class DressUpSubstate extends flixel.FlxSubState
 {
-    inline static var BAR_MARGIN = 8;
+    inline static var BAR_MARGIN = 24;
     inline static var SIDE_GAP = 96;
     inline static var SPACING = 64;
     
@@ -69,7 +69,8 @@ class DressUpSubstate extends flixel.FlxSubState
         instructions.y = 32;
         instructions.scrollFactor.set(0, 0);
         instructions.alignment = CENTER;
-        instructions.scale.set(2, 2);
+        instructions.scale.set(4, 4);
+        instructions.updateHitbox();
         add(instructions);
         
         createSkinsList();
@@ -85,6 +86,7 @@ class DressUpSubstate extends flixel.FlxSubState
         top -= BAR_MARGIN;
         
         nameText.text = currentSkin.proper;
+        nameText.scale.set(4, 4);
         nameText.screenCenter(X);
         nameText.y = top - nameText.height;
         nameText.scrollFactor.set(0, 0);
@@ -92,6 +94,7 @@ class DressUpSubstate extends flixel.FlxSubState
         add(nameText);
         
         descText.text = currentSkin.description;
+        descText.scale.set(2, 2);
         descText.alignment = CENTER;
         descText.fieldWidth = Std.int(FlxG.width * .75);
         descText.width = descText.fieldWidth;
@@ -141,9 +144,8 @@ class DressUpSubstate extends flixel.FlxSubState
             var data = Skins.getDataSorted(i);
             var sprite = new SkinDisplay(data);
             sprites.add(sprite);
-            sprite.scale.set(2, 2);
-            sprite.updateHitbox();
             sprite.scrollFactor.set(0, 0);
+            sprite.unseen.camera = camera;
             
             sprite.x = SPACING * i;
             if (data.offset != null)
@@ -254,7 +256,9 @@ class DressUpSubstate extends flixel.FlxSubState
             ok.alpha = 0.5;
         }
         ok.visible = true;
+        nameText.updateHitbox();
         nameText.screenCenter(X);
+        descText.updateHitbox();
         descText.screenCenter(X);
     }
     
@@ -291,6 +295,9 @@ class SkinDisplay extends FlxSprite
         data.loadTo(this);
         unseen = new FlxSprite("assets/images/ui/new.png");
         unseen.visible = data.unlocked && !Save.hasSeenSkin(data.index);
+        unseen.scale.set(2, 2);
+        unseen.updateHitbox();
+        unseen.scrollFactor.set(0, 0);
     }
     
     override function draw()
@@ -301,6 +308,11 @@ class SkinDisplay extends FlxSprite
             unseen.x = x + offset.x + 10 + (width - unseen.width) / 2;
             unseen.y = y;
             unseen.draw();
+            FlxG.watch.addQuick("u.x", unseen.x);
+            FlxG.watch.addQuick("skin.x", x);
+            FlxG.watch.addQuick("offset.x", offset.x);
+            FlxG.watch.addQuick("w", width);
+            FlxG.watch.addQuick("u.w", unseen.width);
         }
     }
 }
