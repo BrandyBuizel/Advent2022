@@ -56,6 +56,14 @@ class Save
             callback(SUCCESS);
         }
         #end
+        
+        #if debug
+        FlxG.console.registerFunction("clearSkins", ()->
+        {
+            data.skins.reset();
+            flush();
+        });
+        #end
     }
     
     static function onCloudSavesLoaded(callback:(Outcome<CallError>)->Void)
