@@ -30,6 +30,7 @@ class TypedInfoBox<T:FlxSprite> extends FlxObject
     public var sprite(default, null):T;
     public var hitbox(default, null):FlxObject;
     public var canInteract(get, never):Bool;
+    
     public function get_canInteract()
     {
         return (target is IInteractable) == false || (cast target:IInteractable).canInteract;
@@ -79,7 +80,7 @@ class TypedInfoBox<T:FlxSprite> extends FlxObject
             else if (!alive && introTime > 0)
                 introTime -= elapsed / INTRO_TIME;
             
-            sprite.scale.y = FlxEase.backOut(introTime);
+            sprite.scale.y = sprite.scale.x * FlxEase.backOut(introTime);
             sprite.visible = sprite.scale.y > 0;
         }
     }
@@ -135,6 +136,8 @@ class InfoTextBox extends TypedInfoBox<FlxBitmapText>
             info.setBorderStyle(OUTLINE, FlxColor.BLACK, 1);
             info.autoSize = true;
             info.text = text;
+            info.scale.set(2.0, 2.0);
+            info.updateHitbox();
             info.offset.x = -xOffset;
         }
         
