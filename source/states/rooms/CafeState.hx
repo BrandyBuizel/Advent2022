@@ -49,7 +49,7 @@ class CafeState extends RoomState
     
     var arcadeNotifs = new Map<ArcadeName, Notif>();
 
-    var disc:OgmoDecal;
+    //var disc:OgmoDecal;
     var notesById = new Map<String, Note>();
     
     override function create()

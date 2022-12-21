@@ -53,6 +53,12 @@
     , "chromxtic"       : { "proper": "chromxtic"        }
     , "theextreamh"     : { "proper": "TheExtreamH"      }
     , "pommisc"         : { "proper": "Pommisc"          }
+    , "twelfthchromatic": { "proper": "TwelfthChromatic" }
+    , "precipitation24" : { "proper": "Precipitation24"  }
+    , "danfrombavaria"  : { "proper": "DanFromBavaria"   }
+    , "hyenaedon"       : { "proper": "Hyenaedon"        }
+    , "everratic"       : { "proper": "Everratic"        }
+    , "tenodiboris"     : { "proper": "TenodiBoris"      }
     }
 ,   "extras":
     {
@@ -136,6 +142,75 @@
         , "bpm"      : 85
         , "day"      : -1
         , "ngId"     : 1180658
+        }
+    ,   { "id"       : "bonus1"
+        , "name"     : "Mantlepiece Guitar NG Xmas"
+		, "authors": ["czyszy"]
+        , "key"      : "cMaj"
+        , "day"      : -1
+        , "ngId"     : 895653
+        , "unlocksBy": "medal:71378"
+        }
+    ,   { "id"       : "bonus2"
+        , "name"     : "The Gift of Smiling"
+		, "authors": ["albegian"]
+		, "loopStart": 7111
+        , "key"      : "f#Maj"
+        , "bpm"      : 135
+        , "day"      : -1
+        , "ngId"     : 984774
+        , "unlocksBy": "medal:71378"
+        }
+    ,   { "id"       : "bonus3"
+        , "name"     : "A Perfect Day"
+		, "authors": ["everratic"]
+        , "key"      : "aMaj"
+        , "bpm"      : 96
+        , "day"      : -1
+        , "ngId"     : 990092
+        , "unlocksBy": "medal:71378"
+        }
+    ,   { "id"       : "bonus4"
+        , "name"     : "Christmas Cheer"
+		, "authors": ["twelfthchromatic"]
+        , "day"      : -1
+        , "ngId"     : 598611
+        , "unlocksBy": "medal:71378"
+        }
+    ,   { "id"       : "bonus5"
+        , "name"     : "woodlandsprites"
+		, "authors": ["hyenaedon"]
+        , "key"      : "g#Maj"
+        , "bpm"      : 153
+        , "day"      : -1
+        , "ngId"     : 987597
+        , "unlocksBy": "medal:71378"
+        }
+    ,   { "id"       : "bonus6"
+        , "name"     : "No Time Like Christmas"
+		, "authors": ["tenodiboris"]
+        , "day"      : -1
+        , "ngId"     : 1096621
+        , "unlocksBy": "medal:71378"
+        }
+    ,   { "id"       : "bonus7"
+        , "name"     : "Anastasia and Cinderella"
+		, "authors": ["precipitation24"]
+        , "key"      : "aMaj"
+        , "bpm"      : 130
+        , "day"      : -1
+        , "ngId"     : 833947
+        , "unlocksBy": "medal:71378"
+        }
+    ,   { "id"       : "bonus8"
+        , "name"     : "Coming Home for Newgrounds"
+		, "authors": ["danfrombavaria"]
+        , "loopStart": 17142
+        , "loopEnd"  : 120000
+		, "key"      : "cMaj"
+        , "bpm"      : 70
+        , "day"      : -1
+        , "ngId"     : 985036
         , "unlocksBy": "medal:71378"
         }
     ]
