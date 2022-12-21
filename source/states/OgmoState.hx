@@ -443,6 +443,8 @@ abstract OgmoDecal(FlxSprite) to FlxSprite from FlxSprite
                 setBottomHeight(this.height / 3);
             else if (values.bottomHeight != -1)
                 setBottomHeight(values.bottomHeight);
+            else if (values.bottomHeight < -1)
+                setBottomHeight(0);
             
             #if FLX_DEBUG
             this.ignoreDrawDebug = values.ignoreDebugDraw != false;// can be true or null
