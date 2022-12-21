@@ -138,7 +138,7 @@
     ,   { "id"  : "mantlepiece"
         , "name": "Mantlepiece"
         , "authors": ["splatterdash"]
-        , "key" : "abMaj"
+        , "key" : "g#Maj"
         , "bpm" : 80
         , "day" : 21
         }
