@@ -76,6 +76,15 @@ class Game
         //     state = LuciaDay(Started);
         // else if (Save.noPresentsOpened())
         //     state = Intro(Started);
+        
+        #if debug
+        FlxG.console.registerFunction("teleport", (target:String)->
+        {
+            if (target.indexOf(".") == -1)
+                target += ".debug";
+            goToRoom(target);
+        });
+        #end
     }
     
     inline static function addRoom(name, constructor, isNetworked = true, ?notifHandler:()->Bool)

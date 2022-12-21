@@ -67,6 +67,7 @@ class RoomState extends OgmoState
     var topGround = new FlxGroup();
     var ui = new FlxGroup();
     
+    var teleportsById = new Map<String, Teleport>();
     var spawnTeleport:Teleport;
     var medalPopup:MedalPopup;
     var musicPopup:MusicPopup;
@@ -199,6 +200,7 @@ class RoomState extends OgmoState
         }
         
         teleports.add(teleport);
+        teleportsById[teleport.id] = teleport;
         return teleport;
     }
     
@@ -260,19 +262,7 @@ class RoomState extends OgmoState
         geom.visible = false;
         #end
         
-        for (teleport in teleports.members)
-        {
-            if (spawnId == teleport.id)
-                spawnTeleport = teleport;
-        }
-        
-        if (spawnTeleport == null)
-        {
-            throw spawnId != ""
-                ? 'Could not find a teleport with a id of $spawnId'
-                : 'Missing the default spawn point'
-                ;
-        }
+        getSpawn();
         
         player = new InputPlayer();
         player.x = spawnTeleport.x + (spawnTeleport.width - player.width) / 2;
@@ -329,6 +319,43 @@ class RoomState extends OgmoState
         ui.add(new EmoteButton(MARGIN, MARGIN, player.mobileEmotePressed));
         
         add(ui);
+    }
+    
+    function getSpawn()
+    {
+        inline function spawnToIfValid(id:String)
+        {
+            if (teleportsById.exists(id))
+                spawnTeleport = teleportsById[id];
+        }
+        
+        spawnToIfValid(spawnId);
+        
+        if (spawnTeleport == null && spawnId == "debug")
+        {
+            spawnToIfValid("");
+            spawnToIfValid("outside");
+            
+            // any port in a storm
+            if (spawnTeleport == null)
+            {
+                for (teleport in teleports.members)
+                {
+                    spawnTeleport = teleport;
+                    break;
+                }
+            }
+        }
+        
+        if (spawnTeleport == null)
+        {
+            throw switch(spawnId)
+            {
+                case "debug": "Cannot debug teleport to a room with no teleports";
+                case "": 'Missing the default spawn point';
+                default: 'Could not find a teleport with a id of $spawnId';
+            }
+        }
     }
     
     function openSettings():Void
@@ -847,6 +874,7 @@ class RoomState extends OgmoState
         super.destroy();
         
         infoBoxes.clear();
+        teleportsById.clear();
     }
     
     
