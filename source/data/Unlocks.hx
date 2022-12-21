@@ -70,7 +70,6 @@ abstract Unlocks(String) from String
         return switch(split())
         {
             case ["login"    ]: loggedIn;
-            case ["login"    ]: loggedIn;
             case ["free"     ]: true;
             case ["supporter"]: loggedIn && NG.core.user.supporter;
             case [_]: throw "Unhandled unlockBy:" + this;
