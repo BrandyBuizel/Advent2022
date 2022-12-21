@@ -1,6 +1,8 @@
 package states.rooms;
 
+import states.rooms.RoomState;
 import data.Calendar;
+import data.NGio;
 import data.Save;
 import ui.Phone;
 
@@ -21,6 +23,7 @@ class OutsideState extends SmoothRoomState
     var changingRoom:OgmoDecal;
     var easterEgg:OgmoDecal;
     var changingRoomNotif:Notif;
+    var theatreNotif:Notif;
     var tree:OgmoDecal;
     var midground:OgmoDecal;
     
@@ -36,6 +39,21 @@ class OutsideState extends SmoothRoomState
         
         tree = foreground.getIndexNamedObject("tree", 33);
         tree.animation.curAnim.frameRate = 2;
+        
+        var theatreTeleport = teleportsById[RoomName.TheaterScreen];
+        if (theatreTeleport != null)
+        {
+            final isMoviePremier = NGio.moviePremier != null;
+            theatreTeleport.enabled = isMoviePremier;
+            if (isMoviePremier)
+            {
+                theatreNotif = new Notif(0, theatreTeleport.y - 50);
+                theatreNotif.x = theatreTeleport.x + (theatreTeleport.width - theatreNotif.width) / 2;
+                theatreNotif.animate();
+                theatreNotif.visible = NGio.hasMedalByName("movie");
+                topGround.add(theatreNotif);
+            }
+        }
 
         // tree = foreground.getIndexNamedObject("tree", 33);
         // if (tree != null)

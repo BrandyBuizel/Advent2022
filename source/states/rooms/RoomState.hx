@@ -900,5 +900,5 @@ enum abstract RoomName(String) to String
     var Arcade   = "arcade"  ;
     var Bathroom = "bathroom";
     var Igloo    = "igloo"   ;
-    var TheaterScreen = "theater_screen"   ;
+    var TheaterScreen = "theater_screen";
 }

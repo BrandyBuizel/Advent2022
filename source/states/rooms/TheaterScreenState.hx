@@ -102,6 +102,8 @@ class TheaterScreenState extends RoomState
     
     function watchMovie()
     {
+        NGio.unlockMedalByName("movie");
+        
         final moviePath = (NGio.moviePremier != null && isPremier)
             ? NGio.moviePremier
             : Content.movies[selectedMovie].path

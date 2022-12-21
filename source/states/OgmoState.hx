@@ -441,7 +441,7 @@ abstract OgmoDecal(FlxSprite) to FlxSprite from FlxSprite
             var values = data.values;
             if (values.bottomHeight == null || values.bottomHeight == 0)
                 setBottomHeight(this.height / 3);
-            else if (values.bottomHeight != -1)
+            else if (values.bottomHeight > 0)
                 setBottomHeight(values.bottomHeight);
             else if (values.bottomHeight < -1)
                 setBottomHeight(0);
