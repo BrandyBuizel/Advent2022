@@ -52,6 +52,7 @@ class Game
         addRoom(Cafe, CafeState.new, CafeState.hasNotifs);
         addRoom(Bathroom, BathroomState.new);
         addRoom(Igloo, IglooState.new);
+        addRoom(TheaterScreen, TheaterScreenState.new);
 
         ArcadeGame.init();
         

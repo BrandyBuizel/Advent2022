@@ -1,5 +1,6 @@
 package states.rooms;
 
+import data.Calendar;
 import data.Save;
 import ui.Phone;
 
@@ -96,6 +97,15 @@ class OutsideState extends SmoothRoomState
         //Note by blue door saying it's closed
         var blue_door = foreground.getByName("blue_door");
         addHoverTextTo(blue_door, "      BLUE DOOR\nCOFFEE + WAFFLES"); //()->{ note.visible = !note.visible; });
+
+        //Sign press to go to cabin
+        if(Calendar.day >= 21)
+        {
+            var sign = foreground.getByName("sign");
+            addHoverTextTo(sign, "GO TO CABIN", ()->{ 
+                //Do stuff
+            });
+        }
         
         //foreground.remove(note);
         //topGround.add(note);
