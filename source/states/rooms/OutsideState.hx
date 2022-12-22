@@ -50,7 +50,7 @@ class OutsideState extends SmoothRoomState
                 theatreNotif = new Notif(0, theatreTeleport.y - 50);
                 theatreNotif.x = theatreTeleport.x + (theatreTeleport.width - theatreNotif.width) / 2;
                 theatreNotif.animate();
-                theatreNotif.visible = NGio.hasMedalByName("movie");
+                theatreNotif.visible = !NGio.hasMedalByName("movie");
                 topGround.add(theatreNotif);
             }
         }
