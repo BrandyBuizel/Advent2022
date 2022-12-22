@@ -25,9 +25,9 @@ import haxe.Json;
 
 class DressUpSubstate extends flixel.FlxSubState
 {
-    inline static var BAR_MARGIN = 24;
+    inline static var BAR_MARGIN = 48;
     inline static var SIDE_GAP = 96;
-    inline static var SPACING = 64;
+    inline static var SPACING = 72;
     
     var sprites = new FlxTypedSpriteGroup<SkinDisplay>();
     var current = -1;
@@ -231,7 +231,7 @@ class DressUpSubstate extends flixel.FlxSubState
     
     function hiliteCurrent()
     {
-        sprites.x = (current+1) * -SPACING - BAR_MARGIN*2 + (FlxG.width - currentSprite.width) / 2;
+        sprites.x = (current+1) * -SPACING - 40 + (FlxG.width - currentSprite.width) / 2;
         
         if (currentSkin.unlocked)
         {
@@ -291,6 +291,8 @@ class SkinDisplay extends FlxSprite
     {
         this.data = data;
         super(x, y);
+        scale.set(2, 2);
+        updateHitbox();
         
         data.loadTo(this);
         unseen = new FlxSprite("assets/images/ui/new.png");
