@@ -58,6 +58,7 @@
     , "hyenaedon"       : { "proper": "Hyenaedon"        }
     , "everratic"       : { "proper": "Everratic"        }
     , "tenodiboris"     : { "proper": "TenodiBoris"      }
+    , "pepperly"        : { "proper": "pepperly"         }
     }
 ,   "extras":
     {
@@ -348,6 +349,11 @@
     ,   { "id"   : "pommisc"
         , "name" : "Tankmas Scrumble"
         , "day"  : 22
+        , "medal": true
+        }
+    ,   { "id"   : "pepperly"
+        , "name" : "Cafe Carolers"
+        , "day"  : 23
         , "medal": true
         }
     ]
