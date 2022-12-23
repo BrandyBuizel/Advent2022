@@ -77,19 +77,19 @@ class TheaterScreenState extends RoomState
         addHoverTextTo(screen, "watch", watchMovie, -60);
         
         // GK: this is stuff from 2020
-        // for (id in Content.movies.keys())
-        // {
-        //     final data = Content.movies[id];
-        //     final poster = background.getByName(id);
-        //     if (poster != null)
-        //     {
-        //         var text = data.name;
-        //         if (isPremier && id == selectedMovie)
-        //             text = "Now Playing!";
-        //         
-        //         addHoverTextTo(poster, text, ()->onPosterSelect(data));
-        //     }
-        // }
+        for (id in Content.movies.keys())
+        {
+            final data = Content.movies[id];
+            final poster = foreground.getByName(id);
+            if (poster != null)
+            {
+                var text = data.name;
+                if (isPremier && id == selectedMovie)
+                    text = "Now Playing!";
+
+                addHoverTextTo(poster, text, ()->onPosterSelect(data));
+            }
+        }
     }
     
     function onPosterSelect(movie:MovieCreation)
@@ -111,7 +111,11 @@ class TheaterScreenState extends RoomState
         
         openSubState(new VideoSubstate(moviePath));
         if (isPremier)
+        {
             isPremier = false;
+            final poster = foreground.getByName(selectedMovie);
+            //cast(infoBoxes[poster].sprite, FlxBitmapText).text = movie.name;
+        }
     }
     
     override function update(elapsed:Float)
