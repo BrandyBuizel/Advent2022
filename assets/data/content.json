@@ -143,6 +143,12 @@
         , "bpm" : 80
         , "day" : 21
         }
+    ,   { "id"  : "albegian"
+        , "name": "The Morning After"
+        , "key" : "eMin"
+        , "bpm" : 110
+        , "day" : 23
+        }
     ,   { "id"  : "tiny"
         , "name": "GRINCH"
         , "key" : "gMaj"
