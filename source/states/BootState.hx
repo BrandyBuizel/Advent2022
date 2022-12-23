@@ -61,6 +61,9 @@ class BootState extends flixel.FlxState
         
         timeout = new FlxTimer().start(20, showErrorAndBegin);
         NGio.attemptAutoLogin(onAutoConnectResult);
+        
+        FlxG.sound.soundTray.volumeDownSound = "assets/sounds/volumedown.mp3";
+        FlxG.sound.soundTray.volumeUpSound = "assets/sounds/volumeup.mp3";
     }
     
     function onAutoConnectResult():Void
