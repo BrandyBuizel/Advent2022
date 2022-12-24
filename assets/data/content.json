@@ -60,6 +60,7 @@
     , "tenodiboris"     : { "proper": "TenodiBoris"      }
     , "pepperly"        : { "proper": "pepperly"         }
     , "mismash"         : { "proper": "MisMash"          }
+    , "jacob"           : { "proper": "Jacob"            }
     }
 ,   "extras":
     {
@@ -149,6 +150,12 @@
         , "key" : "eMin"
         , "bpm" : 110
         , "day" : 23
+        }
+    ,   { "id"  : "jacob"
+        , "name": "I Dream of Balls"
+        , "key" : "fMaj"
+        , "bpm" : 130
+        , "day" : 25
         }
     ,   { "id"  : "tiny"
         , "name": "GRINCH"
