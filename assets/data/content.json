@@ -438,6 +438,12 @@
         , "authors": ["brandybuizel"]
 		, "day":21
         }
+	,   "pengu":
+        { "name": "Pengu's Christmas Special"
+        , "path": "https://uploads.ungrounded.net/alternate/4368000/4368864_alternate_204676.1080p.mp4?1671841033"
+		, "authors": ["brandybuizel"]
+        , "day":24
+        }
     ,   "girls":
         { "name": "GIRLS NIGHT"
         , "path": ""
