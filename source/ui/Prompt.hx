@@ -26,7 +26,7 @@ class Prompt extends flixel.group.FlxGroup
 		var oldQuality = FlxG.stage.quality;
 		FlxG.stage.quality = LOW;
 		add(box = new FlxSprite());
-		box.makeGraphic(FlxG.width - BUFFER * 2, 72, 0, true, "prompt-bg");
+		box.makeGraphic(FlxG.width - BUFFER * 2, 144, 0, true, "prompt-bg");
 		box.drawRoundRect(
 			0,
 			0,
@@ -44,6 +44,8 @@ class Prompt extends flixel.group.FlxGroup
 		FlxG.stage.quality = oldQuality;
 		
 		add(label = new FlxBitmapText(new NokiaFont()));
+		label.scale.set(2.0, 2.0);
+		label.updateHitbox();
 		label.alignment = CENTER;
 		label.scrollFactor.set();
 		

@@ -109,8 +109,8 @@
 	</section>
 	
 	<!-- <define name="PRELOAD_INSTRUMENTS"/> -->
-	<!-- <define name="PRELOAD_INSTRUMENTS" if="PRELOAD_ALL"/>
-	<section if="PRELOAD_INSTRUMENTS">
+	<define name="PRELOAD_INSTRUMENTS" if="PRELOAD_ALL"/>
+	<section if="PRELOAD_INSTRUMENTS">~
 		<library name="drums"        preload="true" />
 		<library name="flute"        preload="true" />
 		<library name="glockenspiel" preload="true" />
@@ -131,7 +131,7 @@
 	<assets path="assets/notes/glockenspiel" exclude="*.wav" library="glockenspiel" />
 	<assets path="assets/notes/guitar_ac"    exclude="*.wav" library="guitar_ac" />
 	<assets path="assets/notes/guitar_el"    exclude="*.wav" library="guitar_el" />
-	<assets path="assets/notes/piano"        exclude="*.wav" library="piano" /> -->
+	<assets path="assets/notes/piano"        exclude="*.wav" library="piano" />
 	
 	<!-- Example comic from 2021 -->
 	<library name="a_gift_to_never_forget" preload="false" />

@@ -135,6 +135,8 @@ class RoomState extends OgmoState
         loadLevel();
         Log.ogmo('initing entities');
         initEntities();
+        Log.ogmo('initing instruments');
+        initInstruments();
         Log.ogmo('initing UI');
         initUi();
         Log.ogmo('initing camera');
@@ -296,9 +298,6 @@ class RoomState extends OgmoState
         FlxG.cameras.add(uiCamera);
         ui.camera = uiCamera;
         
-        ui.add(instrument = new FlxButton(FlxG.width, 0, onInstrumentClick));
-        Instrument.onChange.add(updateInstrument);
-        updateInstrument();
         ui.add(medalPopup = MedalPopup.getInstance());
         ui.add(musicPopup = MusicPopup.getInstance());
         ui.add(skinPopup = SkinPopup.getInstance());
@@ -316,7 +315,12 @@ class RoomState extends OgmoState
         ui.add(music);
         
         // if (FlxG.onMobile)
-        ui.add(new EmoteButton(MARGIN, MARGIN, player.mobileEmotePressed));
+        var emote = new EmoteButton(MARGIN, MARGIN, player.mobileEmotePressed);
+        ui.add(emote);
+        
+        ui.add(instrument = new FlxButton(emote.x + emote.width + MARGIN, MARGIN, onInstrumentClick));
+        Instrument.onChange.add(updateInstrument);
+        updateInstrument();
         
         add(ui);
     }
@@ -463,6 +467,40 @@ class RoomState extends OgmoState
         Manifest.loadArt(framedPicture.id);
         var data = Content.artwork[framedPicture.id];
         openSubState(new GallerySubstate(framedPicture.id, () -> {}));
+    }
+    
+    function initInstruments()
+    {
+        for (id=>data in Content.instruments)
+        {
+            var instrument = foreground.getByName(id);
+            if (instrument != null)
+            {
+                if (data.day > Calendar.day)
+                    instrument.kill();
+                else
+                    initInstrument(instrument, data);
+            }
+        }
+    }
+    
+    function initInstrument(sprite:FlxSprite, data:InstrumentData)
+    {
+        addHoverTextTo(sprite, data.name, ()->pickupInstrument(sprite, data));
+    }
+    
+    
+    function pickupInstrument(sprite:FlxSprite, data:InstrumentData)
+    {
+        if (Save.getInstrument() == null)
+        {
+            Save.instrumentSeen(data.id);
+            Prompt.showOKInterrupt
+                ( 'You got the ${data.name}, play by pressing the ERTYUIOP'
+                + '\nkeys or by clicking it icon in the top right'
+                );
+        }
+        Save.setInstrument(data.id);
     }
     
     function updatePresentMedal(data:ArtCreation)
@@ -844,7 +882,6 @@ class RoomState extends OgmoState
         url.open(customMsg, onYes);
     }
     
-    
     function updateInstrument():Void
     {
         switch(Content.instruments[Save.getInstrument()])
@@ -857,8 +894,6 @@ class RoomState extends OgmoState
                 instrument.loadGraphic(data.iconPath);
                 instrument.scale.set(2.0, 2.0);
                 instrument.updateHitbox();
-                instrument.x = FlxG.width - instrument.width - 36;
-                instrument.y = (30 - instrument.height) / 2;
             }
         }
     }

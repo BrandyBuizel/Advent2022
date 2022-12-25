@@ -443,8 +443,61 @@
     , "movie"                  : 71379
     }
 ,   "instruments":
-    [
-        
+    [   { "id"    : "guitar_ac"
+        , "name"  : "Acoustic Guitar"
+        , "day"   : 25
+        , "volume": 1.0
+        , "octave": 3
+        }
+        ,   { "id"    : "piano"
+        , "name"  : "Piano"
+        , "day"   : 25
+        , "volume": 1.0
+        , "octave": 6
+        }
+        ,   { "id"    : "guitar_el"
+        , "name"  : "Electric Guitar"
+        , "day"   : 25
+        , "volume": 1.0
+        , "sustain":true
+        , "singleNote":true
+        , "octave": 4
+        }
+        ,   { "id"    : "glockenspiel"
+        , "name"  : "Glockenspiel"
+        , "day"   : 25
+        , "volume": 1.0
+        , "octave": 6
+        }
+        ,   { "id"     : "flute"
+        , "name"   : "Flute"
+        , "day"    : 25
+        , "volume" : 1.0
+        , "sustain":true
+        , "singleNote":true
+        , "octave": 6
+        }
+        ,   { "id"     : "drums"
+        , "icon"   : "sticks"
+        , "name"   : "Drum Set"
+        , "day"    : 25
+        , "volume" : 1.0
+        , "keys":
+            { "E":"snare"
+            , "4":"clap"
+            , "R":"tom"
+            , "5":"hat"
+            , "T":"bongo_1"
+            , "Y":"bongo_3"
+            , "7":"bongo_2"
+            , "U":"kick"
+            , "8":"bells"
+            , "I":"tambourine"
+            , "9":"triangle"
+            , "O":"stick"
+            , "P":"crash"
+            }
+        }
     ]
 ,   "movies":
     {   "sketch": 

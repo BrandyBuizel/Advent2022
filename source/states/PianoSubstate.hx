@@ -9,6 +9,7 @@ import ui.Font;
 
 import openfl.geom.Rectangle;
 
+import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup;
@@ -16,6 +17,8 @@ import flixel.input.keyboard.FlxKey;
 import flixel.util.FlxColor;
 import flixel.ui.FlxBitmapTextButton;
 import flixel.ui.FlxButton;
+
+inline var SCALE = 3;
 
 class PianoSubstate extends flixel.FlxSubState
 {
@@ -53,12 +56,12 @@ class PianoSubstate extends flixel.FlxSubState
 abstract BlackKey(Key) to Key
 {
 	inline static var CHARS = "45789";
-	inline static public var TOP = 20;
+	inline static public var TOP = 20 * SCALE;
 	inline static public var GAP = 2; // index where left2 starts
-	inline static public var WIDTH = 40;
-	inline static public var HEIGHT = 63;
-	inline static public var LEFT_1 = 24;
-	inline static public var LEFT_2 = 137 - WIDTH * GAP;
+	inline static public var WIDTH = 40 * SCALE;
+	inline static public var HEIGHT = 63 * SCALE;
+	inline static public var LEFT_1 = 24 * SCALE;
+	inline static public var LEFT_2 = 137 * SCALE - WIDTH * GAP;
 	
 	public function new (index:Int, onClick:(String, Bool)->Void)
 	{
@@ -84,10 +87,10 @@ abstract BlackKey(Key) to Key
 abstract WhiteKey(Key) to Key
 {
 	inline static var CHARS = "ERTYUIOP";
-	inline static public var TOP = BlackKey.TOP + BlackKey.HEIGHT + 1;
-	inline static public var LEFT = 9;
-	inline static public var WIDTH = 37;
-	inline static public var HEIGHT = 87;
+	inline static public var TOP = BlackKey.TOP + BlackKey.HEIGHT + SCALE;
+	inline static public var LEFT = 9 * SCALE;
+	inline static public var WIDTH = 37 * SCALE;
+	inline static public var HEIGHT = 87 * SCALE;
 	
 	public function new (index:Int, onClick:(String, Bool)->Void)
 	{
@@ -112,7 +115,7 @@ abstract WhiteKey(Key) to Key
 
 class Key extends FlxBitmapTextButton
 {
-	inline static var LETTER_BUFFER = 8;
+	inline static var LETTER_BUFFER = 8 * SCALE;
 	
 	public function new 
 	( x      :Float
@@ -132,6 +135,8 @@ class Key extends FlxBitmapTextButton
 		
 		statusAnimations = ["normal", "normal", "pressed"];
 		label.font = new NokiaFont();
+		label.scale.set(3, 3);
+		label.updateHitbox();
 		label.setBorderStyle(OUTLINE, 0xFF222034);
 		labelOffsets[0].x
 			= labelOffsets[1].x

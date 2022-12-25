@@ -286,8 +286,6 @@ class CafeState extends RoomState
     override function initEntities()
     {
         super.initEntities();
-        
-        initInstruments();
 
         /*
         disc = foreground.getByName("disc");
@@ -301,40 +299,6 @@ class CafeState extends RoomState
         var juke = foreground.assertByName("juke");
         addHoverTextTo(juke, "Music", ()->openSubState(new MusicSelectionSubstate()));
         #end
-    }
-    
-    function initInstruments()
-    {
-        for (id=>data in Content.instruments)
-        {
-            var instrument = foreground.getByName(id);
-            if (instrument != null)
-            {
-                if (data.day > Calendar.day)
-                    instrument.kill();
-                else
-                    initInstrument(instrument, data);
-            }
-        }
-    }
-    
-    function initInstrument(sprite:FlxSprite, data:InstrumentData)
-    {
-        addHoverTextTo(sprite, data.name, ()->pickupInstrument(sprite, data));
-    }
-    
-    
-    function pickupInstrument(sprite:FlxSprite, data:InstrumentData)
-    {
-        if (Save.getInstrument() == null)
-        {
-            Save.instrumentSeen(data.id);
-            Prompt.showOKInterrupt
-                ( 'You got the ${data.name}, play by pressing the ERTYUIOP'
-                + '\nkeys or by clicking it icon in the top right'
-                );
-        }
-        Save.setInstrument(data.id);
     }
     
     override function onAvatarAdd(data, key:String)

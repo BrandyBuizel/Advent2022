@@ -2,15 +2,18 @@ package states.rooms;
 
 import states.rooms.RoomState;
 import data.Calendar;
+import data.Content;
 import data.NGio;
 import data.Save;
 import ui.Phone;
+import ui.Prompt;
 
 import data.Skins;
 import props.Notif;
 import states.OgmoState;
 
 import flixel.FlxG;
+import flixel.FlxSprite;
 import flixel.math.FlxMath;
 
 class OutsideState extends SmoothRoomState
