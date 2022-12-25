@@ -61,6 +61,7 @@
     , "pepperly"        : { "proper": "pepperly"         }
     , "mismash"         : { "proper": "MisMash"          }
     , "jacob"           : { "proper": "Jacob"            }
+    , "iejomaflo"       : { "proper": "ieJoMaFLo"            }
     }
 ,   "extras":
     {
@@ -144,12 +145,14 @@
         , "key" 	: "g#Maj"
         , "bpm" 	: 80
         , "day" 	: 21
+		, "ngId": 1181001
         }
     ,   { "id"  : "albegian"
         , "name": "The Morning After"
         , "key" : "eMin"
         , "bpm" : 110
         , "day" : 23
+		, "ngId": 1181461
         }
     ,   { "id"  : "jacob"
         , "name": "I Dream of Balls"
@@ -373,6 +376,11 @@
     ,   { "id"   : "mismash"
         , "name" : "NG Christmas Shopping 2022"
         , "day"  : 24
+        , "medal": true
+        }
+    ,   { "id"   : "iejomaflo"
+        , "name" : "Tankmas Cookies"
+        , "day"  : 25
         , "medal": true
         }
     ]
