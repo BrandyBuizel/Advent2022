@@ -61,7 +61,8 @@
     , "pepperly"        : { "proper": "pepperly"         }
     , "mismash"         : { "proper": "MisMash"          }
     , "jacob"           : { "proper": "Jacob"            }
-    , "iejomaflo"       : { "proper": "ieJoMaFLo"            }
+    , "iejomaflo"       : { "proper": "ieJoMaFLo"        }
+    , "slimygoo"        : { "proper": "Slimygoo"         }
     }
 ,   "extras":
     {
@@ -381,6 +382,11 @@
     ,   { "id"   : "iejomaflo"
         , "name" : "Tankmas Cookies"
         , "day"  : 25
+        , "medal": true
+        }
+    ,   { "id"   : "slimygoo"
+        , "name" : "Modern Signore with M16"
+        , "day"  : 26
         , "medal": true
         }
     ]
