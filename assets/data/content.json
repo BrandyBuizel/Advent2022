@@ -63,6 +63,8 @@
     , "jacob"           : { "proper": "Jacob"            }
     , "iejomaflo"       : { "proper": "ieJoMaFLo"        }
     , "slimygoo"        : { "proper": "Slimygoo"         }
+    , "tomonaku"        : { "proper": "tomonaku"         }
+    , "pkettles"        : { "proper": "PKettles"         }
     }
 ,   "extras":
     {
@@ -387,6 +389,16 @@
     ,   { "id"   : "slimygoo"
         , "name" : "Modern Signore with M16"
         , "day"  : 26
+        , "medal": true
+        }
+    ,   { "id"   : "tomonaku"
+        , "name" : "Merry Punkmas!"
+        , "day"  : 27
+        , "medal": true
+        }
+    ,   { "id"   : "pkettles"
+        , "name" : "TANKMAS: SNOWBALL FIGHT"
+        , "day"  : 28
         , "medal": true
         }
     ]
