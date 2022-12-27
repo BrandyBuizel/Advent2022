@@ -36,13 +36,15 @@ class Present extends flixel.FlxSprite
         // if (NGio.isLoggedIn)
         //     opened = NGio.hasDayMedal(Content.getPresentIndex(id));
         
-        loadGraphic(path, true, 32, 34);
+        loadGraphic(path, true, 64, 68);
         animation.add("closed", [0]);
         animation.add("opened", [1]);
         animation.add("opening", [1]);
         animation.play(opened ? "opened" : "closed");
-        graphic.bitmap.fillRect(new openfl.geom.Rectangle(32, 0, 32, 2), 0x0);
-        scale.set(1, 1);
+        //crops out the color palette in the corner
+        //graphic.bitmap.fillRect(new openfl.geom.Rectangle(32, 0, 32, 2), 0x0);
+        //present scaling
+        scale.set(0.5, 0.5);
         offset.x = 8;
         offset.y = -8;
         
@@ -62,8 +64,8 @@ class Present extends flixel.FlxSprite
     /** Yes, this is a Simpsons reference */
     public function embiggen()
     {
-        //present scaling mipmap
-        scale.set(1, 1);
+        //present scaling mipmap for comics
+        scale.set(0.5, 0.5);
         width *= 2;
         offset.x -= 4;
         immovable = true;
