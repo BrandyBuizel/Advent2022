@@ -240,6 +240,11 @@
         , "ngId"     : 985036
         , "unlocksBy": "medal:71378"
         }
+	,   { "id"     : "droid"
+        , "name"   : "One Day on Christmas"
+		, "bpm"    : 150
+        , "day"    : 33
+        }
     ]
 ,   "artwork":
     [   { "id"   : "cymbourine"
