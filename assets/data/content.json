@@ -65,6 +65,8 @@
     , "slimygoo"        : { "proper": "Slimygoo"         }
     , "tomonaku"        : { "proper": "tomonaku"         }
     , "pkettles"        : { "proper": "PKettles"         }
+    , "droid"      		: { "proper": "Droid"            }
+    , "chobiluck"       : { "proper": "Chobiluck"        }
     }
 ,   "extras":
     {
@@ -404,6 +406,11 @@
     ,   { "id"   : "pkettles"
         , "name" : "TANKMAS: SNOWBALL FIGHT"
         , "day"  : 28
+        , "medal": true
+        }
+    ,   { "id"   : "chobiluck"
+        , "name" : "Wishes of 2022"
+        , "day"  : 29
         , "medal": true
         }
     ]
