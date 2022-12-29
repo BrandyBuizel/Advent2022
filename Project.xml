@@ -56,6 +56,7 @@
 	<!-- <define name="USE_DEBUG_SERVER"/> -->
 	
 	<define name="LOAD_DISK_CAROUSEL"/>
+	<!-- <define name="NG_LOAD_DISK_ART"/> -->
 	<!-- <define name="CLEAR_SAVE" if="debug"/> -->
 	<!-- <define name="DISABLE_SAVE" if="debug"/> -->
 	<!-- <define name="FORGET_INSTRUMENT" if="debug"/> -->

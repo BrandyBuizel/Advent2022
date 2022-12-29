@@ -117,8 +117,15 @@ abstract NGAudioData(NGAudioDataRaw) from NGAudioDataRaw
                 continue;
             }
             
+            #if NG_LOAD_DISK_ART
             NGAudioData.load(song.ngId, onFeedLoad.bind(song, _));
+            #else
+            numLoading--;
+            #end
         }
+        
+        if (numLoading == 0 && callback != null)
+            callback();
     }
     
     static function scaleDrawTo(source:BitmapData, width:Int, height:Int)
