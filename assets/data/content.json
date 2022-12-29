@@ -67,6 +67,7 @@
     , "pkettles"        : { "proper": "PKettles"         }
     , "droid"           : { "proper": "Droid"            }
     , "chobiluck"       : { "proper": "Chobiluck"        }
+    , "awful-ike"       : { "proper": "Awful-Ike"        }
     }
 ,   "extras":
     {
@@ -164,6 +165,12 @@
         , "key" : "fMaj"
         , "bpm" : 130
         , "day" : 25
+        }
+    ,   { "id"  : "awful-ike"
+        , "name": "New Year Newgrounds"
+        , "key" : "aMaj"
+        , "bpm" : 100
+        , "day" : 29
         }
     ,   { "id"  : "tiny"
         , "name": "GRINCH"
