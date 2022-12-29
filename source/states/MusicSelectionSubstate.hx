@@ -98,8 +98,8 @@ class MusicSelectionSubstate extends flixel.FlxSubState
     
     function selectCurrent()
     {
-        var unlocks = carousel.getCurrentSong().unlocksBy;
-        if (unlocks == null || unlocks.check())
+        final song = carousel.getCurrentSong();
+        if (song == null || song.unlocksBy == null || song.unlocksBy.check())
             carousel.select(onSelectComplete);
     }
     
