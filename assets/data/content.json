@@ -65,7 +65,7 @@
     , "slimygoo"        : { "proper": "Slimygoo"         }
     , "tomonaku"        : { "proper": "tomonaku"         }
     , "pkettles"        : { "proper": "PKettles"         }
-    , "droid"      		: { "proper": "Droid"            }
+    , "droid"           : { "proper": "Droid"            }
     , "chobiluck"       : { "proper": "Chobiluck"        }
     }
 ,   "extras":
@@ -144,20 +144,20 @@
         , "day" : 19
         , "ngId": 1180555
         }
-    ,   { "id"  	: "mantlepiece"
-        , "name"	: "Mantlepiece"
-        , "authors" : ["splatterdash"]
-        , "key" 	: "g#Maj"
-        , "bpm" 	: 80
-        , "day" 	: 21
-		, "ngId": 1181001
+    ,   { "id"     : "mantlepiece"
+        , "name"   : "Mantlepiece"
+        , "authors": ["splatterdash"]
+        , "key"    : "g#Maj"
+        , "bpm"    : 80
+        , "day"    : 21
+        , "ngId": 1181001
         }
     ,   { "id"  : "albegian"
         , "name": "The Morning After"
         , "key" : "eMin"
         , "bpm" : 110
         , "day" : 23
-		, "ngId": 1181461
+        , "ngId": 1181461
         }
     ,   { "id"  : "jacob"
         , "name": "I Dream of Balls"
@@ -242,9 +242,9 @@
         , "ngId"     : 985036
         , "unlocksBy": "medal:71378"
         }
-	,   { "id"     : "droid"
+    ,   { "id"     : "droid"
         , "name"   : "One Day on Christmas"
-		, "bpm"    : 150
+        , "bpm"    : 150
         , "day"    : 33
         }
     ]
@@ -534,18 +534,18 @@
         { "name": "Sketch Collab 2022"
         , "path": "https://uploads.ungrounded.net/alternate/1952000/1952159_alternate_204390.1080p.mp4?1671662794"
         , "authors": ["brandybuizel"]
-		, "day":21
+        , "day":21
         }
-	,   "pengu":
+    ,   "pengu":
         { "name": "Pengu's Christmas Special"
         , "path": "https://uploads.ungrounded.net/alternate/4368000/4368864_alternate_204676.1080p.mp4?1671841033"
-		, "authors": ["brandybuizel"]
+        , "authors": ["brandybuizel"]
         , "day":24
         }
     ,   "girls":
         { "name": "GIRLS NIGHT"
         , "path": "https://uploads.ungrounded.net/alternate/1921000/1921676_alternate_204990.1080p.mp4?1672029966"
-		, "authors": ["brandybuizel"]
+        , "authors": ["brandybuizel"]
         , "day":26
         }
     }
