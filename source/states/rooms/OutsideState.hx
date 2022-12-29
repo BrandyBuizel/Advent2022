@@ -36,7 +36,7 @@ class OutsideState extends SmoothRoomState
         
         add(new vfx.Snow());
         
-        background.getByName("background").scrollFactor.set(0, 0.35);
+        background.getByName("background").scrollFactor.set(0, 0.0);
         midground = background.getIndexNamedObject("midground", 33);
         midground.scrollFactor.set( 0.7, 0.5);
         
