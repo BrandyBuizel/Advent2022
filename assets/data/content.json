@@ -68,6 +68,7 @@
     , "droid"           : { "proper": "Droid"            }
     , "chobiluck"       : { "proper": "Chobiluck"        }
     , "awful-ike"       : { "proper": "Awful-Ike"        }
+    , "figburn"         : { "proper": "Figburn"          }
     }
 ,   "extras":
     {
@@ -418,6 +419,11 @@
     ,   { "id"   : "chobiluck"
         , "name" : "Wishes of 2022"
         , "day"  : 29
+        , "medal": true
+        }
+    ,   { "id"   : "figburn"
+        , "name" : "Drop Cannon New Years"
+        , "day"  : 30
         , "medal": true
         }
     ]
