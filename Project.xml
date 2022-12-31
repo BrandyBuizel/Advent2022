@@ -145,7 +145,7 @@
 	<assets path="assets/notes/piano"        exclude="*.wav" library="piano" />
 	
 	<!-- Example comic from 2021 -->
-	<library name="a_gift_to_never_forget" preload="false" />
+	<library name="a_gift_to_never_forget" preload="true" />
 	<assets path="assets/comics/a_gift_to_never_forget" rename="assets/a_gift_to_never_forget" library="a_gift_to_never_forget"/>
 	
 	<define name="ADVENT"/>
