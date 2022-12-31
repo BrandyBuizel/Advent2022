@@ -79,6 +79,7 @@ abstract ArcadeGame(ArcadeCreation) from ArcadeCreation
         #end
         #if !exclude_picoventure
         states[PicoVenture] = picoventure.states.PlayState.new.bind(0);
+        destructors[PicoVenture] = picoventure.states.PlayState.uninit;
         #end
         
         #if (skip_to_chimney && skip_to_yule_duel && skip_to_picoventure)
@@ -162,6 +163,10 @@ abstract ArcadeGame(ArcadeCreation) from ArcadeCreation
     static public function exitActiveGameState(toRoom:RoomName)
     {
         Game.goToRoom(toRoom + "." + activeGame);
+        
+        if (destructors.exists(activeGame))
+            destructors[activeGame]();
+        
         activeGame = null;
         
         if (FlxG.sound.music != null)
@@ -235,6 +240,9 @@ abstract ArcadeGame(ArcadeCreation) from ArcadeCreation
         var overlay = createOverlayUnsafe();
         overlay.closeCallback = ()->
         {
+            if (destructors.exists(activeGame))
+                destructors[activeGame]();
+            
             activeGame = null;
             if (FlxG.sound.music != null)
                 FlxG.sound.music.stop();
