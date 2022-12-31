@@ -1,0 +1,74 @@
+{
+    "pages":
+    [ { "id": "0" , "imageId":"2"              , "by":"MrShmoods"        , "sound":{ "start":      0 }}
+    , { "id": "1" , "imageId":"3"              , "by":"chipollo"         , "sound":{ "start":   2805 }}
+    , { "id": "2" , "imageId":"4"              , "by":"kiddo"            , "sound":{ "start":  20871 }}
+    , { "id": "3b", "imageId":"5-1"            , "by":"Danidoods"        , "sound":{ "start":  31014 }}
+    , { "id": "4b", "imageId":"5-2 GAME OVER"  , "by":"RavioliBox"       , "sound":{ "start":  47230 }, "resetToId":"2" }
+    , { "id": "3" , "imageId":"5 ADVANCE"      , "by":"Dandy Claus"      , "sound":{ "start":  61904 }}
+    , { "id": "4" , "imageId":"6"              , "by":"KiaraPhoenix"     , "sound":{ "start":  75068 }}
+    , { "id": "5" , "imageId":"7"              , "by":"RavioliBox"       , "sound":{ "start":  77281 }}
+    , { "id": "6" , "imageId":"8"              , "by":"Karlestonchew"    , "sound":{ "start":  85000 }}
+    , { "id": "7" , "imageId":"9"              , "by":"RavioliBox"       , "sound":{ "start":  95339, "end":114681 }}
+    , { "id": "8b", "imageId":"10-1"           , "by":"Danidoods"        , "sound":{ "start": 117502 }}
+    , { "id": "9b", "imageId":"10-2 GAME OVER" , "by":"Shiimma"          , "sound":{ "start": 125442 }, "resetToId":"7"}
+    , { "id": "8" , "imageId":"10 ADVANCE"     , "by":"Kitsune"          , "sound":{ "start": 140769 }}
+    , { "id": "9" , "imageId":"11"             , "by":"chronicallyDoomed", "sound":{ "start": 151836, "end":156000 }}
+    , { "id":"10b", "imageId":"12 GAME OVER"   , "by":"TheExtreamH"      , "sound":{ "start": 157139 }, "resetToId":"9"}
+    , { "id":"10" , "imageId":"12 ADVANCE"     , "by":"ConnerGrail"      , "sound":{ "start": 168482 }}
+    , { "id":"11" , "imageId":"13"             , "by":"ImKevin"          , "sound":{ "start": 172068 }}
+    , { "id":"12" , "imageId":"14"             , "by":"SildJosh"         , "sound":{ "start": 180000 }}
+    , { "id":"13b", "imageId":"15 LASER"       , "by":"sereneFalconer"   , "sound":{ "start": 187917 }, "nextId":"14"}
+    , { "id":"13" , "imageId":"15 ADVANCE"     , "by":"Kitsune"          , "sound":{ "start": 201712 }}
+    , { "id":"14" , "imageId":"16"             , "by":"embarrassed"      , "sound":{ "start": 210326 }}
+    , { "id":"15" , "imageId":"17"             , "by":"Lambgod"          , "sound":{ "start": 222036 }}
+    , { "id":"16" , "imageId":"18"             , "by":"Shiimma"          , "sound":{ "start": 228106 }}
+    , { "id":"17" , "imageId":"19"             , "by":"Dandy Claws"      , "sound":{ "start": 240951 }}
+    , { "id":"18" , "imageId":"20"             , "by":"Jcaluger"         , "sound":{ "start": 254104 }}
+    , { "id":"19b", "imageId":"21 GAME OVER"   , "by":"Ghosty_With_Juice", "sound":{ "start": 257106 }, "resetToId":"18"}
+    , { "id":"19" , "imageId":"21 ADVANCE"     , "by":"Ghosty_With_Juice", "sound":{ "start": 267529 }}
+    , { "id":"20" , "imageId":"22"             , "by":"embarrassed"      , "sound":{ "start": 275346 }}
+    , { "id":"21" , "imageId":"23"             , "by":"chronicallyDoomed", "sound":{ "start": 285002 }}
+    , { "id":"22b", "imageId":"24 GAME OVER"   , "by":"EhggyBoi"         , "sound":{ "start": 288804 }, "resetToId":"21"}
+    , { "id":"22" , "imageId":"24 ADVANCE"     , "by":"Solid Josh"       , "sound":{ "start": 312224 }}
+    , { "id":"23" , "imageId":"25"             , "by":"RavioliBox"       , "sound":{ "start": 323873 }}
+    , { "id":"24" , "imageId":"26"             , "by":"Dragonkittyipod"  , "sound":{ "start": 332457 }}
+    , { "id":"25" , "imageId":"27"             , "by":"EhggyBoi"         , "sound":{ "start": 349470 }}
+    , { "id":"26" , "imageId":"28"             , "by":"MrShmoods"        , "sound":{ "start": 355663 }}
+    , { "id":"27b", "imageId":"29 LASER"       , "by":"TheExtreamH"      , "sound":{ "start": 368385 }}
+    , { "id":"28b", "imageId":"30 GAME OVER"   , "by":"Kiddo"            , "sound":{ "start": 375436 }, "resetToId":"12"}
+    , { "id":"27" , "imageId":"29 MINIGUN"     , "by":"TheExtreamH"      , "sound":{ "start": 385674 }}
+    , { "id":"28" , "imageId":"30 ADVANCE"     , "by":"ImKevin"          , "sound":{ "start": 391805 }}
+    , { "id":"29" , "imageId":"31"             , "by":"miniwildcard"     , "sound":{ "start": 404466 }}
+    , { "id":"30" , "imageId":"32"             , "by":"KiaraPhoenix"     , "sound":{ "start": 418660 }}
+    , { "id":"31" , "imageId":"33"             , "by":"MrShmoods"        , "sound":{ "start": 424239 }}
+    ]
+, "branches":
+    {   "2" : { "type":"choice"
+        , "boxA":{ "x":1180, "y":1006, "w":109, "h": 65 }
+        , "boxB":{ "x":1387, "y": 994, "w":109, "h": 65 }
+        }
+    ,   "7" : { "type":"choice"
+        , "boxB":{ "x": 376, "y":1004, "w":299, "h":129 }
+        , "boxA":{ "x":1434, "y":1010, "w":393, "h":117 }
+        }
+    ,   "9" : { "type":"choice"
+        , "boxA":{ "x":1038, "y": 960, "w":421, "h": 82 }
+        , "boxB":{ "x":1047, "y": 828, "w":496, "h": 88 }
+        }
+    ,   "12": { "type":"choice"
+        , "boxB":{ "x":1242, "y":1120, "w":365, "h":115 }
+        , "boxA":{ "x":1630, "y":1120, "w":341, "h":115 }
+        , "flag":"minigun"
+        }
+    ,   "18": { "type":"choice"
+        , "boxA":{ "x": 340, "y": 728, "w":677, "h":119 }
+        , "boxB":{ "x": 340, "y": 892, "w":675, "h":127 }
+        }
+    ,   "21": { "type":"choice"
+        , "boxA":{ "x": 396, "y": 894, "w":503, "h":212 }
+        , "boxB":{ "x":1288, "y": 894, "w":503, "h":212 }
+        }
+    ,   "26": { "type":"flag:minigun" }
+    }
+}

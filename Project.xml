@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Tankmas2022" file="Tankmas2022" main="Main" version="0.10.0" company="Newgrounds" />
+	<app title="Tankmas2022" file="Tankmas2022" main="Main" version="0.11.0" company="Newgrounds" />
 
 	<!--The flixel preloader is not accurate in Chrome. You can use it regularly if you embed the swf into a html file
 		or you can set the actual size of your file manually at "FlxPreloaderBase-onUpdate-bytesTotal"-->
@@ -106,6 +106,16 @@
 		<classpath name="chimney/source"/>
 		<library name="chimney" preload="false" />
 		<assets path="chimney/assets" rename="assets/arcades/chimney" library="chimney" exclude="*.ase|*.wav"/>
+		
+	</section>
+	
+	<!-- <define name="exclude_picoventure"/> -->
+	<section unless="exclude_picoventure">
+		<!-- <define name="skip_to_picoventure" if="debug"/> -->
+		
+		<classpath name="picoventure/source"/>
+		<library name="picoventure" preload="false" />
+		<assets path="picoventure/assets" rename="assets/arcades/picoventure" library="picoventure" exclude="*.ase|*.wav"/>
 		
 	</section>
 	

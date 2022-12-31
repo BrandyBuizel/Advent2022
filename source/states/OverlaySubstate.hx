@@ -50,7 +50,8 @@ class OverlaySubstate extends flixel.FlxSubState
         camera = new FlxCamera(0, 0, cameraData.width, cameraData.height, zoom * scale);
         
         
-        camera.setFilters([new ShaderFilter(new CrtShader())]);
+        if (data.crtShader != false)
+            camera.setFilters([new ShaderFilter(new CrtShader())]);
         camera.bgColor = 0x0;
         camera.x = (FlxG.width - camera.width * scale) / 2;
         camera.y = (FlxG.height - camera.height * scale) / 2;

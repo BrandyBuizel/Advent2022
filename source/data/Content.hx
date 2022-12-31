@@ -117,7 +117,7 @@ class Content
             if (artData.day != null)
                 artworkByDay[artData.day] = artData;
             
-            if (artData.authors == null && artData.id != null)
+            if (artData.authors == null && artData.id != null && artData.arcade == null)
             {
                 if (credits.exists(artData.id))
                     artData.authors = [artData.id];
@@ -210,8 +210,11 @@ class Content
         for (data in artwork)
         {
             var contentName = data.name == null ? "Untitled Illustration" : data.name;
-            for (author in data.authors)
-                addRole(author, art, contentName, data.day);
+            if (data.authors != null)
+            {
+                for (author in data.authors)
+                    addRole(author, art, contentName, data.day);
+            }
         }
         
         for (data in songs)
@@ -350,27 +353,39 @@ class Content
                     
                 }
                 
-                if (art.comic == null)
+                if (art.comic == null && art.arcade == null)
                 {
                     if (!Manifest.exists(art.path, IMAGE))
                         addError('Missing ${art.path}');
+                    
                     if (!Manifest.exists(art.thumbPath, IMAGE))
                         addError('Missing ${art.thumbPath}');
                 }
-                if (!Manifest.exists(art.presentPath, IMAGE) && !art.framed)
-                    addError('Missing ${art.presentPath}');
+                
                 if (!presentIds.contains(art.id) && !art.framed)
                     addError('Missing present in "outside#.json", id:${art.id}');
-                if (art.authors == null)
-                    addError('Missing artwork authors id:${art.id}');
-                for (author in art.authors)
+                
+                if (art.arcade == null)
                 {
-                    author = getUserId(author);
-                    if (!creditsExists(author))
-                        addError('Missing credits, author:$author');
-                    // no portraits in 2021, yet
-                    // else if (!Manifest.exists(credits[author].portraitPath, IMAGE))
-                    //     addWarning('Missing portrait, author:$author');
+                    if (!Manifest.exists(art.presentPath, IMAGE) && !art.framed)
+                        addError('Missing ${art.presentPath}');
+                    
+                    if (art.authors == null)
+                        addError('Missing artwork authors id:${art.id}');
+                    
+                    for (author in art.authors)
+                    {
+                        author = getUserId(author);
+                        if (!creditsExists(author))
+                            addError('Missing credits, author:$author');
+                        // no portraits in 2021, yet
+                        // else if (!Manifest.exists(credits[author].portraitPath, IMAGE))
+                        //     addWarning('Missing portrait, author:$author');
+                    }
+                }
+                else
+                {
+                    //TODO:
                 }
             }
         }
@@ -690,6 +705,7 @@ typedef ArtCreation
     var sound:String;
     var comic:ComicCreation;
     var ext:String;
+    var arcade:ArcadeName;
 }
 
 typedef SongCreation

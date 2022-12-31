@@ -94,4 +94,12 @@ class OverlayGlobal
                 screenCenterY(obj);
         }
     }
+    
+    static public function exit()
+    {
+        if (container != null)
+            container.close();
+        // else
+        //     ArcadeGame.exitActiveGameState();
+    }
 }

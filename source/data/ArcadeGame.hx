@@ -19,6 +19,7 @@ enum abstract ArcadeName(String) to String
     var Advent2021 = "2021";
     var YuleDuel = "yuleduel";
     var Chimney = "chimney";
+    var PicoVenture = "picoventure";
 }
 
 enum abstract ArcadeType(String) to String
@@ -49,6 +50,7 @@ typedef ArcadeCreation
     var url:Null<URL>;
     var camera:ArcadeCamera;
     var cabinet:Bool;
+    var crtShader:Null<Bool>;
 }
 
 @:forward
@@ -75,15 +77,20 @@ abstract ArcadeGame(ArcadeCreation) from ArcadeCreation
         states[YuleDuel] = yuleduel.states.TitleState.new.bind(0);
         destructors[YuleDuel] = yuleduel.globals.GameGlobals.uninit;
         #end
+        #if !exclude_picoventure
+        states[PicoVenture] = picoventure.states.PlayState.new.bind(0);
+        #end
         
-        #if (skip_to_chimney && skip_to_yule_duel)
-            #error "Cannot have both flags: `skip_to_chimney_duel` and `skip_to_yule_duel`";
+        #if (skip_to_chimney && skip_to_yule_duel && skip_to_picoventure)
+            #error "Cannot any 2 of following flags: `skip_to_chimney_duel`, `skip_to_yule_duel` and `skip_to_picoventure`";
         #end
         #if (skip_to_chimney && exclude_chimney)
             #error "cannot skip to Chimney game when excluded";
         #end
+        #if (skip_to_picoventure && exclude_picoventure)
+            #error "cannot skip to Chimney game when excluded";
+        #end
         #if (skip_to_yule_duel && exclude_yule_duel)
-            trace("skipping to excluded");
             #error "cannot skip to YuleDuel when excluded";
         #end
         
@@ -93,6 +100,9 @@ abstract ArcadeGame(ArcadeCreation) from ArcadeCreation
         #end
         #if skip_to_yule_duel
         skipToID = YuleDuel;
+        #end
+        #if skip_to_picoventure
+        skipToID = PicoVenture;
         #end
         
         if (skipToID != null)

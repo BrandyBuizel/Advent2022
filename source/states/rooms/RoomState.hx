@@ -400,6 +400,18 @@ class RoomState extends OgmoState
         });
     }
     
+    function openArcadePresent(present:Present, data:ArtCreation)
+    {
+        present.animateOpen(function()
+        {
+            updatePresentMedal(data);
+            
+            ArcadeGame.playById(data.arcade);
+            if (!Calendar.isDebugDay)
+                Save.presentOpened(present.id);
+        });
+    }
+    
     function playOverlay(overlay:flixel.FlxSubState, stopMusic = true)
     {
         if (!stopMusic)
@@ -558,6 +570,11 @@ class RoomState extends OgmoState
         {
             present.embiggen();
             addHoverTextTo(present, data.name, ()->openComicPresent(present, data));
+        }
+        else if (data.arcade != null)
+        {
+            present.embiggen();
+            addHoverTextTo(present, data.name, ()->openArcadePresent(present, data));
         }
         else
         {

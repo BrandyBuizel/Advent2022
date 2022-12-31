@@ -69,6 +69,8 @@
     , "chobiluck"       : { "proper": "Chobiluck"        }
     , "awful-ike"       : { "proper": "Awful-Ike"        }
     , "figburn"         : { "proper": "Figburn"          }
+    , "mrshmoods"       : { "proper": "MrShmoods"        }
+    , "voicesbycorey"   : { "proper": "VoicesByCorey"    }
     }
 ,   "extras":
     {
@@ -426,6 +428,12 @@
         , "day"  : 30
         , "medal": true
         }
+    ,   { "id"   : "picoventure"
+        , "name" : "Pico Saves Tankmas"
+        , "day"  : 31
+        , "arcade":"picoventure"
+        , "medal": true
+        }
     ]
 ,   "events":
     {
@@ -469,6 +477,15 @@
         , "medal"  : false
         , "type"   : "overlay"
         , "camera" : { "width":240, "height": 270 }
+        }
+    ,   { "id"       : "picoventure"
+        , "name"     : "Pico Saves Tankmas"
+        , "authors"  : ["mrshmoods", "voicesbycorey"]
+        , "day"      : 31
+        , "type"     : "overlay"
+        , "cabinet"  : false
+        , "crtShader": false
+        , "camera"   : { "width":960, "height": 540 }
         }
     ]
 ,   "unused_arcades":
