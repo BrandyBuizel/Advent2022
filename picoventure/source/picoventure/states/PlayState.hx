@@ -26,6 +26,14 @@ class PlayState extends FlxState
 {
 	inline static var PAGE_TIME = 0.5;
 	
+	static var va:FlxSound;
+	
+	static public function uninit()
+	{
+		va.stop();
+		va = null;
+	}
+	
 	var pages:Map<PageId, PageData>;
 	var currentPage:PageData;
 	var flags = new Map<String, Bool>();
@@ -33,8 +41,6 @@ class PlayState extends FlxState
 	var pageSprite:FlxSprite;
 	var buttonA:Button;
 	var buttonB:Button;
-	
-	var va:FlxSound;
 	
 	var pageTimer = 0.0;
 	
