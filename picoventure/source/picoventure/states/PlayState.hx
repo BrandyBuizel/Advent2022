@@ -1,5 +1,7 @@
 package picoventure.states;
 
+import ui.AAText;
+import flixel.text.FlxBitmapText;
 import flixel.system.FlxSound;
 import flixel.math.FlxPoint;
 import data.ArcadeGame;
@@ -16,7 +18,6 @@ import openfl.Assets;
 using flixel.util.FlxSpriteUtil;
 
 inline var SCALE = 540/1320;
-inline function scaleInt(num:Int) return Std.int(num * SCALE);
 
 /** 
  * PlayState.hx is where Advent will start to access your game,
@@ -39,6 +40,8 @@ class PlayState extends FlxState
 	var flags = new Map<String, Bool>();
 	
 	var pageSprite:FlxSprite;
+	var infoSprite:FlxSprite;
+	var infoText:AAText;
 	var buttonA:Button;
 	var buttonB:Button;
 	
@@ -54,6 +57,11 @@ class PlayState extends FlxState
 		add(pageSprite = new FlxSprite());
 		add(buttonA = new Button(onChoose.bind(true)));
 		add(buttonB = new Button(onChoose.bind(false)));
+		add(infoSprite = new FlxSprite());
+		infoSprite.makeGraphic(200, 20, 0x80808080);
+		infoSprite.y = FlxG.height - infoSprite.height;
+		add(infoText = new AAText(""));
+		
 		
 		va = new FlxSound().loadEmbedded(Global.asset("assets/sounds/va.mp3"));
 		
@@ -73,6 +81,9 @@ class PlayState extends FlxState
 		pageSprite.scale.set(SCALE, SCALE);
 		pageSprite.updateHitbox();
 		pageSprite.screenCenter();
+		infoText.text = page.by;
+		infoText.x = infoSprite.x + (infoSprite.width - infoText.width) / 2;
+		infoText.y = infoSprite.y + (infoSprite.height - infoText.height) / 2;
 		
 		buttonA.exists = false;
 		buttonB.exists = false;
@@ -88,16 +99,16 @@ class PlayState extends FlxState
 			va.pause();
 	}
 	
-	function initBranch(branch:BranchData)
+	function initBranch(branch:BranchData, scale:Float)
 	{
 		if (branch == null || !branch.type.match(CHOICE))
 			return;
 		
-		buttonA.drawBox(branch.boxA);
+		buttonA.drawBox(branch.boxA, scale);
 		buttonA.x += pageSprite.x;
 		buttonA.y += pageSprite.y;
 		
-		buttonB.drawBox(branch.boxB);
+		buttonB.drawBox(branch.boxB, scale);
 		buttonB.x += pageSprite.x;
 		buttonB.y += pageSprite.y;
 	}
@@ -111,6 +122,7 @@ class PlayState extends FlxState
 		if (va.playing && va.time > currentPage.sound.end)
 		{
 			onPageSoundEnd();
+			return;
 		}
 		
 		pageTimer -= elapsed;
@@ -148,7 +160,7 @@ class PlayState extends FlxState
 			}
 		}
 		
-		if (Controls.justPressed.A)
+		if (Controls.justPressed.A || FlxG.mouse.justPressed)
 			onPressSkip();
 	}
 	
@@ -162,7 +174,14 @@ class PlayState extends FlxState
 		{
 			va.pause();
 			if (isChoice)
-				initBranch(currentPage.branch);
+			{
+				var scale = 1.0;
+				#if !debug // fixes weird glitch
+				if (currentPage.id == "2")
+					scale = 1.35;
+				#end
+				initBranch(currentPage.branch, scale);
+			}
 		}
 		else
 			showNextPage();
@@ -251,20 +270,21 @@ class Button extends FlxSprite
 		super();
 	}
 	
-	public function drawBox(box:BoxData)
+	public function drawBox(box:BoxData, scale:Float)
 	{
 		exists = true;
 		selected = false;
 		
-		final w = scaleInt(box.w + 20);
-		final h = scaleInt(box.h + 20);
+		trace(box, SCALE);
+		final w = Std.int((box.w + 20) * SCALE * scale);
+		final h = Std.int((box.h + 20) * SCALE * scale);
 		makeGraphic(w, h, 0x0);
 		this.drawRect(0, 0, w, 5, 0xFFffffff);
 		this.drawRect(0, 0, 5, h, 0xFFffffff);
 		this.drawRect(w-5, 0, 5, h, 0xFFffffff);
 		this.drawRect(0, h-5, w, 5, 0xFFffffff);
-		x = (box.x - 10) * SCALE;
-		y = (box.y - 10) * SCALE;
+		x = (box.x - 10) * SCALE * scale;
+		y = (box.y - 10) * SCALE * scale;
 	}
 	
 	override function update(elapsed:Float)

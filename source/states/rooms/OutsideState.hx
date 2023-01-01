@@ -1,10 +1,17 @@
 package states.rooms;
 
+import props.Present;
+import flixel.util.FlxTimer;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import data.Manifest;
+import data.Game;
 import states.rooms.RoomState;
 import data.Calendar;
 import data.Content;
 import data.NGio;
 import data.Save;
+import ui.CreditsScroll;
 import ui.Phone;
 import ui.Prompt;
 
@@ -33,8 +40,11 @@ class OutsideState extends SmoothRoomState
     override function create()
     {
         super.create();
-        
         add(new vfx.Snow());
+        
+        #if debug
+        new CreditsScroll(0);
+        #end
         
         background.getByName("background").scrollFactor.set(0, 0.0);
         midground = background.getIndexNamedObject("midground", 33);
@@ -137,6 +147,70 @@ class OutsideState extends SmoothRoomState
     {
         super.update(elapsed);
         updateCam(elapsed);
+        
+        #if debug
+        if (FlxG.keys.justPressed.T && Game.state.match(NONE))
+        {
+            startOutro();
+        }
+        #end
+    }
+    
+    override function onOpenPresent(present:Present)
+    {
+        super.onOpenPresent(present);
+        
+        if (Calendar.day != 32)
+            return;
+        
+        for (present in presents)
+        {
+            if (present.isOpen == false)
+                return;
+        }
+        
+        startOutro();
+    }
+    
+    function startOutro()
+    {
+        Game.state = OUTRO(START);
+        final camera = FlxG.camera;
+        player.enabled = false;
+        var music = Manifest.playMusic("droid", false, exitOutro.bind(camera.scroll.y));
+        camera.follow(null);
+        camera.minScrollY = null;
+        FlxTween.tween(camera.scroll, { y: -200 }, 34,
+        {   startDelay: 3, 
+            ease:FlxEase.cubeInOut,
+            onComplete: function (_)
+            {
+                Game.state = OUTRO(PAN);
+                
+                add(new CreditsScroll(music.length / 1000 - (34 - 3)));
+                FlxG.fixedTimestep = true;
+            }
+        });
+        
+    }
+    
+    function exitOutro(oldPan:Float)
+    {
+        FlxG.fixedTimestep = false;
+        final camera = FlxG.camera;
+        Game.state = OUTRO(END);
+        FlxTween.tween(camera.scroll, { y: oldPan }, 10,
+        {   ease:FlxEase.cubeInOut,
+            onComplete: function (_)
+            {
+                camera.follow(player);
+                camera.minScrollY = 0;
+                Game.state = NONE;
+                player.enabled = true;
+                Content.playTodaysSong();
+                NGio.unlockMedalByName("credits");
+            }
+        });
     }
     
     inline static var TREE_FADE_TIME = 3.0;

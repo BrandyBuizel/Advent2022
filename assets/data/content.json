@@ -71,6 +71,11 @@
     , "figburn"         : { "proper": "Figburn"          }
     , "mrshmoods"       : { "proper": "MrShmoods"        }
     , "voicesbycorey"   : { "proper": "VoicesByCorey"    }
+    , "rgpanims"        : { "proper": "RGPAnims"         }
+    , "troisnyx"        : { "proper": "Troisnyx"         }
+    , "stannco"         : { "proper": "STANNco"          }
+    , "ayofern"         : { "proper": "ayofern"          }
+    , "midgetsausage"   : { "proper": "MidgetSausage"    }
     }
 ,   "extras":
     {
@@ -434,34 +439,18 @@
         , "arcade":"picoventure"
         , "medal": true
         }
+    ,   { "id"   : "thedyingsun"
+        , "name" : "For the Real Ones"
+        , "day"  : 32
+        , "medal": true
+        }
     ]
 ,   "events":
     {
         
     }
 ,   "arcades":
-    [
-        { "id"     : "2021"
-        , "name"   : "Tankmas ADVENTure 2021"
-        , "authors": ["splatterdash", "knosedoge", "thedyingsun", "geokureli", "brandybuizel"]
-        , "type"   : "external", "url": "https://www.newgrounds.com/portal/view/824174"
-    }
-    ,   { "id"     : "2020"
-        , "name"   : "Tankmas ADVENTure 2020"
-        , "authors": ["geokureli", "brandybuizel"]
-        , "type"   : "external", "url": "https://www.newgrounds.com/portal/view/773236"
-        }
-    ,   { "id"     : "2019"
-        , "name"   : "Christmas ADVENTure 2019"
-        , "authors": ["geokureli", "brandybuizel"]
-        , "type"   : "external", "url": "https://www.newgrounds.com/portal/view/743161"
-        }
-    ,   { "id"     : "2018"
-        , "name"   : "Christmas ADVENTure 2018"
-        , "authors": ["ninjamuffin99", "brandybuizel"]
-        , "type"   : "external", "url": "https://www.newgrounds.com/portal/view/721061"
-        }
-    ,   { "id"     : "yuleduel"
+    [   { "id"     : "yuleduel"
         , "name"   : "Yule Duel"
         , "authors": ["axolstudio:code", "bingowaders:art", "gallowjolt:art", "albegian:music"]
         , "day"    : 12
@@ -489,8 +478,26 @@
         }
     ]
 ,   "unused_arcades":
-    [
-        
+    [   { "id"     : "2021"
+        , "name"   : "Tankmas ADVENTure 2021"
+        , "authors": ["splatterdash", "knosedoge", "thedyingsun", "geokureli", "brandybuizel"]
+        , "type"   : "external", "url": "https://www.newgrounds.com/portal/view/824174"
+    }
+    ,   { "id"     : "2020"
+        , "name"   : "Tankmas ADVENTure 2020"
+        , "authors": ["geokureli", "brandybuizel"]
+        , "type"   : "external", "url": "https://www.newgrounds.com/portal/view/773236"
+        }
+    ,   { "id"     : "2019"
+        , "name"   : "Christmas ADVENTure 2019"
+        , "authors": ["geokureli", "brandybuizel"]
+        , "type"   : "external", "url": "https://www.newgrounds.com/portal/view/743161"
+        }
+    ,   { "id"     : "2018"
+        , "name"   : "Christmas ADVENTure 2018"
+        , "authors": ["ninjamuffin99", "brandybuizel"]
+        , "type"   : "external", "url": "https://www.newgrounds.com/portal/view/721061"
+        }
     ]
 ,   "medals":
     { "cheese"                 : 61555
@@ -501,6 +508,7 @@
     , "a_gift_to_never_forget" : 71377
     , "disc"                   : 71378
     , "movie"                  : 71379
+    , "credits"                : 71380
     }
 ,   "instruments":
     [   { "id"    : "guitar_ac"
@@ -563,19 +571,19 @@
     {   "sketch": 
         { "name": "Sketch Collab 2022"
         , "path": "https://uploads.ungrounded.net/alternate/1952000/1952159_alternate_204390.1080p.mp4?1671662794"
-        , "authors": ["brandybuizel"]
+        , "authors": ["midgetsausage", "rgpanims", "troisnyx:music"]
         , "day":21
         }
     ,   "pengu":
         { "name": "Pengu's Christmas Special"
         , "path": "https://uploads.ungrounded.net/alternate/4368000/4368864_alternate_204676.1080p.mp4?1671841033"
-        , "authors": ["brandybuizel"]
+        , "authors": ["stannco", "chocoholicmonkey"]
         , "day":24
         }
     ,   "girls":
         { "name": "GIRLS NIGHT"
         , "path": "https://uploads.ungrounded.net/alternate/1921000/1921676_alternate_204990.1080p.mp4?1672029966"
-        , "authors": ["brandybuizel"]
+        , "authors": ["ayofern", "rgpanims:pm", "teravex:music"]
         , "day":26
         }
     }

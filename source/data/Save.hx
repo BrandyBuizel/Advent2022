@@ -215,7 +215,7 @@ class Save
         return data.presents[day - 1];
     }
     
-    static public function countPresentsOpened(id:String)
+    static public function countPresentsOpened()
     {
         return data.presents.countTrue();
     }
