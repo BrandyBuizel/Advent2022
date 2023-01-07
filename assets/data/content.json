@@ -342,7 +342,7 @@
         , "medal"  : false
         }
     ,   { "id"   : "chocoholicmonkey"
-        , "name" : "Newgrounds Café"
+        , "name" : "Newgrounds Cafe"
         , "day"  : 13
         , "medal": true
         }
@@ -546,7 +546,7 @@
         , "octave": 6
         }
         ,   { "id"     : "drums"
-        , "icon"   : "sticks"
+        , "icon"   : "drums"
         , "name"   : "Drum Set"
         , "day"    : 25
         , "volume" : 1.0
