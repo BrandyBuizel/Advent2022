@@ -27,10 +27,13 @@ class BathroomState extends SmoothRoomState
         
         Manifest.loadSong("tiny", true, null, function (grinch)
         {
-            music = grinch;
-            FlxG.sound.music.fadeOut(FADE_TIME, 0.2);
-            music.play();
-            music.volume = 1.0;
+            if (FlxG.sound.music != null)
+            {
+                music = grinch;
+                FlxG.sound.music.fadeOut(FADE_TIME, 0.2);
+                music.play();
+                music.volume = 1.0;
+            }
         });
 
         // BONUS TRACKS pickup disc code
@@ -57,15 +60,18 @@ class BathroomState extends SmoothRoomState
     {
         super.activateTeleport(target);
         
-        FlxG.sound.music.fadeIn(FADE_TIME, FlxG.sound.music.volume, 1.0);
-        music.fadeOut(FADE_TIME);
+        if (FlxG.sound.music != null)
+            FlxG.sound.music.fadeIn(FADE_TIME, FlxG.sound.music.volume, 1.0);
+        if (music != null)
+            music.fadeOut(FADE_TIME);
     }
     
     override function onExit()
     {
         super.onExit();
         
-        music.stop();
+        if (music != null)
+            music.stop();
         music = null;
         
         MusicPopup.showCurrentSongInfo();
