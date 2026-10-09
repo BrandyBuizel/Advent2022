@@ -9,7 +9,7 @@ import ui.Prompt;
 
 import flixel.FlxG;
 import flixel.FlxState;
-import flixel.system.FlxSound;
+import flixel.sound.FlxSound;
 
 enum abstract ArcadeName(String) to String
 {
@@ -71,15 +71,15 @@ abstract ArcadeGame(ArcadeCreation) from ArcadeCreation
     static public function init()
     {
         #if !exclude_chimney
-        states[Chimney] = chimney.PlayState.new.bind(0);
+        states[Chimney] = () -> new chimney.PlayState();
         #end
         #if !exclude_yule_duel
-        states[YuleDuel] = yuleduel.states.TitleState.new.bind(0);
-        destructors[YuleDuel] = yuleduel.globals.GameGlobals.uninit;
+        states[YuleDuel] = () -> new yuleduel.states.TitleState();
+        destructors[YuleDuel] = () -> yuleduel.globals.GameGlobals.uninit();
         #end
         #if !exclude_picoventure
-        states[PicoVenture] = picoventure.states.PlayState.new.bind(0);
-        destructors[PicoVenture] = picoventure.states.PlayState.uninit;
+        states[PicoVenture] = () -> new picoventure.states.PlayState();
+        destructors[PicoVenture] = () -> picoventure.states.PlayState.uninit();
         #end
         
         #if (skip_to_chimney && skip_to_yule_duel && skip_to_picoventure)

@@ -152,8 +152,8 @@
 
 	<!-- _______________________________ Libraries ______________________________ -->
 
-	<haxelib name="flixel" />
-	<haxelib name="colyseus" />
+	<haxelib name="flixel" version="5.6.0" />
+	<haxelib name="colyseus" version="0.14.10" />
 	<haxelib name="newgrounds" />
 	<!-- <haxelib name="swf" /> -->
 

@@ -5,7 +5,7 @@ import ui.Controls;
 import data.Content;
 
 import flixel.FlxG;
-import flixel.system.FlxSound;
+import flixel.sound.FlxSound;
 import flixel.text.FlxBitmapText;
 
 import openfl.display.Bitmap;

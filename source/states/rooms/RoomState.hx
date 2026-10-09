@@ -231,11 +231,11 @@ class RoomState extends OgmoState
         if (forceDay > 0)
             roomDay = forceDay;
         
-        var levelPath = 'assets/data/ogmo/$name$roomDay.json';
+        var levelPath = 'assets/data/ogmo/${name}${roomDay}.json';
         while(roomDay > 0 && !Manifest.exists(levelPath))
         {
-            levelPath = 'assets/data/ogmo/$name$roomDay.json';
             roomDay--;
+            levelPath = 'assets/data/ogmo/${name}${roomDay}.json';
         }
         
         Log.ogmo('parsing $levelPath');
