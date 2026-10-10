@@ -152,16 +152,17 @@
 
 	<!-- _______________________________ Libraries ______________________________ -->
 
-	<haxelib name="flixel" version="5.6.0" />
+	<haxelib name="flixel" version="5.1.0" />
+	<haxelib name="openfl" version="9.2.0" />
 	<haxelib name="colyseus" version="0.14.10" />
 	<haxelib name="newgrounds" />
 	<!-- <haxelib name="swf" /> -->
 
 	<!--In case you want to use the addons package-->
-	<haxelib name="flixel-addons" />
-	<haxelib name="flixel-ui" />
-	<haxelib name="hscript" if="debug"/>
-	<haxelib name="tjson" />
+	<haxelib name="flixel-addons" version="3.0.0" />
+	<haxelib name="flixel-ui" version="2.5.0" />
+	<haxelib name="hscript" version="2.5.0" if="debug"/>
+	<haxelib name="tjson" version="1.4.0" />
 
 	<!--In case you want to use the ui package-->
 	<!--<haxelib name="flixel-ui" />-->

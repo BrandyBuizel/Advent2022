@@ -9,7 +9,7 @@ import ui.Prompt;
 
 import flixel.FlxG;
 import flixel.FlxState;
-import flixel.sound.FlxSound;
+import flixel.system.FlxSound;
 
 enum abstract ArcadeName(String) to String
 {

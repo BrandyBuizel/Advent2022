@@ -6,7 +6,7 @@ import data.Content;
 
 import flixel.FlxG;
 import flixel.input.keyboard.FlxKey;
-import flixel.sound.FlxSound;
+import flixel.system.FlxSound;
 import flixel.util.FlxSignal;
 
 class Instrument

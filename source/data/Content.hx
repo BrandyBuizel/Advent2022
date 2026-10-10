@@ -5,7 +5,7 @@ import data.ArcadeGame;
 import flixel.FlxG;
 import states.OgmoState;
 
-import flixel.sound.FlxSound;
+import flixel.system.FlxSound;
 import flixel.util.FlxSignal;
 
 import openfl.utils.Assets;

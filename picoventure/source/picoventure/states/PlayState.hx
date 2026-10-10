@@ -2,7 +2,7 @@ package picoventure.states;
 
 import ui.AAText;
 import flixel.text.FlxBitmapText;
-import flixel.sound.FlxSound;
+import flixel.system.FlxSound;
 import flixel.math.FlxPoint;
 import data.ArcadeGame;
 import haxe.Json;

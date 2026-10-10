@@ -4,7 +4,7 @@ import data.Content;
 import ui.MusicPopup;
 import flixel.FlxG;
 import flixel.graphics.FlxGraphic;
-import flixel.sound.FlxSound;
+import flixel.system.FlxSound;
 
 import openfl.display.BitmapData;
 import openfl.utils.Assets;
