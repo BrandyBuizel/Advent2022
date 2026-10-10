@@ -151,7 +151,7 @@ class OutsideState extends SmoothRoomState
         #if debug
         if (FlxG.keys.justPressed.T && Game.state.match(NONE))
         {
-            startOutro();
+            startRoomOutro();
         }
         #end
     }
@@ -169,10 +169,10 @@ class OutsideState extends SmoothRoomState
                 return;
         }
         
-        startOutro();
+        startRoomOutro();
     }
     
-    function startOutro()
+    function startRoomOutro()
     {
         Game.state = OUTRO(START);
         final camera = FlxG.camera;
